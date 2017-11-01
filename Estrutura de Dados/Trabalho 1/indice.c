@@ -148,7 +148,7 @@ Indice* verificarIntersecao(Indice* indLista, Indice* indBuscado, int qtdT){
 
 void imprimirListaIndice(Indice* ind){
 
-	Indice* aux = ind;
+	Indice* aux;
 
 	for(aux=ind; aux!=NULL; aux=aux->proxPagina){
 
