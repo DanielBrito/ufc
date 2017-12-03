@@ -401,7 +401,7 @@ char* nextFit(char* vet, char*str, int* nextFitAuxP){
 
 	if(status==0){
 
-		printf("Não há espaço disponível para alocar esta palavra com o Next Fit!\n\n");
+		printf("Não é possível alocar esta palavra com o Next Fit!\n\n");
 
 		menu(vet, nextFitAuxP);
 	}
