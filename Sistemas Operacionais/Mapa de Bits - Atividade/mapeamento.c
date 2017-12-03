@@ -180,8 +180,7 @@ int verificarEspacoDisponivel(char* vet, char* str){
 					return 1;
 				}
 			}
-			else
-			if(vet[i]!='-'){
+			else{
 
 				espacoDisponivel = 0;
 			}
