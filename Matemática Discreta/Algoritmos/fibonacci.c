@@ -13,7 +13,7 @@ int main(){
 	
 	int p, Fn;
 	
-	printf("Digite a posicao do e-nesimo numero da sequencia de Finobacci: ");
+	printf("Digite a posicao do n-esimo numero da sequencia de Finobacci: ");
 	scanf("%d", &p);
 	
 	printf("\n\n");
