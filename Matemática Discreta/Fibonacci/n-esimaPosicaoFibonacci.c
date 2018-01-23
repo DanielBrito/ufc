@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<math.h>
 
-/*  Baseado no exercício:
+/*  Baseado no exercÃ­cio:
 	
-	Mostre que o e-nésimo termo da sequência de Fibonacci é dado pela fórmula abaixo:
+	Mostre que o n-Ã©simo termo da sequÃªncia de Fibonacci Ã© dado pela fÃ³rmula abaixo:
 	
 	Fn = (pow(((1+sqrt(5))/2), 2) - pow(((1-sqrt(5))/2), n) / sqrt(5)	
 	
