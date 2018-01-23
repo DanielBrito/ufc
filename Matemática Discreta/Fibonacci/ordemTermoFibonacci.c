@@ -2,7 +2,7 @@
 #include<math.h>
 
 /*
-	Mais informações: http://www.matematicadidatica.com.br/SequenciaFibonacci.aspx
+	Mais informaÃ§Ãµes: http://www.matematicadidatica.com.br/SequenciaFibonacci.aspx
 */
 
 #define MAX 22 
@@ -34,7 +34,7 @@ int main(){
 		}
 		else{
 			
-			printf("O numero nao pertence a sequencia.");
+			printf("O termo nao pertence a sequencia.");
 		}
 		
 		printf("\n\n");
