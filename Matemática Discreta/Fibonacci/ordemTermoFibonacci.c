@@ -5,8 +5,6 @@
 	Mais informações: http://www.matematicadidatica.com.br/SequenciaFibonacci.aspx
 */
 
-#define MAX 22 
-
 int arredondaNumero(double num);
 int verificaPertinencia(int num);
 int nEsimaPosicaoFibonacci(int p);
