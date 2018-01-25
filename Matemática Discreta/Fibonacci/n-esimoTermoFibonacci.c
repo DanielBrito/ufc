@@ -3,9 +3,7 @@
 
 /*  Baseado no exercício:
 	
-	Mostre que o n-ésimo termo da sequência de Fibonacci é dado pela fórmula abaixo:
-	
-	Fn = (pow(((1+sqrt(5))/2), 2) - pow(((1-sqrt(5))/2), n) / sqrt(5)	
+	Mostre que o n-ésimo termo da sequência de Fibonacci é dado pela Fórmula de Binet.
 	
 	Mais informacoes: http://www.matematicadidatica.com.br/SequenciaFibonacci.aspx
 */
