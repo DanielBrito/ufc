@@ -1,0 +1,11 @@
+void menu();
+Lista* lerNumero(Lista* l, char ch);
+Lista* adicao(Lista* lA, Lista* lB);
+int compara(Lista* lA, Lista* lB);
+Lista* quadrado(Lista* l);
+Lista* produto(Lista* lA, Lista* lB);
+Lista* mdc(Lista* lA, Lista* lB);
+Lista* fatorial(Lista* l);
+Lista* expo(Lista* lA, Lista* lB);
+Lista* modulo(Lista* lA, Lista* lB);
+Lista* subtrai(Lista* l);
