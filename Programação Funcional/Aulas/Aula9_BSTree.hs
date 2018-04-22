@@ -1,4 +1,4 @@
-module BSTree where
+module Aula9_BSTree where
 
 import Aula3 (myIf)
 
