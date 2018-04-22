@@ -1,4 +1,4 @@
- module Aula4 where
+ module Aula4_Laboratório1 where
 
 -- Vamos escrever as seguintes funcoes usando recursao por cauda:
 
