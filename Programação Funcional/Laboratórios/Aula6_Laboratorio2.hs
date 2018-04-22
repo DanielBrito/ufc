@@ -1,4 +1,4 @@
-module Aula6_Laboratório2 where
+module Aula6_Laboratorio2 where
 
 -- Sabemos que as funcoes head e tail falham para listas vazias. Vamos escrever versoes seguras delas com a ajuda da monada Maybe
 
