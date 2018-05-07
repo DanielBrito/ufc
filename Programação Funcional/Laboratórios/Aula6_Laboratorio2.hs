@@ -32,7 +32,7 @@ myCycle l@(x:xs) = l ++ myCycle l
 intercalate :: a -> [a] -> [a]
 intercalate x [] = []
 intercalate x [y] = [y]
-intercalate x (y:ys) = y ++ x : intercalate x ys
+intercalate x (y:ys) = y : x : intercalate x ys
 
 -- Funções auxiliares
 
