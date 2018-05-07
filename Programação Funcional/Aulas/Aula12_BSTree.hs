@@ -56,7 +56,7 @@ maxKey (Branch keyval _ Empty) = Just keyval
 maxKey (Branch keyval _ rb) = maxKey rb
 
 minKey :: BSTree k v -> Maybe (k, v)
-minKey Empty =Nothing
+minKey Empty = Nothing
 minKey (Branch keyval Empty _) = Just keyval
 minKey (Branch keyval lb _) = minKey lb
 
