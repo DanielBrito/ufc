@@ -113,7 +113,7 @@ int pilha1Cheia(Pilha* p1, Pilha* p2){
 
 int pilha2Cheia(Pilha* p1, Pilha* p2){
 
-    if(p1->topo == p2->topo || p2->topo == (MAX-1)-N){ /* Máximo = 50 elementos [MAX-1..29] */
+    if(p1->topo-1 == p2->topo || p2->topo == (MAX-1)-N){ /* Máximo = 50 elementos [MAX-1..29] */
 
         return 1;
     }
