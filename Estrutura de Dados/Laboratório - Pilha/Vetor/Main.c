@@ -135,13 +135,22 @@ int compara(Pilha* p1, Pilha* p2){
 
     if(diferentes==1){
 
+        p_libera(auxP1);
+        p_libera(auxP2);
+
     	return 0;
     }
 
     if((p_vazia(p1) && !p_vazia(p2)) || (!p_vazia(p1) && p_vazia(p2))){
 
+        p_libera(auxP1);
+        p_libera(auxP2);
+
         return 0;
     }
+
+    p_libera(auxP1);
+    p_libera(auxP2);
 
     return 1;
 }
@@ -170,6 +179,7 @@ Pilha* inverte(Pilha* p){
 
 	return c;
 }
+
 Pilha* copia(Pilha* p){
 
 	Pilha* c = p_cria();
@@ -190,6 +200,7 @@ Pilha* copia(Pilha* p){
 	}
 
 	c = inverte(c);
+    p_libera(aux);
 
 	return c;
 }
