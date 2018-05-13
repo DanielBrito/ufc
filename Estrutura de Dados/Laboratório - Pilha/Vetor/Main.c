@@ -26,20 +26,14 @@ int main(){
     p3 = p_cria();
     pC = p_cria();
 
-    x=0;
-
-    for(i=0; i<5; i++){
+    for(i=1; i<=5; i++){
         
-        p_push(p1, x);
-        ++x;
+        p_push(p1, i);
     }
 
-    x=0;
-
-    for(i=0; i<5; i++){
+    for(i=1; i<=6; i++){
         
         p_push(p2, i);
-        ++x;
     }
 
     printf("Teste 1: ");
@@ -143,10 +137,13 @@ int compara(Pilha* p1, Pilha* p2){
 
     	return 0;
     }
-    else{
 
-    	return 1;
+    if((p_vazia(p1) && !p_vazia(p2)) || (!p_vazia(p1) && p_vazia(p2))){
+
+        return 0;
     }
+
+    return 1;
 }
 
 Pilha* inverte(Pilha* p){
