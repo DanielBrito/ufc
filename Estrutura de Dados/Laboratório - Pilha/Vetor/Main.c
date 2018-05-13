@@ -170,14 +170,23 @@ Pilha* inverte(Pilha* p){
 
 	return c;
 }
-
 Pilha* copia(Pilha* p){
 
 	Pilha* c = p_cria();
+    Pilha* aux = p_cria();
+    float x;
 
 	while(!p_vazia(p)){
 
-		p_push(c, p_pop(p));
+        x = p_pop(p);
+		p_push(c, x);
+        p_push(aux, x);
+	}
+
+    while(!p_vazia(aux)){
+
+		x = p_pop(aux);
+		p_push(p, x);
 	}
 
 	c = inverte(c);
