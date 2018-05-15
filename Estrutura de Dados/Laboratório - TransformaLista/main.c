@@ -6,7 +6,7 @@
 
 /*
 
-Dada uma lista de caractreres formada por uma sequencia alternada de numeros e letras, 
+Dada uma lista de caracteres formada por uma sequencia alternada de numeros e letras, 
 construa uma funcao que retorne uma lista na qual os numeros sao mantidos na ordem 
 original e as letras sao mantidas na ordem inversa.
 
