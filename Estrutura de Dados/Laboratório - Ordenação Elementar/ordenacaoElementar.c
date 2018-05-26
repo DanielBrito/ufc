@@ -4,15 +4,16 @@
 void insertionSort(int* v, int n);
 void insertionSortRecursivo(int* v, int n);
 
-void selectioSort(int* v, int n);
-void selectioSortRecursivo(int* v, int n);
+void selectionSort(int* v, int n);
+void selectionSortRecursivo(int* v, int n);
 
 void bubbleSort(int* v, int n);
+void bubbleSortOtimizado(int* v, int n);
 void bubbleSortRecursivo(int* v, int n);
 
 int main(){
 	
-	int vetor[5] = {6,2,9,7,4};
+	int vetor[5] = {2,5,4,3,0};
 	int i;
 
 	for(i=0; i<5; i++){
@@ -75,7 +76,7 @@ void insertionSortRecursivo(int* v, int n){
 	}
 }
 
-void selectioSort(int* v, int n){
+void selectionSort(int* v, int n){
 
 	int i, x, j, min;
 
@@ -97,7 +98,7 @@ void selectioSort(int* v, int n){
 	}
 }
 
-void selectioSortRecursivo(int* v, int n){
+void selectionSortRecursivo(int* v, int n){
 
 	int i, x, j, min;
 
@@ -117,7 +118,7 @@ void selectioSortRecursivo(int* v, int n){
 		v[min] = v[0];
 		v[0] = x;
 
-		selectioSortRecursivo(v+1, n-1);
+		selectionSortRecursivo(v+1, n-1);
 	}
 }
 
@@ -140,6 +141,32 @@ void bubbleSort(int* v, int n){
 		}
 
 		k--;
+	}
+}
+
+void bubbleSortOtimizado(int* v, int n){
+
+	int i, j;
+
+	for(i=n-1; i>0; i--){
+
+		int troca = 0;
+
+		for(j=0; j<i; j++){
+
+			if(v[j]>v[j+1]){
+
+				int temp = v[j];
+				v[j] = v[j+1];
+				v[j+1] = temp;
+				troca=1;
+			}
+		}
+
+		if(troca==0){
+
+			return;
+		}
 	}
 }
 
