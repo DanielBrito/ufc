@@ -158,7 +158,7 @@ void bubbleSortRecursivo(int* v, int n){
           		v[j+1]=aux;
         	}
 
-        	bubbleSortRec(v, n-1);
+        	bubbleSortRecursivo(v, n-1);
      	}
     }
 }
