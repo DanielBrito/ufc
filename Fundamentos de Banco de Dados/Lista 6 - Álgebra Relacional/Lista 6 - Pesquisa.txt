@@ -1,3 +1,5 @@
+https://dbis-uibk.github.io/relax/calc.htm
+
 -- Questão 1
 
 AG_MOSSORO = σ cidade='Mossoró' (Agencia)
