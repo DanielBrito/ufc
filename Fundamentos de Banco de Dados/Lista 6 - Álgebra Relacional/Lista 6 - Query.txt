@@ -1,0 +1,59 @@
+group: Lista 6
+
+Agencia = {
+	numeroAgencia:number, cidadeAg:string
+	111, "Mossoró"
+	102, "Crateús"
+	103, "Ipu"
+	104, "Grajaú"
+	105, "Cocaia"
+}
+
+ClienteAgencia = {
+	rgCA:string, numeroAgencia:number
+	"1111-1", 104
+	"2222-2", 102
+	"3333-3", 105
+	"4444-4", 103
+	"5555-5", 101
+	"6666-6", 101
+}
+
+Cliente = {
+	rg:string, nomeC:string, cidadeC:string
+	"1111-1", "Daniel Brito", "Grajaú"
+	"2222-2", "Francisca Adelaide", "Crateús"
+	"3333-3", "Caroline Ferreira", "Cocaia"
+	"4444-4", "Benedita Brasil", "Ipu"
+	"5555-5", "Sandro Vagner Lima", "Mossoró"
+	"6666-6", "Sophia Santos", "Mossoró"
+}
+
+Conta = {
+	numConta:number, saldo:number, rgCliente:string, numAg:number
+	201, 1000.00, "1111-1", 104
+	202, 2080.00, "2222-2", 102
+	203, 3750.00, "3333-3", 105
+	204, 980.00, "4444-4", 103
+	205, 110.00, "5555-5", 101
+	206, 200.00, "6666-6", 101
+}
+
+Transacao = {
+	numTran:number, data:date, valor:number, numContaTr:number
+	1, 2018-05-10, 900.00, 201
+	2, 2018-01-04, 1500.00, 202
+	3, 2017-04-25, 20.00, 204
+	4, 2016-06-07, 10.00, 203
+	5, 2015-02-24, 2000.00, 203
+	6, 2018-10-15, 150.00, 206
+}
+
+Funcionario = {
+	codFunc:number, nomeF:string, endereco:string, salario:number, numAgFunc:number
+	10, "Daniel Brito", "Rua D", 1300.00, 104
+	20, "Maria Sousa", "Rua M", 800.00, 101
+	30, "João Ramos", "Rua J", 900.00, 102
+	40, "Vanuza Pereira", "Rua V", 980.00, 103
+	50, "Helena Santos", "Rua H", 700.00, 105
+}

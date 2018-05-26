@@ -1,0 +1,56 @@
+-- Questão 1
+
+AG_MOSSORO = σ cidade='Mossoró' (Agencia)
+TR_MOSSORO = AG_MOSSORO ⨝ numeroAgencia=numAg (Conta)
+CONTAS_TR = TR_MOSSORO ⨝ numConta=numContaTr (Transacao)
+π numeroAgencia, data, valor (CONTAS_TR)
+
+-- Questão 2
+
+ACIMA_MIL = σ valor>1000 (Transacao)
+TR_CONTAS = ACIMA_MIL ⨝ numContaTr=numConta (Conta)
+CONTA_CLIENTE = TR_CONTAS ⨝ rgCliente=rg (Cliente)
+π numConta, numAg, nomeC (CONTA_CLIENTE)
+
+-- Questão 3
+
+TR_MENOS_DUZ = σ valor<200 (Transacao)
+TR_CONTAS = TR_MENOS_DUZ ⨝ numContaTr=numConta (Conta)
+CL_CONTA = TR_CONTAS ⨝ rgCliente=rg (Cliente)
+CLIENTES_TR  = π rg, nomeC (CL_CONTA)
+
+AG_CRAT = σ cidadeAg='Crateús' (Agencia)
+CL_CRAT = AG_CRAT ⨝ cidadeAg=cidadeC (Cliente)
+CLIENTES_CRAT = π rg, nomeC (CL_CRAT)
+
+CLIENTES_TR ∪ CLIENTES_CRAT
+
+-- Questão 4
+
+CL_SANDRO = σ nomeC='Sandro Vagner Lima' (Cliente)
+AG_SANDRO = CL_SANDRO ⨝ cidadeC=cidadeAg (Agencia)
+AG_INFO = π numeroAgencia (AG_SANDRO)
+AG_CLIENTES = AG_INFO ⨝ numeroAgencia=numAg (Conta)
+CLIENTES_INFO = AG_CLIENTES ⨝ rgCliente=rg (Cliente)
+CLIENTES_FILTRO = σ nomeC≠'Sandro Vagner Lima' (CLIENTES_INFO)
+π  nomeC (CLIENTES_FILTRO)
+
+-- Questão 5
+
+CL_AG = π rg, nomeC, numeroAgencia (Cliente ⨝ cidadeC=cidadeAg (Agencia))
+CL_FUNC = CL_AG ⨝ Funcionario
+π nomeF (σ nomeC=nomeF ∧ numeroAgencia=numAgFunc (CL_FUNC))
+
+-- Questão 6
+
+CL_CONTA = Cliente ⨝ rg=rgCliente (Conta)
+CLIENTES_TR = CL_CONTA ⟗ numConta=numContaTr (Transacao)
+ZERO_TR = σ numTran=null (CLIENTES_TR)
+π nomeC, numConta (ZERO_TR)
+
+-- Questão 7
+
+CL_IPU = π nomeC (σ cidadeC='Ipu' (Cliente))
+AG_IPU_NUM = π numeroAgencia (σ cidadeAg='Ipu' (Agencia))
+FUNC_IPU = π nomeF (AG_IPU_NUM ⨝ numeroAgencia=numAgFunc (Funcionario))
+CL_IPU ∪ FUNC_IPU
