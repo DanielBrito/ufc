@@ -1,0 +1,63 @@
+group: Lista 5
+
+Empregado = {
+	matr:number, nomeE:string, endereco:string, sexo:string, salario:number, supervisor:number, depto:number
+	11111, "Daniel", "Rua D", "M", 5000.00, 33333, 3
+	22222, "Maria", "Rua M", "F", 3000.00, NULL, 1
+	33333, "Francisca", "Rua F", "F", 10000.00, NULL, 3
+	44444, "Pedro", "Rua P", "M", 2000.00, NULL, 2
+	55555, "Ana", "Rua A", "F", 1500.00, 44444, 2
+	66666, "Beatriz", "Rua B", "F", 2300.00, NULL, 4
+	77777, "Carlos", "Rua C", "M", 1800.00, 66666, 4
+	88888, "Helena", "Rua H", "F", 3200.00, 22222, 1
+	99999, "João", "Rua J", "M", 2300.00, NULL, 6
+}
+
+Departamento = {
+	codDepto:number, nomeD:string, matrGerente:number
+	1, "Marketing", 22222
+	2, "Financeiro", 44444
+	3, "TI", 33333
+	4, "Recursos Humanos", 66666
+	6, "Pesquisa", 99999
+}
+
+DepLocalizacoes = {
+	codDeptoL:number, localizacaoDep:string
+	1, "Natal"
+	2, "Rio de Janeiro"
+	3, "São Paulo"
+	4, "Minas Gerais"
+	6, "Manaus"
+}
+
+Alocacao = {
+	matrEmpAloc:number, codProjAloc:number, numHoras:number
+	11111, 102, 60
+	22222, 103, 90
+	33333, 103, 70
+	44444, 105, 40
+	55555, 105, 33
+	66666, 101, 45
+	77777, 101, 45
+	88888, 103, 85
+	99999, 104, 65
+}
+
+Projetos = {
+	codProj:number, nome:string, localizacaoProj:string, deptoControla:number
+	101, "Contratação", "Natal", 4
+	102, "Backup da Rede", "São Paulo", 3
+	103, "Site", "Natal", 1
+	104, "Opinião pública", "Manaus", 6
+	105, "Pagamentos", "Rio de Janeiro", 2
+}
+
+Dependentes = {
+	matrEmp:number, nomeDep:string, sexo:string, dataNasc:date, parentesco:string
+	22222, "Felipe", "M", 2001-07-01, "Filho"
+	33333, "Caroline", "F", 1997-06-15, "Filha"
+	44444, "Joana", "F", 1930-10-10, "Mãe"
+	44444, "Roberto", "M", 1943-12-15, "Pai"
+	99999, "Sophia", "F", 2009-05-23, "Filha"
+}
