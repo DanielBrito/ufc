@@ -145,25 +145,20 @@ void bubbleSort(int* v, int n){
 
 void bubbleSortRecursivo(int* v, int n){
 
-	int k, i, j, x;
+    int i, j, aux;
 
-	if(n>1){
+    if(n>1){
 
-		k = n;
+    	for(j=0; j<n-1; j++){
 
-		for(i=0; i<n; i++){
+        	if(v[j]>v[j+1]){
 
-			for(j=0; j<k; j++){
+          		aux = v[j];
+          		v[j] = v[j+1];
+          		v[j+1]=aux;
+        	}
 
-				if(v[j]>v[j+1]){
-
-					x = v[j];
-					v[j] = v[j+1];
-					v[j+1] = x;
-				}
-			}
-		}
-
-		bubbleSortRecursivo(v, n-1);
-	}	
+        	bubbleSortRec(v, n-1);
+     	}
+    }
 }
