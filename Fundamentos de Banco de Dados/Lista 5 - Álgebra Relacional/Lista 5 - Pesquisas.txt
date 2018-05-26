@@ -1,4 +1,6 @@
-﻿-- Questão 1
+https://dbis-uibk.github.io/relax/calc.htm
+
+-- Questão 1
 
 TEMP = Departamento ⨝ codDepto = depto (Empregado)
 PESQ = σ Departamento.nomeD = 'Pesquisa' (TEMP)
