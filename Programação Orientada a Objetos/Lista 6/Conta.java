@@ -9,7 +9,7 @@ public class Conta{
 	private boolean status;
 	private boolean especial;
 	private double limite;
-	private ArrayList <Movimentacao> movimentacoes = new ArrayList <Movimentacao>();;
+	private ArrayList <Movimentacao> movimentacoes = new ArrayList <Movimentacao>();
 
 	public Conta(int numero, double saldo, boolean especial, double limite){
 
@@ -80,7 +80,7 @@ public class Conta{
 
 		String resultado = "";
 
-		resultado = "Número: " + this.numero +
+		resultado = "NÃºmero: " + this.numero +
 		            "\nSaldo: " + this.saldo +
 		            "\nAtiva: " + this.status +
 		            "\nEspecial: " + this.especial +
