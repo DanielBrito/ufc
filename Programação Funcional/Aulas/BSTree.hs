@@ -1,12 +1,10 @@
 module BSTree (empty, search, insert, delete, inOrderWalk, preOrderWalk, postOrderWalk, foldTree) where
 
 {-
-
 import BSTRee as BST
 kvs = zip [1,4,3,6,2,6,2,6,12,4,7,3,2,7,4] "ajkfhdjlkehwycanspoqwea"
 tree = foldl BST.insert BST.empty kvs
 BST.search tree 4
-
 -}
 
 import Aula3 (myIf)
