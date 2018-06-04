@@ -1,5 +1,3 @@
-package com.daniel.lista6;
-
 import java.util.ArrayList;
 
 public class Banco{
@@ -23,7 +21,7 @@ public class Banco{
 				
 				contas.get(i).setStatus(false);
 				
-				System.out.println("Conta excluÌda com sucesso!\n");
+				System.out.println("Conta exclu√≠da com sucesso!\n");
 				
 				encontrou = 1;
 			}
@@ -31,7 +29,7 @@ public class Banco{
 		
 		if(encontrou==0) {
 			
-			System.out.println("Erro! A conta n„o existe!\n");
+			System.out.println("Erro! A conta n√£o existe!\n");
 		}
 	}
 
@@ -64,7 +62,7 @@ public class Banco{
 		
 		if(encontrou==0) {
 			
-			System.out.println("Erro! A conta n„o existe!\n");
+			System.out.println("Erro! A conta n√£o existe!\n");
 		}
 	}
 
@@ -74,7 +72,7 @@ public class Banco{
 
 		if(valor<0){
 
-			System.out.println("Erro! N„o È possÌvel depositar um valor negativo!\n");
+			System.out.println("Erro! N√£o √© poss√≠vel depositar um valor negativo!\n");
 		}
 		else{
 			
@@ -84,9 +82,9 @@ public class Banco{
 					
 					contas.get(i).setSaldo(contas.get(i).getSaldo()+valor);
 					
-					System.out.println("DepÛsito realizado com sucesso!\n");
+					System.out.println("Dep√≥sito realizado com sucesso!\n");
 					
-					Movimentacao m = new Movimentacao("DepÛsito", valor, 'c');
+					Movimentacao m = new Movimentacao("Dep√≥sito", valor, 'c');
 					contas.get(i).setMovimentacao(m);
 					
 					encontrou = 1;					
@@ -96,7 +94,7 @@ public class Banco{
 		
 		if(encontrou==0) {
 			
-			System.out.println("Erro! A conta n„o existe!\n");
+			System.out.println("Erro! A conta n√£o existe!\n");
 		}
 	}
 
@@ -108,7 +106,7 @@ public class Banco{
 		
 		if(valor<0){
 
-			System.out.println("Erro! N„o È possÌvel transferir um valor negativo!\n");
+			System.out.println("Erro! N√£o √© poss√≠vel transferir um valor negativo!\n");
 			
 			encontrouOrigem = -1;
 			encontrouDestino = -1;
@@ -136,13 +134,13 @@ public class Banco{
 								contas.get(i).setSaldo(contas.get(i).getSaldo()-valor);
 								contas.get(j).setSaldo(contas.get(j).getSaldo()+valor);
 								
-								Movimentacao o = new Movimentacao("TransferÍncia", valor, 'd');
+								Movimentacao o = new Movimentacao("Transfer√™ncia", valor, 'd');
 								contas.get(i).setMovimentacao(o);
 
-								Movimentacao d = new Movimentacao("TransferÍncia", valor, 'c');
+								Movimentacao d = new Movimentacao("Transfer√™ncia", valor, 'c');
 								contas.get(j).setMovimentacao(d);
 								
-								System.out.println("TransferÍncia realizada com sucesso!\n");
+								System.out.println("Transfer√™ncia realizada com sucesso!\n");
 							}
 						}
 					}
@@ -153,12 +151,12 @@ public class Banco{
 		
 		if(encontrouOrigem==0) {
 			
-			System.out.println("Erro! A conta origem n„o existe!\n");
+			System.out.println("Erro! A conta origem n√£o existe!\n");
 		}
 		
 		if(encontrouDestino==0) {
 			
-			System.out.println("Erro! A conta destino n„o existe!\n");
+			System.out.println("Erro! A conta destino n√£o existe!\n");
 		}
 		
 		if(erro==1) {
@@ -183,7 +181,7 @@ public class Banco{
 		
 		if(encontrou==0) {
 			
-			System.out.println("Erro! A conta n„o existe!\n");
+			System.out.println("Erro! A conta n√£o existe!\n");
 		}
 	}
 
@@ -206,7 +204,7 @@ public class Banco{
 		
 		if(encontrou==0) {
 			
-			System.out.println("Erro! A conta n„o existe!\n");
+			System.out.println("Erro! A conta n√£o existe!\n");
 		}
 	}
 }
