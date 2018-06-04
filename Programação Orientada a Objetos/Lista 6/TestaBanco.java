@@ -1,5 +1,3 @@
-package com.daniel.lista6;
-
 public class TestaBanco {
 
 	public static void main(String[] args) {
