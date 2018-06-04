@@ -1,5 +1,3 @@
-package com.daniel.lista6;
-
 import java.util.ArrayList;
 
 public class Conta{
