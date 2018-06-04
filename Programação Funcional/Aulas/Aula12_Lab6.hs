@@ -3,7 +3,6 @@ module Aula12 where
 import System.Environment (getArgs)
 
 {-
-
 import BSTree as BST
 
 -- Escreva as funcoes de passeio nas arvores no arquivo BSTree.hs, e as exporte.
@@ -27,7 +26,6 @@ foldTree = undefined
 
 update :: (Ord k) => BSTree k v -> k -> (v -> v) -> BSTree k v
 update = undefined
-
 -}
 
 main :: IO ()
