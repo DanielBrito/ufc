@@ -1,10 +1,8 @@
-package com.daniel.lista6;
-
 public class Movimentacao{
 	
 	private String descricao;
 	private double valor;
-	private char tipo; // (c)rédito || (d)ébito
+	private char tipo; // (c)rÃ©dito || (d)Ã©bito
 
 	public Movimentacao(String descricao, double valor, char tipo){
 
@@ -17,7 +15,7 @@ public class Movimentacao{
 
 		String resultado = "";
 
-		resultado = "Descrição: " + this.descricao +
+		resultado = "DescriÃ§Ã£o: " + this.descricao +
 		            "\nValor: " + this.valor +
 		            "\nTipo: " + this.tipo + "\n";
 
