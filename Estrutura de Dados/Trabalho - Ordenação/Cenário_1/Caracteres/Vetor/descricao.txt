@@ -1,0 +1,5 @@
+Total de comparacoes: 505657
+Tempo de usuario: 0.00746
+Tempo de sistema: 0.00000
+Tempo total: 0.00746
+
