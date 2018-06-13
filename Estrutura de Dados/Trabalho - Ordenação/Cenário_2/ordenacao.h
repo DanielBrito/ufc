@@ -9,7 +9,6 @@ void insertionSort(int* v, int n, long long int *comp, long long int *troc);
 void mergeSort(int* v, int n, long long int *comp, long long int *troc);
 void intercala(int p, int q, int r, long long int *comp, long long int *troc);
 
-// Atualizar HeapSort: Versão do Lab (?)
 void heapSort(int* v, int t, long long int *comp, long long int *troc);
 void constroi(int* v, int t, int i, long long int *comp, long long int *troc);
 void peneira(int* v, int t, long long int *comp, long long int *troc);
