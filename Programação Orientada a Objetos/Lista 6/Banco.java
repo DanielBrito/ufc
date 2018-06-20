@@ -148,6 +148,14 @@ public class Banco{
 					}
 					
 				}
+				
+				for(int j=0; j<listaDeContas.size(); j++) {
+					
+					if((listaDeContas.get(j).getNumeroDaConta()==destino) && (listaDeContas.get(j).getStatus()!=false)) {
+						
+						encontrouDestino = 1;
+					}
+				}
 			}
 		}
 		
