@@ -45,6 +45,8 @@ public class Banco{
 				if(valor > (contas.get(i).getSaldo() + contas.get(i).getLimite())) {
 					
 					System.out.println("Erro! O valor a ser sacado excede o saldo!\n");
+					
+					encontrou = 1;
 				}
 				else {
 					
