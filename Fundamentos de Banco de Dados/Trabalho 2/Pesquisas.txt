@@ -1,0 +1,51 @@
+-- QUESTÃO a
+
+SELECT nome_empregado, endereco
+	FROM(empregado JOIN departamento ON departamento_id = id_departamento)
+		WHERE nome_departamento = 'TI';
+
+		
+-- QUESTÃO b
+
+SELECT id_projeto, id_departamento, nome_empregado, endereco, salario
+	FROM ((projeto JOIN departamento ON departamento_id = id_departamento) 
+        JOIN empregado ON  gerente_id = id_empregado)
+            WHERE localizacao_projeto = 'Natal';
+		
+		
+-- QUESTÃO c
+
+SELECT nome_empregado
+	FROM empregado
+		WHERE id_empregado not in (SELECT empregado_id FROM empregado_dependente);
+		
+		
+-- QUESTÃO d
+
+SELECT nome_empregado, numHoras
+	FROM (((departamento JOIN projeto ON id_departamento = departamento_id) 
+        JOIN alocacao ON id_projeto = projeto_id) JOIN empregado ON id_empregado = empregado_id)
+            WHERE nome_departamento = 'Pesquisa';
+		
+		
+-- QUESTÃO e
+
+SELECT nome_empregado FROM 
+    ((SELECT * FROM empregado_dependente as emp_dep WHERE emp_dep.parentesco = 'Pai') as RelPai JOIN 
+        (SELECT * FROM empregado_dependente as emp_dep WHERE emp_dep.parentesco = 'Mãe') as RelMae ON RelPai.empregado_id = RelMae.empregado_id)            
+            JOIN empregado as emp ON emp.id_empregado = RelMae.empregado_id;
+            
+        
+-- QUESTÃO f
+
+SELECT nome_empregado AS nome_gerente, nome_dependente
+	FROM ((empregado_dependente JOIN empregado ON id_empregado = empregado_id) JOIN 
+        (SELECT * FROM (departamento_localizacao JOIN departamento ON departamento_id = id_departamento)
+			WHERE localizacao_dpto = 'São Paulo' OR localizacao_dpto = 'Rio de Janeiro') as T1 ON id_empregado = gerente_id);
+
+
+-- QUESTÃO g
+
+SELECT nome_empregado
+	FROM (empregado JOIN departamento)
+		WHERE supervisor_id = gerente_id;
