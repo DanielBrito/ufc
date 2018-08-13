@@ -14,40 +14,38 @@ class Repositorio{
 		
 		botas.add(bota);
 	}
-
-	public void mostra(){
-
-		for(Bota bota: botas){
-			
-			System.out.println(bota);
-		}
-	}
 	
 	public static int contaPares() {
 		
 		int total=0;
 		
-		int n = botas.size();
-		
-		for(int i=0; i<n-1; i++) {
+		for(int i=0; i<botas.size()-1; i++) {
 			
-			if((botas.get(i).getLado()=='E') && botas.get(i).getStatus()==false) {
+			if(botas.get(i).getLado()=='E') {
 				
-				for(int j=i+1; j<n; j++) {
+				for(int j=i+1; j<botas.size(); j++) {
 					
 					if((botas.get(i).getTamanho()==botas.get(j).getTamanho()) && (botas.get(j).getLado()=='D') && (botas.get(j).getStatus()==false)) {
 						
 						total++;
+						botas.get(i).setContada(botas.get(i));
+						botas.get(j).setContada(botas.get(j));
+						
+						break;
 					}
 				}
 			}
 			else {
 				
-				for(int j=i+1; j<n; j++) {
+				for(int j=i+1; j<botas.size(); j++) {
 					
 					if((botas.get(i).getTamanho()==botas.get(j).getTamanho()) && (botas.get(j).getLado()=='E') && (botas.get(j).getStatus()==false)) {
 						
 						total++;
+						botas.get(i).setContada(botas.get(i));
+						botas.get(j).setContada(botas.get(j));
+						
+						break;
 					}
 				}
 			}

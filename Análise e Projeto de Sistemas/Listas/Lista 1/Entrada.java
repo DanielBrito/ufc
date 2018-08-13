@@ -34,7 +34,7 @@ abstract class Entrada{
 				
 			}while(!(lado =='D' || lado=='E'));
 
-			repositorio.adicionar(new Bota(tamanho,lado));
+			repositorio.adicionar(new Bota(tamanho, lado));
 		}
 	}
 }

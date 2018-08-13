@@ -4,13 +4,13 @@ public class Bota{
 	
 	private int tamanho;
 	private char lado;
-	private boolean verificada;
+	private boolean contada;
 
 	Bota(int tamanho, char lado){
 
 		this.tamanho = tamanho;
 		this.lado = lado;
-		this.verificada = false;
+		this.contada = false;
 	}
 	
 	public char getLado() {
@@ -25,16 +25,11 @@ public class Bota{
 	
 	public boolean getStatus() {
 		
-		return verificada;
+		return contada;
 	}
 	
-	public void setStatus(Bota bota) {
+	public void setContada(Bota bota) {
 		
-		bota.verificada = true;
-	}
-	
-	public String ToString(){
-
-		return tamanho + " " + lado;
+		bota.contada = true;
 	}
 }
