@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.0">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>77</y>
+      <w>253</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>Menus
+--
++ scan: Scanner
+--
++ menuPrincipal(void): void
++ menuAlgebraMatricial(void): void
++ menuSistemas(void): void
++ menuOpcao(void): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>572</w>
+      <h>275</h>
+    </coordinates>
+    <panel_attributes>Matriz
+--
+- linhas: int
+- colunas: int
+- matriz[][]: float
+--
++ getLinhas(void): int
++ setLinhas(int linhas): void
++ getColunas(void): int
++ setColunas(int colunas): void
++ setValor(int linha, int coluna, float valor): void
++ getValor(int linha, int coluna): float
++ imprimir(void): void
++ getLinha(Matriz m, int ln): float[]
++ setLinha(Matriz m, float[] linha, int ln): void
++ matrizAumentada(Matriz matAumentada, Matriz matCoef, float[] termInd): Matriz
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>11</x>
+      <y>297</y>
+      <w>330</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>Entrada_Saida
+--
++ scan: Scanner
+--
++ opSomar(void): void
++ opSubtrair(void): void
++ opMultiplicacaoPorEscalar(void): void
++ opMultiplicacao(void): void
++ opTransposicao(void): void
++ opPotenciacao(void): void
++ opInversa(void): void
++ opCofatora(void): void
++ opAdjunta(void): void
++ opDeterminante(void): void
++ opGauss(void): void
++ opGaussJordan(void): void
++ opFatoracaoLU(void): void
++ opOrtogonalizacaoGramSchmidt(void): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>627</y>
+      <w>484</w>
+      <h>286</h>
+    </coordinates>
+    <panel_attributes>AlgebraMatricial
+--
+
+--
++ somar(Matriz termo1, Matriz termo2): Matriz
++ subtratir(Matriz minuendo, Matriz subtraendo): Matriz
++ multiplicacaoPorEscalar(Matriz matriz, float escalar): Matriz
++ multiplicacao(Matriz fator1, matriz fator2): Matriz
++ transposicao(Matriz matriz): Matriz
++ potenciacao(Matriz matriz, int expoente): Matriz
++ inversa(Matriz matriz): Matriz
++ cofatora(Matriz matriz): Matriz
++ adjunta(Matriz matriz): Matriz
++ determinante(Matriz matriz): float
++ identidade(int dimensao): Matriz
++ menorComplementar(Matriz matriz, int linhaX, int colunaX): Matriz
++ oposto(int i): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>374</x>
+      <y>297</y>
+      <w>473</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Sistemas
+--
+
+--
++ gauss(Matriz matCoef, float[] termInd): float[]
++ gaussJordan(Matriz matCoef, float[] termInd: float[]
++ fatoracaoLU(Matriz matriz, Matriz matrizL, Matriz matrizU): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>374</x>
+      <y>429</y>
+      <w>473</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Ortogonalizacao
+--
+
+--
++ ortogonalizacaoGramSchmidt(float[] v1, float[] v2, float[] v3): void
++ somarVetores(float[] v1, float[] v2): float[]
++ subtrairVetores(float[] v1, float[] v2): float[]
++ multiplicacaoPorEscalar(float escalar, float[] vetor): float[]
++ produtoInterno(float[] v1, float[] v2): float
++ imprimirVetores(float[] v1, float[] v2, float[] v3): void
++ ortonormalizacao(float[] v1, float[] v2, float[] v3): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
