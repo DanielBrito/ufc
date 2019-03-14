@@ -196,7 +196,7 @@ public class BinarySearchTreeMap<K extends Comparable<K>, V> implements OrderedM
 		
 		if(r==null) {
 			
-			return -1;
+			return 0;
 		}
 		
 		int hleft = height(r.left);
