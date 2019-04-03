@@ -26,7 +26,7 @@ int main(){
 			case '*': printf("\n%.2f %c %.2f = %.2f\n", n1, oper, n2, n1*n2); // Se oper for *, realiza a multiplicação e para a execução com o break
 			          break;
 			
-			case '/': if(n2==0){ // Verifica se o divisor é 0
+			case '/': if(n2==0){ // Se oper for /, verifica se o divisor é 0
 				
 				          printf("\nNao e possivel dividir por 0."); // Se n2 for 0, exibe mensagem de erro e para a execução com o break
 				          break;
