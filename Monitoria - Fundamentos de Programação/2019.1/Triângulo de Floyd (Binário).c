@@ -13,7 +13,7 @@ int main(){
 
 		for(i=1; i<=cont; i++){ // Laço para imprimir os elementos de uma determinada linha
 
-            // Percebam que quando (a linha (cont) é ímpar && a coluna (i) é ímpar) OU (a coluna (cont) é par e a linha (i) é par) imprimimos o valor 1.
+            // Percebam que quando (a linha (cont) é ímpar && a coluna (i) é ímpar) OU (a linha (cont)é par e a coluna (i) é par) imprimimos o valor 1.
             // Caso contrário, imprimimos o valor 0.
 			
 			if((cont%2==1 && i%2==1) || (cont%2==0 && i%2==0)){
