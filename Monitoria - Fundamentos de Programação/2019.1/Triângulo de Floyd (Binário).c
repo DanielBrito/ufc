@@ -27,7 +27,7 @@ int main(){
 		}
 		
 		printf("\n");
-		cont++; // Contador para fazer o controle da quantidade de elementos em uma linha
+		cont++; // Contador para fazer o controle da quantidade de elementos em uma linha e incrementar a quantidade de linhas após cada iteração
 	}
 	
 	return 0;
