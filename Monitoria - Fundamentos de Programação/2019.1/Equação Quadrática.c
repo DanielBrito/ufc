@@ -24,7 +24,7 @@ int main(){
 	
 	switch(delta>=0){ // Utilizando o resultado da operação lógica para indexar os casos
 
-        // Se o delta for maior que 0, temos que o resultado de retorno é 1 (true). Então precisamos saber se ele é igual a 0 ou maior que 0:
+        // Se o delta for maior ou igual a 0, temos que o resultado de retorno é 1 (true). Então precisamos saber se ele é igual a 0 ou maior que 0:
 		
 		case 1: switch(delta==0){
 
