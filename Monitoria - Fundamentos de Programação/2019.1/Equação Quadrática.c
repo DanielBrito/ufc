@@ -38,7 +38,7 @@ int main(){
 			    }
 				break;
 
-        // Se delta não for maior nem igual a zero, o resultado de retorno é 0. Ou seja, delta só pode ser negativo. Logo, a equação não possui raízes reais:
+        // Se delta não for maior nem igual a zero, o resultado de retorno é 0 (falso). Ou seja, delta só pode ser negativo. Logo, a equação não possui raízes reais:
 
 		case 0: printf("\nNao existem raizes reais.\n");
 	}
