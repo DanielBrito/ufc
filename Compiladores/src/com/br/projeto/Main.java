@@ -1,22 +1,15 @@
+/* Classe principal que enviará o endereço do código-fonte para o método gerador da tabela de símbolos. */
+
 package com.br.projeto;
 
-import java.util.List;
+import java.io.File;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ComentarioException {
 		
-		List<String> tokens;
+		String enderecoArquivo = new File("src/Hello.txt").getAbsolutePath();
 		
-		String enderecoArquivo = "C:\\Users\\Daniel\\Codes\\Photon-Entreprise-Workspace\\Compiladores\\src\\Hello.txt";
-		
-		tokens = Arquivo.lerArquivo(enderecoArquivo);
-		
-		System.out.println("\nTOKENS DO ARQUIVO:\n");
-		
-		for(String t : tokens) {
-			
-				System.out.println(t);
-		}
+		TabelaDeSimbolos.gerarTabela(enderecoArquivo);
 	}
 }

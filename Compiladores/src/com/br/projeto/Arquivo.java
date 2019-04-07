@@ -1,3 +1,5 @@
+/* Classe que fará a leitura de um arquivo e armazenará os dados em uma lista que será utilizada pela classe TabelaDeSimbolos. */
+
 package com.br.projeto;
 
 import java.io.BufferedReader;
@@ -8,11 +10,12 @@ import java.util.List;
 
 public class Arquivo {
 
-	static List<String> elementos = new ArrayList<String>();
+	static List<Mapeamento> simbolos = new ArrayList<Mapeamento>();
 
-	public static List<String> lerArquivo(String enderecoArquivo){
+	public static List<Mapeamento> lerArquivo(String enderecoArquivo){
 		
 		String linha="";
+		int numLn=0;
 
 		System.out.println("Arquivo = " + enderecoArquivo);
 		
@@ -23,22 +26,23 @@ public class Arquivo {
 			
 			while (linha!=null) {
 				
-				listarElementos(linha);
-
+				
+				listarElementos(linha, numLn++);
 				linha = lerArquivo.readLine();
+				
 			}
 
 			arquivo.close();
+		} 
+		catch (IOException e) {
 			
-		} catch (IOException e) {
-			
-			System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
+			System.err.println("Erro na abertura do arquivo: " + e.getMessage());
 		}
 		
-		return elementos;
+		return simbolos;
 	}
 	
-	private static void listarElementos(String linha) {
+	private static void listarElementos(String linha, int ln) {
 		
 		String[] str = linha.split(" ");
 		
@@ -46,7 +50,9 @@ public class Arquivo {
 			
 			if(str[i].length()>0) {
 				
-				elementos.add(str[i]);
+				Mapeamento m = new Mapeamento(str[i], ln);
+				
+				simbolos.add(m);
 			}
 		}
 	}
