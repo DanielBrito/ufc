@@ -1,5 +1,34 @@
 public class Hello {
+
+    /* Comentario OK */
+
     public static void main ( String [ ] args ) {
+    
+        boolean continuar ;
+    
         System . out . println ( "Hello,World!" ) ;
+        
+        for ( int i = 0 ; i < 5 ; i ++ ) { 
+        
+            System . out . println ( i ) ;
+        }
+        
+        if ( continuar == true ) {
+        
+            System . out . println ( "OK" ) ;
+        }
+        
+        if ( a > b || d <= 9 ) {
+      
+              System . out . println ( "Ganhou" ) ;
+        }
+        
+        char d = 'd';
+        
+        float num = 2.129 ;
+        
+        #%@%
+        
+        /* Comentario ERRO
     }
 }
