@@ -81,9 +81,9 @@ int main(){
 				
 				case 1: totalPedido = totalPedido + (2.00*qtd); break;
 				case 2: totalPedido = totalPedido + (2.50*qtd); break;
-				case 3: totalPedido = totalPedido + (2.00*qtd); break;
-				case 4: totalPedido = totalPedido + (3.00*qtd); break;
-				case 5: totalPedido = totalPedido + (3.50*qtd); break;
+				case 3: totalPedido = totalPedido + (4.00*qtd); break;
+				case 4: totalPedido = totalPedido + (3.50*qtd); break;
+				case 5: totalPedido = totalPedido + (3.00*qtd); break;
 			}
 			
 			printf("\n");
