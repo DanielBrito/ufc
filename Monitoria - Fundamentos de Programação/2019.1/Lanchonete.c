@@ -1,6 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+/*
+
+Um amigo decidiu abrir uma pequena lanchonete e pediu sua ajuda para desenvolver um programa 
+para calcular o pedido de cada cliente e, no final do dia, exibir o total que foi recebido 
+para que ele possa verificar o seu lucro.
+
+Seu programa deverá receber vários pedidos, onde cada um deles poderá ser composto por vários 
+lanches em quantidades específicas. Assim, cada entrada será composta pelo nome do cliente, 
+o código e a quantidade dos lanches desejados. No final, deverá ser exibido o recibo do pedido 
+do cliente, contendo o valor total e o seu nome. O código 0 finaliza cada pedido.
+
+Antes de sair do programa, exiba o valor total que foi recebido durante o dia.
+
+*/
+
 int main(){
 	
 	int cod, qtd, novoPedido, novoLanche, codInvalido, qtdInvalida;
