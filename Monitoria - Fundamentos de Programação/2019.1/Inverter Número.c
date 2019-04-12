@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+// O grande insight desse exercício é pegar o resto da divisão por 10 e somar com 10 vezes a soma anterior.
+
 int main(){
 	
 	int num, aux, invertido=0;
