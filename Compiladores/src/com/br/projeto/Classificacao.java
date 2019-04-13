@@ -48,9 +48,9 @@ public class Classificacao {
 		palavrasReservadas.add(new Classificacao("Palavra reservada", "<VOID>", "void"));
 		palavrasReservadas.add(new Classificacao("Palavra reservada", "<DO>", "do"));
 		palavrasReservadas.add(new Classificacao("Palavra reservada", "<WHILE>", "while"));
-		palavrasReservadas.add(new Classificacao("Palavra reservada", "<SYSTEM>", "System"));
-		palavrasReservadas.add(new Classificacao("Palavra reservada", "<OUT>", "out"));
-		palavrasReservadas.add(new Classificacao("Palavra reservada", "<PRINTLN>", "println"));
+		palavrasReservadas.add(new Classificacao("Palavra reservada", "<TRUE>", "true"));
+		palavrasReservadas.add(new Classificacao("Palavra reservada", "<FALSE>", "false"));
+		palavrasReservadas.add(new Classificacao("Palavra reservada", "<MAIN>", "main"));
 		
 		operadoresLogicos.add(new Classificacao("Operador Lógico", "<E>", "&&"));
 		operadoresLogicos.add(new Classificacao("Operador Lógico", "<OU>", "||"));

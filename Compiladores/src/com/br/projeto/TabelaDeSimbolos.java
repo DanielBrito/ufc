@@ -14,22 +14,52 @@ public class TabelaDeSimbolos {
 		
 		List<Mapeamento> simbolos = new ArrayList<Mapeamento>();
 		List<Mapeamento> invalidos = new ArrayList<Mapeamento>();
-		
 		List<Elemento> elementos = new ArrayList<Elemento>();
 		
+		boolean lendoComentarioInline = false;
+		boolean lendoComentarioBloco = false;
+		int linhaComentarioInline=0;
+		int linhaComentarioBloco=0;
+
 		simbolos = Arquivo.lerArquivo(enderecoArquivo);		
 		
 		for(Mapeamento m : simbolos) {
 			
-			Elemento aux = Classificacao.atribuirInformacoes(m);
-			
-			if(aux==null) {
+			if(m.simbolo.compareTo("//")==0) {
 				
-				invalidos.add(m);
+				lendoComentarioInline = true;
+				linhaComentarioInline = m.numLinha;
+			}
+			
+			if(m.simbolo.compareTo("/*")==0) {
+				
+				lendoComentarioBloco = true;
+				linhaComentarioBloco = m.numLinha;
+			}
+			
+			if(m.simbolo.compareTo("*/")==0) {
+				
+				lendoComentarioBloco = false;
+			}
+			
+			if(((lendoComentarioInline==true) && (m.numLinha==linhaComentarioInline)) || lendoComentarioBloco==true || m.simbolo.compareTo("*/")==0) {
+				
+				continue;
 			}
 			else {
 				
-				elementos.add(aux);
+				lendoComentarioInline = false;
+				
+				Elemento aux = Classificacao.atribuirInformacoes(m);
+				
+				if(aux==null) {
+					
+					invalidos.add(m);
+				}
+				else {
+					
+					elementos.add(aux);
+				}
 			}
 		}
 		
@@ -44,16 +74,19 @@ public class TabelaDeSimbolos {
 		
 		for(Mapeamento e : invalidos) {
 			
-			if(!(e.simbolo.compareTo("/*")==0 || e.simbolo.compareTo("*/")==0)) {
+			//if(!(e.simbolo.compareTo("/*")==0 || e.simbolo.compareTo("*/")==0)) {
 				
 				System.out.println(e);
-			}
+			//}
 		}
 		
-		verificarComentarios(simbolos);
+		if(lendoComentarioBloco==true){
+			
+			throw new ComentarioException("" + linhaComentarioBloco);
+		}	
 	}
 	
-	/* O método verificarComentarios ainda não está totalmente funcional */
+	/* O método verificarComentarios ainda não está totalmente funcional
 	
 	public static void verificarComentarios(List<Mapeamento> simbolos) throws ComentarioException{
 		
@@ -62,7 +95,7 @@ public class TabelaDeSimbolos {
 		
 		for(Mapeamento m : simbolos) {
 			
-			if(m.simbolo.compareTo("/*")==0) {
+			if(m.simbolo.compareTo("")==0) {
 				
 				contComent = true;
 				
@@ -72,16 +105,16 @@ public class TabelaDeSimbolos {
 				}	
 			}
 			
-			if(m.simbolo.compareTo("*/")==0) {
+			if(m.simbolo.compareTo("")==0) {
 					
 				contComent = false;
 				contLine = 0;
 			}
 		}
 		
-		if(contComent == true){
-			
-			throw new ComentarioException("" + contLine);
-		}	
+		
+		
+		
 	}
+	 */
 }
