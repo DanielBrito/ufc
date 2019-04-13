@@ -1,14 +1,19 @@
 public class Hello {
 
-    /* Comentario OK */
-
     public static void main ( String [ ] args ) {
+    
+        boolean continuar ; // Comentario inline
     
         System . out . println ( "Hello,World!" ) ;
         
         for ( int i = 0 ; i < 5 ; i ++ ) { 
         
             System . out . println ( i ) ;
+        }
+        
+        if ( continuar == true ) {
+        
+            System . out . println ( "OK" ) ;
         }
         
         if ( a > b || d <= 9 ) {
@@ -22,6 +27,13 @@ public class Hello {
         
         #%@%
         
-        /* Comentario ERRO
+        /* Comentario
+           Dentro de um
+           Bloco
+        */
+        
+        // Outro comentario inline
+        
+        /* ERRO
     }
 }
