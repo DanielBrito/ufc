@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <h2 class="text-center">{{title}}</h2>
+            <input type="text" name="" id="" v-model="valor">
+            <button class="btn btn-primary" type="button" v-on:click="addValor(valor)">Adicionar</button>
+            <button class="btn btn-danger" type="button" v-on:click="removeValor(valor)">Remover</button><br><br>
+            <h4>Lista de Itens</h4>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in array">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                title: "Exercício de Vue.js",
+                array: [],
+                valor: "",
+            },
+            methods: {
+                addValor(str) {
+                    if (str != "") {
+                        this.array.push(str);
+                    } else {
+                        alert("Insira um valor !!");
+                    }
+                },
+                removeValor(str) {
+                    if (str != "") {
+                        var index = this.array.indexOf(str);
+
+                        if (index != -1) {
+                            this.array.splice(index, 1);
+                        } else {
+                            alert("Item não existe !!");
+                        }
+                    } else {
+                        alert("Insira um valor !!");
+                    }
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
