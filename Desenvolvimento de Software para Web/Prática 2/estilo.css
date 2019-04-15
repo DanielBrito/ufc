@@ -1,0 +1,99 @@
+#referencia {
+	color: orange;
+	text-align: center;
+}
+
+.cabecalhos {
+	color: green;
+	background-color: rgba(0, 100, 0, 0.12);
+}
+
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
+
+.centralizado {
+	width: 60%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* unvisited link */
+a:link {
+    color: green;
+}
+
+/* visited link */
+a:visited {
+    color: olive;
+}
+
+/* mouse over link */
+a:hover {
+    color: lightgreen;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+} 
+
+a {
+	text-decoration: none;
+}
+
+ul li{
+	list-style-type: square;
+	margin: 10px;
+}
+
+table {
+	width: 100%;
+}
+
+th, td{
+	padding: 15px;
+	/*border-bottom: 1px solid #ddd;*/
+}
+
+th {
+	text-align: left;
+	background-color: grey;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #f1f1f1;
+}
+
+/* hover deve ser o último, pois a renderização é por ordem de definição no código */
+tr:hover {
+	background-color: #d9d9d9;
+}
+
+.botao {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.botao:hover{
+	background-color: darkgreen;
+}
+
+input[type=text], input[type=email], select, textarea {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+

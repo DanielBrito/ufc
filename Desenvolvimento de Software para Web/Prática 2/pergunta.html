@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Universidade</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body class="centralizado">
+	<h1 class="cabecalhos">Universidade</h1>
+
+	<hr />
+
+	<h3>Qual sua dúvida sobre universidade?</h3>
+
+	<form>
+		Nome: <br />
+		<input type="text" name="nome" placeholder="Nome Completo" /> <br />
+		Email: <br />
+		<input type="email" name="email" placeholder="nome@email.com" /> <br />
+		Região onde mora: <br />
+		<select name="regiao" size="1">
+			<option></option>
+			<option value="nord">Nordeste</option>
+			<option value="nort">Norte</option>
+			<option value="sul">Sul</option>
+			<option value="sud">Sudeste</option>
+			<option value="coes">Centro-Oeste</option>
+		</select> <br />
+		<input type="checkbox" name="universitario" value="universitario"> Estudante universitário? <br />
+		Pergunta: <br />
+		<textarea rows="10" cols="50" placeholder="Escreva sua pergunta"></textarea> <br />
+		<input class="botao" type="reset">
+		<button class="botao">Enviar</button>
+	</form>
+
+</body>
+
+</html>
