@@ -59,7 +59,7 @@ int main(){
 		//system("clear"); // Limpar tela no Linux
 		system("cls"); // Limpar tela no Windows
 		
-		if(opcao==1){
+		if(opcao==1){ // Nova partida
 			
 			printf("\t# M47H M1N1 G4M3 #\n\n");
 			
@@ -109,9 +109,7 @@ int main(){
 			
 			printf("\t# M47H M1N1 G4M3 #\n\n");
 			
-			// 1 - Soma:
-			
-			if(operacao==1){
+			if(operacao==1){ // Soma
 				
 				for(i=0; i<qtdOperacoes; i++){
 					
@@ -141,9 +139,7 @@ int main(){
 				}
 			}
 			
-			// 2 - Subtração:
-			
-			if(operacao==2){
+			if(operacao==2){ // Subtração
 				
 				for(i=0; i<qtdOperacoes; i++){
 					
@@ -173,9 +169,7 @@ int main(){
 				}
 			}
 			
-			// 3 - Multiplicação:
-			
-			if(operacao==3){
+			if(operacao==3){ // 3 - Multiplicação:
 				
 				for(i=0; i<qtdOperacoes; i++){
 					
@@ -205,9 +199,7 @@ int main(){
 				}
 			}
 			
-			// 4 - Divisao:
-			
-			if(operacao==4){
+			if(operacao==4){ // 4 - Divisão:
 				
 				for(i=0; i<qtdOperacoes; i++){
 					
@@ -268,7 +260,7 @@ int main(){
 			}while(opcao!=0 && opcao!=1);
 		}
 		else
-		if(opcao==2){
+		if(opcao==2){ // Verificar pontuação máxima
 			
 			//system("clear"); // Limpar tela no Linux
 			system("cls"); // Limpar tela no Windows
