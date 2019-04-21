@@ -1,3 +1,5 @@
+/* Vídeo: https://www.youtube.com/watch?v=OGdsJM2wztU */
+
 #include<stdio.h>
 
 int main(){
