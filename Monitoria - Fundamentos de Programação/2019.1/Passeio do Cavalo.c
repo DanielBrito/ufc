@@ -1,7 +1,9 @@
+/* V√≠deo: https://www.youtube.com/watch?v=2bofUQcgba4 */
+
 // DESAFIO AUTORAL:
 
-// Dado um cavalo em alguma posiÁ„o X do tabuleiro de xadrez, apÛs N movimentos quaisquer, 
-// informar a cor da casa em que o cavalo estar· posicionado.
+// Dado um cavalo em alguma posi√ß√£o X do tabuleiro de xadrez, ap√≥s N movimentos quaisquer, 
+// informar a cor da casa em que o cavalo estar√° posicionado.
 
 #include<stdio.h>
 
@@ -10,7 +12,7 @@ int main(){
 	int linha, l, c, mov;
 	char coluna;
 
-    // Entrada dos dados da posiÁ„o atual do cavalo, por exemplo: a6
+    // Entrada dos dados da posi√ß√£o atual do cavalo, por exemplo: a6
 	
 	printf("Digite a posicao atual do cavalo: ");
 	scanf("%c%d", &coluna, &linha);
@@ -20,7 +22,7 @@ int main(){
 	printf("Digite a quantidade de movimentos: ");
 	scanf("%d", &mov);
 
-    // Transformando o valores literais das colunas em valores numÈricos para facilitar no descobrimento da cor da casa atual:
+    // Transformando o valores literais das colunas em valores num√©ricos para facilitar no descobrimento da cor da casa atual:
 	
 	switch(coluna){
 		
@@ -34,28 +36,28 @@ int main(){
 		case 'h': c = 8; break;
 	}
 
-    // Verificando as propriedades do tabuleiro de xadrez, podemos observar que as casas pretas sÛ ocorrem em duas situaÁıes:
-    // I - Quando a linha È par e a coluna È par
-    // II - Quando a linha È Ìmpar e a coluna Ìmpar
+    // Verificando as propriedades do tabuleiro de xadrez, podemos observar que as casas pretas s√≥ ocorrem em duas situa√ß√µes:
+    // I - Quando a linha √© par e a coluna √© par
+    // II - Quando a linha √© √≠mpar e a coluna √≠mpar
 	
-	if((l%2==1 && c%2==1) || (l%2==0 && c%2==0)){ // Se I e II acontecerem, temos que o cavalo estar· numa casa preta
+	if((l%2==1 && c%2==1) || (l%2==0 && c%2==0)){ // Se I e II acontecerem, temos que o cavalo estar√° numa casa preta
 		
 		if(mov%2==0){ // Se a quantidade de movimentos for par, permanecemos na mesma cor:
 			
 			printf("\nO cavalo estara numa casa preta.\n");
 		}
-		else{ // Caso contr·rio, se a quantidade de movimentos for Ìmpar, trocamos de cor:
+		else{ // Caso contr√°rio, se a quantidade de movimentos for √≠mpar, trocamos de cor:
 			
 			printf("\nO cavalo estara numa casa branca.\n");
 		}	
 	}
-	else{ // Caso contr·rio, ele estar· posicionado numa casa da cor branca
+	else{ // Caso contr√°rio, ele estar√° posicionado numa casa da cor branca
 
         if(mov%2==0){ // Se a quantidade de movimentos for par, permanecemos na mesma cor:
 
             printf("\nO cavalo estara numa casa branca.\n");
         }
-        else{ // Caso contr·rio, se a quantidade de movimentos for Ìmpar, trocamos de cor:
+        else{ // Caso contr√°rio, se a quantidade de movimentos for √≠mpar, trocamos de cor:
 
             printf("\nO cavalo estara numa casa preta.\n");
         }
