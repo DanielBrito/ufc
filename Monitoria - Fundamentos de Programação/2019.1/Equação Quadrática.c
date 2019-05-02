@@ -14,6 +14,12 @@ int main(){
 	printf("Digite o valor de \"a\": ");
 	scanf("%f", &a);
 	
+	if(a==0){
+		
+		printf("\nEsta equacao nao e quadratica!\n");
+		return 0;
+	}
+	
 	printf("Digite o valor de \"b\": ");
 	scanf("%f", &b);
 
