@@ -1,13 +1,13 @@
 %fatos
-gerou(maria, joao).
-gerou(maria, ana).
-gerou(jose, joao).
-gerou(jose, ana).
-gerou(ana, helena).
-gerou(ana, joana).
-gerou(joao, mario).
-gerou(helena, carlos).
-gerou(mario, carlos).
+progenitor(maria, joao).
+progenitor(maria, ana).
+progenitor(jose, joao).
+progenitor(jose, ana).
+progenitor(ana, helena).
+progenitor(ana, joana).
+progenitor(joao, mario).
+progenitor(helena, carlos).
+progenitor(mario, carlos).
 
 sexo(ana, feminino).
 sexo(maria, feminino).
@@ -19,34 +19,34 @@ sexo(jose, masculino).
 sexo(carlos, masculino).
 
 irma(X, Y) :-
-    gerou(A, X),
-    gerou(A, Y),
+    progenitor(A, X),
+    progenitor(A, Y),
     X\==Y,
     sexo(X, feminino).
 
 irmao(X, Y) :-
-    gerou(A, X),
-    gerou(A, Y),
+    progenitor(A, X),
+    progenitor(A, Y),
     X\==Y,
     sexo(X, masculino).
 
 descendente(X, Y) :-
-    gerou(X, Y).
+    progenitor(X, Y).
 
 descendente(X, Y) :-
-    gerou(X, A),
+    progenitor(X, A),
     descendente(A, Y).
 
 mae(X, Y) :-
-    gerou(X, Y),
+    progenitor(X, Y),
     sexo(X, feminino).
 
 pai(X, Y) :-
-    gerou(X, Y),
+    progenitor(X, Y),
     sexo(X, masculino).
 
 filho(X, Y) :-
-    gerou(Y, X).
+    progenitor(Y, X).
 
 % c) filho(joao, jose).
 % c) irma(helena, X) ; irmao(helena, X).
