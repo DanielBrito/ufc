@@ -9,7 +9,7 @@ gerou(gil, clo).
 gerou(gil, ary).
 gerou(eva, noe).
 gerou(rai, noe).
-gerou(ari, gal).
+gerou(ary, gal).
 gerou(lia, gal).
 
 feminino(ana).
@@ -76,3 +76,10 @@ primo(X, Y) :-
     gerou(A, X),
     gerou(B, Y),
     X\==Y.
+
+descendente(X, Y) :-
+    gerou(X, Y).
+
+descendente(X, Y) :-
+    gerou(X, A),
+    descendente(A, Y).
