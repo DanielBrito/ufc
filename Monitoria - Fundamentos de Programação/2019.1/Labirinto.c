@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h> // Contém a função getch()
 
 // Constante que delimita a dimensão de um labirinto quadrado (DIMENSAO x DIMENSAO)
-#define DIMENSAO 5
+#define DIMENSAO 20
 
 // Renomeando as teclas de movimento para tornar o código mais legível
 #define SUBIR 'w'
@@ -43,9 +44,13 @@ int main(){
 		
 		imprimirLabirinto(); // Antes de cada jogada, exibir a situação atual do labirinto
 		
-        // Digitar o movimento a ser realizado e depois teclar ENTER
+        // Digitar o movimento a ser realizado e depois teclar ENTER:
+        // printf("\nDigite o movimento: ");
+		// scanf("%c", &movimento);
+        
+        // Lê um carectere do teclado, mas não mostra na tela:
 		printf("\nDigite o movimento: ");
-		scanf(" %c", &movimento);
+		movimento = getch(); 
 		
 		movimentarJogador(movimento); // Chamada de função passando o movimento recebido por parâmetro
 		
