@@ -1,0 +1,24 @@
+// Compilador Java = ERRO SEMÂNTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ; // OK - Escopo 2
+        int z ;
+        
+        if ( 5 > z ) {
+        
+            int y ;  // OK - Escopo 3
+        }
+        
+        int x ; // ERRO - Escopo 2 (Váriável já declarada)
+    }
+}

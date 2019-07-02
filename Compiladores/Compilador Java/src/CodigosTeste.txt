@@ -1,0 +1,305 @@
+// Compilador Java = OK
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        float y ;
+        float z ;
+        
+        // Funcional para: if-else
+        
+        if ( x > y ) { // Funcional para: 'termo' 'operador relacional' 'termo'
+        
+            z = x + y ; // Funcional para: 'identificador' '=' 'termo' 'operador aritmético' 'termo'
+        }
+        else {
+        
+           x = 10.7 ;
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = OK
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        int y ;
+        float z ;
+        
+        x = 12.5 ;
+        y = 10 ;
+        
+        z = x + 23.5 ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO SINTÁTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        int y ;
+        
+        x = 12.5 ;
+        y = 10 ;
+        
+        z = 10 + 20 ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO SEMÂNTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        int y ;
+        float z ;
+        
+        x = 12.5 ;
+        y = 10 ;
+        
+        z = 10 + 20.5 ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = OK
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        float y ;
+        float z ;
+        
+        // Funcional para: if-else (com possíveis condicionais internos)
+        
+        if ( x > y ) { // Funcional para: 'termo' 'operador relacional' 'termo'
+        
+            z = x + y ;
+            
+            if ( x > z ) {
+            
+                x = z ;
+            }
+        }
+        else {
+        
+           x = 10.7 ;
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        float x ;
+        float a ;
+        float b ;
+        float c ;
+        
+        // Ainda não funcional para mais de 3 termos
+        // Pois há uma dificuldade em controlar as derivações recursivas
+        
+        x = a + b - c ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = OK
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        int x ; // OK - Escopo 2
+        int z ;
+        
+        z = 10 ;
+        
+        if ( 5 > z ) {
+        
+            int x ;  // OK - Escopo 3
+        }
+        
+        int y ; // OK - Escopo 2
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO SEMÂNTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        int x ; // OK - Escopo 2
+        int z ;
+        
+        if ( 5 > z ) {
+        
+            int y ;  // OK - Escopo 3
+        }
+        
+        int x ; // ERRO - Escopo 2 (Váriável já declarada)
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO SEMÂNTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        int y ;
+       
+        if ( y > x ) { // ERRO - Variável x não declarada
+        
+            int y ;
+        }
+        
+        int x ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = ERRO SEMÂNTICO
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        int y ;
+        int x ;
+       
+        if ( y > 0 ) {
+        
+            x = z + 10 ; // ERRO - Variável z não declarada
+        }
+        
+        int z ;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+// Compilador Java = OK
+
+/* 
+Código para teste: 
+Analisador léxico
+Analisador sintático 
+Analisador semântico 
+*/
+
+public class Teste {
+
+    public static void main ( ) {
+    
+        int y ;
+        int x ;
+        int z ;
+       
+        if ( y > 0 ) {
+        
+            x = z + 10 ;
+        }
+    }
+}

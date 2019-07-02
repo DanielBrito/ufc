@@ -1,0 +1,39 @@
+// Código para teste do analisador léxico
+
+public class Hello {
+
+    public static void main ( ) {
+    
+        boolean continuar ; // Comentário inline
+    
+        System . out . println ( "Hello,World!" ) ;
+        
+        for ( int i = 0 ; i < 5 ; i ++ ) { 
+        
+            System . out . println ( i ) ;
+        }
+        
+        if ( continuar == true ) {
+        
+            System . out . println ( "OK" ) ;
+        }
+        
+        if ( a > b || d <= 9 ) {
+      
+              System . out . println ( "Ganhou" ) ;
+        }
+        
+        char d = 'd' ;
+        
+        float num = 2.129 ;
+        
+        // #%@% // Símbolo inválido
+        
+        /* Comentário
+           Dentro de um
+           Bloco
+        */
+        
+        // Outro comentário inline
+    }
+}
