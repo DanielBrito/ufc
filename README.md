@@ -1,2 +1,2 @@
 # UFC
-Códigos desenvolvidos durante do curso de Ciência da Computação
+Códigos desenvolvidos durante o curso de Ciência da Computação
