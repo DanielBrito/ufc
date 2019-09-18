@@ -223,7 +223,7 @@ void subMenu(){
 		printf("- > ");
 		scanf("%d", &opcao);
 		
-		if(opcao<0 || opcao>2){
+		if(opcao<0 || opcao>1){
 			
 			printf("\nOpcao invalida!\n\n");
 			
