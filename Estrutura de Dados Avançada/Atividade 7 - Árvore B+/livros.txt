@@ -1,0 +1,3 @@
+1 iracema iracema jose+de+alencar 1945 brasil leitura+enem
+2 cortico cortico guimaraes+rosa 1923 portugal leitura+fuvest
+3 a+republica a+republica platao 123 grecia leitura+obrigatoria+unicamp
