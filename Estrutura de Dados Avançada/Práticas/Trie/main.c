@@ -1,4 +1,4 @@
-#include"modulo.h"
+#include"lib_trie.h"
 
 int main() {
 	
