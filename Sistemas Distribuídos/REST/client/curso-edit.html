@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class=container>
+        <div id="app">
+            <h3>Dados Atuais</h3>
+            <p>Nome: {{nome_antigo}}</p>
+            <p>Endereço: {{endereco_antigo}}</p>
+            <p>Email: {{email_antigo}}</p>
+            <p>Telefones: {{telefones_antigo}}</p>
+            <img :src="'uploads/'+curso.id+'?'+new Date().getTime()" width="200" height="200"><br><br>
+
+            <h3>Editar Contato</h3>
+            <div v-if="flag">
+                <div class="form-group">
+                    <label for="nome">Nome: </label>
+                    <input class="form-control" type="text" v-model="curso.nome" :value="curso.nome">
+                </div>
+                <div class="form-group">
+                    <label for="duracao">Endereço: </label>
+                    <input class="form-control" type="text" v-model="curso.endereco" :value="curso.endereco">
+                </div>
+                <div class="form-group">
+                    <label for="duracao">Email: </label>
+                    <input class="form-control" type="text" v-model="curso.email" :value="curso.email">
+                </div>
+                <div class="form-group">
+                    <label for="duracao">Telefones: </label>
+                    <input class="form-control" type="text" v-model="curso.telefones" :value="curso.telefones">
+                </div>
+                <img :src="'uploads/'+curso.id+'?'+new Date().getTime()" width="200" height="200"><br><br>                
+                <label class="btn btn-primary">
+                        Escolher arquivo <input type="file" id="file" ref="file" name="image" @change="handleFileUpload()" hidden>
+                </label><br>
+                <br>
+                <button class="btn btn-primary" type="button" @click="submit">Atualizar</button>
+                <a href="index.html" class="btn btn-danger" >Cancelar</a>
+            </div>
+            
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    url: "http://localhost:8080/api/contatos",
+                    nome_antigo: '',
+                    endereco_antigo: '',
+                    email_antigo: '',
+                    telefones_antigo: '',
+                    curso: {},
+                    file: null,
+                    flag: false
+                },
+                created() {
+                    var currentUrl = window.location.href;
+                    var id = new URL(currentUrl).searchParams.get("id");
+                    vm = this;
+                    axios.get(this.url + "/" + id).then(function (r) {
+                        vm.curso = r.data;
+                        vm.nome_antigo = vm.curso.nome;
+                        vm.endereco_antigo = vm.curso.endereco;
+                        vm.email_antigo = vm.curso.email;
+                        vm.telefones_antigo = vm.curso.telefones;
+                        //vm.contato_antigo = r.data;
+                        console.log(vm.curso);
+                        vm.flag = true;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                methods: {
+                    submit() {
+                        let formData = new FormData();
+                        formData.append('image', this.file);
+                        formData.append('nome', this.curso.nome);
+                        formData.append('endereco', this.curso.endereco);
+                        formData.append('email', this.curso.email);
+                        formData.append('telefones', this.curso.telefones);
+
+                        axios.put(this.url + "/" + this.curso.id,
+                            formData,
+                            {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }
+                        ).then(function (r) {
+                            console.log(r.data);
+                            window.location.replace("index.html");
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                    },
+                    handleFileUpload() {
+                        this.file = this.$refs.file.files[0];                        
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

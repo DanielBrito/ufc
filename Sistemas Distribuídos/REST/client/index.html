@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class=container>
+        <div id="app">
+            <h1>Simple REST - Agenda de Contatos</h1>
+            <h3>Adicionar contato</h3>
+            <a href="curso-insert.html" class="btn btn-primary">Adicionar</a>
+            <h3>Buscar todos os contatos</h3>
+            <button class="btn btn-primary" type="button" @click="buscar_contatos">Buscar</button>
+            
+            <div v-if="lista_contatos.length !== 0">
+                <h3>Lista de Contatos</h3>
+                <ul>
+                    <li v-for="curso in lista_contatos">
+                        <a :href="'curso-view.html?id='+curso.id"> {{curso.nome}} (Clique para editar/remover)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    url: "http://localhost:8080/api/contatos",
+                    lista_contatos: []
+                },
+                methods: {
+                    buscar_contatos() {
+                        vm = this;
+                        axios.get(this.url).then(function (r) {
+                            console.log(r.data);
+                            vm.lista_contatos = r.data;
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>
