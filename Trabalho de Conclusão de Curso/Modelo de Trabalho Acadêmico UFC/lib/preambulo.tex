@@ -1,0 +1,101 @@
+% Para utilizar este template siga o tutorial disponível em http://www.biblioteca.ufc.br/wp-content/uploads/2015/09/tutorial-sharelatex.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Você deve criar uma conta no Overleaf. Depois,    %%
+%% vá nas opções no canto esquerdo superior da tela  %%
+%% e clique em "Copiar Projeto". Dê um novo nome pa- %%
+%% ra o projeto.                                     %%
+%%                                                   %%
+%% Os principais desenvolvedores deste template são: %%
+%%                                                   %%
+%%            Ednardo Moreira Rodrigues              %%
+%%       (Doutor em Engenharia Elétrica - UFC)       %%
+%%                      &                            %%
+%%            Alan Batista de Oliveira               %%
+%%           (Engenheiro Eletricista - UFC)          %%
+%%                                                   %%
+%% Revisão:                                          %%
+%%                                                   %%
+%% - Francisco Edvander Pires Santos;                %%
+%% - Juliana Soares Lima;                            %%
+%% - Izabel Lima dos Santos;                         %%
+%% - Kalline Yasmin Soares Feitosa.                  %%
+%% - Eliene Maria Vieira de Moura;                   %%
+%%                                                   %%
+%% Colaboradores                                     %%
+%%                                                   %%
+%% -Andrei Bosco Bezerra Torres                      %% 
+%% (Professor - Sistemas e Mídias Digitais -         %%
+%% Instituto Universidade Virtual - UFC)             %%
+%% Tiago ALves Lima                                  %% 
+%% (Aluno de Mestrado em Eng. Elétrica)              %%
+%%                                                   %%
+%% Grande parte do trabalho foi adaptado do template %%
+%% da UECE elaborado por:                            %%
+%% Thiago Nascimento  (UECE)                         %%
+%% Project available on:                             %%
+%% https://github.com/thiagodnf/uecetex2             %%
+%%                                                   %%
+%% "Dúvidas, esclarecimentos ou sugestões podem ser  %%
+%% enviadas para o seguinte e-mail:                  %%
+%%                                                   %%
+%%             atendimentobch@ufc.br                 %%
+%%                                                   %%
+%% As últimas atualizações estão descritas no inicio %%
+%% do arquivo "README.md".                           %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Importações de pacotes
+\usepackage[utf8]{inputenc}                         % Acentuação direta
+\usepackage[T1]{fontenc}                            % Codificação da fonte em 8 bits
+\usepackage{graphicx}                               % Inserir figuras
+\usepackage{amsfonts, amssymb, amsmath}             % Fonte e símbolos matemáticos
+\usepackage{booktabs}                               % Comandos para tabelas
+\usepackage{verbatim}                               % Texto é interpretado como escrito no documento
+\usepackage{multirow, array}                        % Múltiplas linhas e colunas em tabelas
+\usepackage{indentfirst}                            % Endenta o primeiro parágrafo de cada seção.
+\usepackage{listings}                               % Utilizar codigo fonte no documento
+\usepackage{xcolor}
+\usepackage{microtype}                              % Para melhorias de justificação?
+\usepackage[portuguese,ruled,lined]{algorithm2e}    % Escrever algoritmos
+\usepackage{algorithmic}                            % Criar Algoritmos  
+%\usepackage{float}                                 % Utilizado para criação de floats
+\usepackage{amsgen}
+\usepackage{lipsum}                                 % Usar a simulação de texto Lorem Ipsum
+%\usepackage{titlesec}                              % Permite alterar os títulos do documento
+\usepackage{tocloft}                                % Permite alterar a formatação do Sumário
+\usepackage{etoolbox}                               % Usado para alterar a fonte da Section no Sumário
+\usepackage[nogroupskip,nonumberlist]{glossaries}   % Permite fazer o glossario
+
+\usepackage[font=singlespacing,format=plain,justification=justified,skip=0pt,singlelinecheck = false]{caption}            % Altera o comportamento da tag caption
+
+\usepackage[alf, abnt-emphasize=bf, recuo=0cm, abnt-etal-cite=2, abnt-etal-list=0, abnt-etal-text=it]{abntex2cite}  % Citações padrão ABNT
+%\usepackage[bottom]{footmisc}                      % Mantém as notas de rodapé sempre na mesma posição
+%\usepackage{times}                                 % Usa a fonte Times
+%%%%%%%%%%%%%%%%%%% AVISO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%descomente as duas linhas abaixo para alterar o texto de Times New Roman para Arial:
+
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}  % Usa a fonte Arial              
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathptmx}         % Usa a fonte Times New Roman			%\usepackage{lmodern}         % Usa a fonte Latin Modern
+%\usepackage{subfig}          % Posicionamento de figuras
+%\usepackage{scalefnt}        % Permite redimensionar tamanho da fonte
+%\usepackage{color, colortbl} % Comandos de cores
+%\usepackage{lscape}          % Permite páginas em modo "paisagem"
+%\usepackage{ae, aecompl}     % Fontes de alta qualidade
+%\usepackage{picinpar}        % Dispor imagens em parágrafos
+%\usepackage{latexsym}        % Símbolos matemáticos
+%\usepackage{upgreek}         % Fonte letras gregas
+\usepackage{appendix}         % Gerar o apendice no final do documento
+\usepackage{paracol}          % Criar paragrafos sem identacao
+\usepackage{lib/ufctex}	      % Biblioteca com as normas da UFC para trabalhos academicos
+\usepackage{pdfpages}         % Incluir pdf no documento
+\usepackage{amsmath}          % Usar equacoes matematicas
+
+\makeglossaries % Organiza e gera a lista de abreviaturas, simbolos e glossario
+\makeindex      % Gera o Indice do documento         
+
+

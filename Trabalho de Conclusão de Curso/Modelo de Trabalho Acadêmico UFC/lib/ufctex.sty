@@ -1,0 +1,1457 @@
+% Para utilizar este template siga o tutorial disponível em http://www.biblioteca.ufc.br/wp-content/uploads/2015/09/tutorial-sharelatex.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Você deve criar uma conta no Overleaf. Depois,    %%
+%% vá nas opções no canto esquerdo superior da tela  %%
+%% e clique em "Copiar Projeto". Dê um novo nome pa- %%
+%% ra o projeto.                                     %%
+%%                                                   %%
+%% Os principais desenvolvedores deste template são: %%
+%%                                                   %%
+%%            Ednardo Moreira Rodrigues              %%
+%%       (Doutor em Engenharia Elétrica - UFC)       %%
+%%                      &                            %%
+%%            Alan Batista de Oliveira               %%
+%%           (Engenheiro Eletricista - UFC)          %%
+%%                                                   %%
+%% Revisão:                                          %%
+%%                                                   %%
+%% - Francisco Edvander Pires Santos;                %%
+%% - Juliana Soares Lima;                            %%
+%% - Izabel Lima dos Santos;                         %%
+%% - Kalline Yasmin Soares Feitosa.                  %%
+%% - Eliene Maria Vieira de Moura;                   %%
+%%                                                   %%
+%% Colaboradores                                     %%
+%%                                                   %%
+%% -Andrei Bosco Bezerra Torres                      %% 
+%% (Professor - Sistemas e Mídias Digitais -         %%
+%% Instituto Universidade Virtual - UFC)             %%
+%% Tiago ALves Lima                                  %% 
+%% (Aluno de Mestrado em Eng. Elétrica)              %%
+%%                                                   %%
+%% Grande parte do trabalho foi adaptado do template %%
+%% da UECE elaborado por:                            %%
+%% Thiago Nascimento  (UECE)                         %%
+%% Project available on:                             %%
+%% https://github.com/thiagodnf/uecetex2             %%
+%%                                                   %%
+%% "Dúvidas, esclarecimentos ou sugestões podem ser  %%
+%% enviadas para o seguinte e-mail:                  %%
+%%                                                   %%
+%%             atendimentobch@ufc.br                 %%
+%%                                                   %%
+%% As últimas atualizações estão descritas no inicio %%
+%% do arquivo "README.md".                           %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% This work may be distributed and/or modified under%%
+%% theconditions of the LaTeX Project Public License,%%
+%% either version 1.3 of this license or (at your    %%
+%% option) any                                       %%
+%% later version. The latest version of this license %%
+%% is in http://www.latex-project.org/lppl.txt and   %%
+%% version 1.3 or later is part of all distributions %%
+%% of LaTeX version 2005/12/01 or later.             %%
+%% Further information about abnTeX2                 %%
+%% are available on http://abntex2.googlecode.com/   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\usepackage[showframe, pass]{geometry} % Se voce quer ver as margens do documento no PDF, descomente essa linha
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Definicoes              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Importa o arquivo com as entradas do glassario
+\input{1-pre-textuais/lista-de-abreviaturas-e-siglas}
+\input{3-pos-textuais/glossario}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       Formatacao das Paginas        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define o espaço entre linhas para 1.5 cm
+%\OnehalfSpacing	Bug no ABNTEX2?
+\renewcommand{\baselinestretch}{1.5}
+
+%\OnehalfSpacing
+
+% Define as margens do documento
+\setlrmarginsandblock{3cm}{2cm}{*} % externa / interna
+\setulmarginsandblock{3cm}{2cm}{*} % superior / inferior
+
+% Espacamentos nos titulos:
+% chapter
+\setlength{\beforechapskip}{-\onelineskip} %com 0 nao funcionou
+\setlength{\afterchapskip}{\onelineskip} % antes do titulo de capitulo
+%\setlength\beforechapskip{-18pt}
+%\setlength{\afterchapskip}{2cm}
+
+% section
+%\setbeforesecskip{\onelineskip}
+\setbeforesecskip{18pt}
+\setaftersecskip{\onelineskip}
+
+% subsection
+\setbeforesubsecskip{\onelineskip}
+\setaftersubsecskip{\onelineskip}
+
+% subsubsection
+\setbeforesubsubsecskip{\onelineskip}
+\setaftersubsubsecskip{\onelineskip}
+
+% subsubsubsection
+\setbeforeparaskip{\onelineskip}
+\setafterparaskip{\onelineskip}
+
+% Define a distancia da margem esquerda do paragrafo
+\setlength{\parindent}{2cm}
+
+% Estilo do chapter 1
+\renewcommand{\ABNTEXchapterfont}{\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+
+% Estilo da section 1.1
+%\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+% Estilo da subsection 1.1.1
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\itshape}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+% Estilo da subsection 1.1.1.1
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont\itshape}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+% Estilo da subsection 1.1.1.1
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+
+%% Margen da legenda da figura e da tabela
+%\captionsetup{
+%	justification=justified,% Deixa justificado, os titulos de figuras, tabelas e etc..
+	%skip=0pt                %Retira o espaco entre a figura/tabela e o caption
+%}
+
+% Remove o ponto final de cada entrada da 
+%lista de abreviaturas e siglas
+\renewcommand{\glspostdescription}{}
+
+% Espaçamento entre o texto e a legenda
+%\setlength{\belowcaptionskip}{\onelineskip}
+
+% Retira espaço extra obsoleto entre as frases.
+%\frenchspacing
+
+\addto\captionsbrazil{
+	\renewcommand{\bibname}{REFER\^ENCIAS}
+	\renewcommand{\indexname}{\'INDICE}
+	\renewcommand{\contentsname}{Sum\'ario \vspace{5pt}}
+	\renewcommand{\listadesimbolosname}{Lista de Símbolos}
+}
+
+% Por algum motivo, o algorithm2e estava pegando algumas palavras do espanhol.
+% Acredito que seja porque os comandos \para seja idêntico nos dois idiomas.
+% Esses comando resolvem o problema
+\SetKwFor{Para}{para}{faça}{fim para}
+\SetKwBlock{Inicio}{inicio}{fim}
+
+% Espaco entre as linhas do algoritmo
+\newcommand{\SetSpacedAlgorithm}{
+	\linespread{1.35}\selectfont
+}
+
+% Altera o titulo para esse
+\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}%
+
+% Espaco entre o caption e o algoritmo
+%\SetAlCapSkip{\onelineskip}
+
+% Distance between floats on the top or the bottom and the text;
+\setlength{\textfloatsep}{18pt plus 2pt minus 2pt}
+
+% Distance between floats inserted inside the page text (using h) and the text proper.
+\setlength{\intextsep}{18pt plus 2pt minus 2pt}
+
+\newcommand{\Caption}[1]{ %
+	\begin{Spacing}{1.} %
+       	\caption{#1} %
+   	\end{Spacing} %
+}
+
+\newcommand{\Fonte}[2][\fontename]{ 
+	\vspace{2pt}
+	\captionsetup{labelsep=colon}
+ 		\fonte[#1]{#2}
+ 	\vspace{-2pt}
+}
+
+% Cria o comando para fazer notas e anotacoes na figura e na tabela
+\newcommand{\Nota}[2][\notaname]{\Fonte[#1]{#2}} 
+
+
+%Remove as bordas do hyperlinks.
+\newcommand{\removerbordasdohyperlink}[1]{%
+	\ifthenelse{\equal{#1}{sim}}{%
+  		\hypersetup{%
+  		    pdfborder = {0 0 0}
+  		}
+    }
+}
+
+% Altera a cor dos hyperlinks do documento
+\newcommand{\cordohyperlink}[1]{%
+	\ifthenelse{\equal{#1}{sim}}{%
+		\hypersetup{%
+			colorlinks = true,
+			linkcolor = blue
+		}
+	}
+}
+
+% Adiciona o sexo do orientador e do coorientador no documento atraves
+% do artigo "a".
+
+\provideboolean{ufctex@orientadorfeminino}
+\provideboolean{ufctex@coorientadorfeminino}
+
+\setboolean{ufctex@orientadorfeminino}{false}
+\setboolean{ufctex@coorientadorfeminino}{false}
+
+\newcommand{\orientadorfeminino}[1]{
+	 \ifthenelse{\equal{#1}{sim}}{%
+	 	\setboolean{ufctex@orientadorfeminino}{true}
+	 }
+}
+
+\newcommand{\coorientadorfeminino}[1]{
+	\ifthenelse{\equal{#1}{sim}}{%
+		\setboolean{ufctex@coorientadorfeminino}{true}
+	}
+}
+
+\newcommand{\artigoorientador}{ %
+	\ifthenelse{\boolean{ufctex@orientadorfeminino}}{ %
+		\unskip Orientadora\ignorespaces%
+	}{ %
+		\unskip Orientador\ignorespaces%
+	} %
+}
+
+\newcommand{\artigocoorientador}{ %
+	\ifthenelse{\boolean{ufctex@coorientadorfeminino}}{ %
+		Coorientadora\ignorespaces%
+	}{ %
+		Coorientador\ignorespaces%
+	} %
+}
+
+\newcommand{\artigoorientadorcomparenteses}{ %
+	\ifthenelse{\boolean{ufctex@orientadorfeminino}}{ %
+		(Orientadora)\ignorespaces%
+	}{ %
+		(Orientador)\ignorespaces%
+	} %
+}
+
+\newcommand{\artigocoorientadorcomparenteses}{ %
+	\ifthenelse{\boolean{ufctex@coorientadorfeminino}}{ %
+		(Coorientadora)\ignorespaces%
+	}{ %
+		(Coorientador)\ignorespaces%
+	} %
+}
+
+% Variaveis utilizada para gerar o documento de qualificacao
+\provideboolean{ufctex@ehqualificacao}
+\setboolean{ufctex@ehqualificacao}{false}
+
+\newcommand{\ehqualificacao}[1]{
+	\ifthenelse{\equal{#1}{sim}}{%
+		\setboolean{ufctex@ehqualificacao}{true}
+	}
+}
+
+% Determina o tipo do trabalho apresentado
+% Definicao das variaveis
+\provideboolean{ufctex@ehtccgraduacao}
+\provideboolean{ufctex@ehtccespecializacao}
+\provideboolean{ufctex@ehdissertacao}
+\provideboolean{ufctex@ehtese}
+
+% Valores Iniciais
+\setboolean{ufctex@ehtccgraduacao}{false}
+\setboolean{ufctex@ehtccespecializacao}{false}
+\setboolean{ufctex@ehdissertacao}{true}
+\setboolean{ufctex@ehtese}{false}
+
+\newcommand{\trabalhoacademico}[1]{
+	\setboolean{ufctex@ehtccgraduacao}{false}
+	\setboolean{ufctex@ehtccespecializacao}{false}
+	\setboolean{ufctex@ehdissertacao}{false}
+	\setboolean{ufctex@ehtese}{false}
+	
+	\ifthenelse{\equal{#1}{tccgraduacao}}{%
+		\setboolean{ufctex@ehtccgraduacao}{true}
+	}{
+		\ifthenelse{\equal{#1}{tccespecializacao}}{%
+			\setboolean{ufctex@ehtccespecializacao}{true}
+		}{
+			\ifthenelse{\equal{#1}{dissertacao}}{%
+				\setboolean{ufctex@ehdissertacao}{true}
+			}{
+				\ifthenelse{\equal{#1}{tese}}{%
+					\setboolean{ufctex@ehtese}{true}
+				}{
+					\setboolean{ufctex@ehdissertacao}{true}
+				}
+			}
+		}	
+	}
+}
+
+\AtBeginDocument{ %
+	% Adiciona os metadados do documento gerado
+	\hypersetup{ %
+		pdftitle={\imprimirtitulo},%
+		pdfauthor={\imprimirautor}, %
+	}%
+	% Define a altura das equacoes matematicas
+%	\abovedisplayskip=-1pt plus 3pt minus 9pt
+%	\abovedisplayshortskip=0pt plus 3pt
+%	\belowdisplayskip=18pt plus 3pt minus 9pt
+	\addtolength\belowdisplayshortskip{\onelineskip}
+}
+
+% Altera o nome do algoritmo
+\SetKwBlock{Inicio}{início}{fim}
+
+% Numeracao da tabela comeca em 1
+\setcounter{table}{0}
+
+% Comandos para inserir figuras, tabelas e quadros
+\newcommand{\UFCfig}[3]{\IBGEtab{#1}{#2}{#3}}
+\newcommand{\UFCtab}[3]{\IBGEtab{#1}{#2}{#3}}
+\newcommand{\UFCqua}[3]{\IBGEtab{#1}{#2}{#3}}
+
+% Ambiente para alineas e e subalineas (incisos) com ponto
+\newlist{alineascomponto}{itemize}{2}
+\setlist[alineascomponto,1]{label={$\bullet$},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineascomponto,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{subalineascomponto}{enumerate}{1}
+\setlist[subalineascomponto,1]{label={$\circ$},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+
+% Ambiente para alineas e e subalineas (incisos) com numeros
+\newlist{alineascomnumero}{enumerate}{2}
+\setlist[alineascomnumero,1]{label={$\arabic*$.},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineascomnumero,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{subalineascomnumero}{enumerate}{1}
+\setlist[subalineascomnumero,1]{label={$\arabic*$.},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Funcoes                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Verifica se uma determinada macro não está vazia
+\newcommand{\ifnotempty}[3]{\ifthenelse{\not\equal{#1}{}}{#2}{#3}}
+
+% Verifica se uma determinada macro está vazia
+\newcommand{\ifempty}[3]{\ifthenelse{\equal{#1}{}}{#2}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Variaveis               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ies}{\def \@ies}
+\newcommand{\iessigla}{\def \@iessigla}
+\newcommand{\centro}{\def \@centro}
+\newcommand{\departamento}{\def \@departamento}
+\newcommand{\programamestrado}{\def \@programamestrado}
+\newcommand{\programadoutorado}{\def \@programadoutorado}
+\newcommand{\nomedomestrado}{\def \@mestrado}
+\newcommand{\nomedodoutorado}{\def \@doutorado}
+\newcommand{\mestreem}{\def \@mestreem}
+\newcommand{\doutorem}{\def \@doutorem}
+\newcommand{\areadeconcentracaomestrado}{\def \@areadeconcentracaomestrado}
+\newcommand{\areadeconcentracaodoutorado}{\def \@areadeconcentracaodoutorado}
+\newcommand{\dataaprovacao}{\def \@dataaprovacao}
+\newcommand{\epigrafee}{\def \@epigrafee}
+\newcommand{\autordaepigrafe}{\def \@autordaepigrafe}
+\newcommand{\graduacaoem}{\def \@graduacaoem}
+\newcommand{\especializacaoem}{\def \@especializacaoem}
+\newcommand{\habilitacao}{\def \@habilitacao}
+\newcommand{\membrodabancadois}{\def \@membrodabancadois}
+\newcommand{\membrodabancatres}{\def \@membrodabancatres}
+\newcommand{\membrodabancaquatro}{\def \@membrodabancaquatro}
+\newcommand{\membrodabancacinco}{\def \@membrodabancacinco}
+\newcommand{\membrodabancaseis}{\def \@membrodabancaseis}
+\newcommand{\membrodabancaumies}{\def \@membrodabancaumies}
+\newcommand{\membrodabancadoisies}{\def \@membrodabancadoisies}
+\newcommand{\membrodabancatresies}{\def \@membrodabancatresies}
+\newcommand{\membrodabancaquatroies}{\def \@membrodabancaquatroies}
+\newcommand{\membrodabancacincoies}{\def \@membrodabancacincoies}
+\newcommand{\membrodabancaseisies}{\def \@membrodabancaseisies}
+\newcommand{\membrodabancadoiscentro}{\def \@membrodabancadoiscentro}
+\newcommand{\membrodabancatrescentro}{\def \@membrodabancatrescentro}
+\newcommand{\membrodabancaquatrocentro}{\def \@membrodabancaquatrocentro}
+\newcommand{\membrodabancacincocentro}{\def \@membrodabancacincocentro}
+\newcommand{\membrodabancaseiscentro}{\def \@membrodabancaseiscentro}
+\newcommand{\orientadories}{\def \@orientadories}
+\newcommand{\orientadorcentro}{\def \@orientadorcentro}
+\newcommand{\coorientadories}{\def \@coorientadories}
+\newcommand{\coorientadorcentro}{\def \@coorientadorcentro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Imprimir as Variaveis        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimiries}{\@ies}
+\newcommand{\imprimiriessigla}{\@iessigla}
+\newcommand{\imprimircentro}{\@centro}
+\newcommand{\imprimirdepartamento}{\@departamento}
+\newcommand{\imprimirprogramamestrado}{\@programamestrado}
+\newcommand{\imprimirprogramadoutorado}{\@programadoutorado}
+\newcommand{\imprimirmestrado}{\@mestrado}
+\newcommand{\imprimirdoutorado}{\@doutorado}
+\newcommand{\imprimirmestreem}{\@mestreem}
+\newcommand{\imprimirdoutorem}{\@doutorem}
+\newcommand{\imprimirareadeconcentracaomestrado}{\@areadeconcentracaomestrado}
+\newcommand{\imprimirareadeconcentracaodoutorado}{\@areadeconcentracaodoutorado}
+\newcommand{\imprimirdataaprovacao}{\@dataaprovacao}
+\newcommand{\imprimirepigrafee}{\@epigrafee}
+\newcommand{\imprimirautordaepigrafe}{\@autordaepigrafe}
+\newcommand{\imprimirgraduacaoem}{\@graduacaoem}
+\newcommand{\imprimirespecializacaoem}{\@especializacaoem}
+\newcommand{\imprimirhabilitacao}{\@habilitacao}
+\newcommand{\imprimirmembrodabancadois}{\@membrodabancadois}
+\newcommand{\imprimirmembrodabancatres}{\@membrodabancatres}
+\newcommand{\imprimirmembrodabancaquatro}{\@membrodabancaquatro}
+\newcommand{\imprimirmembrodabancacinco}{\@membrodabancacinco}
+\newcommand{\imprimirmembrodabancaseis}{\@membrodabancaseis}
+\newcommand{\imprimirmembrodabancaumies}{\@membrodabancaumies}
+\newcommand{\imprimirmembrodabancadoisies}{\@membrodabancadoisies}
+\newcommand{\imprimirmembrodabancatresies}{\@membrodabancatresies}
+\newcommand{\imprimirmembrodabancaquatroies}{\@membrodabancaquatroies}
+\newcommand{\imprimirmembrodabancacincoies}{\@membrodabancacincoies}
+\newcommand{\imprimirmembrodabancaseisies}{\@membrodabancaseisies}
+\newcommand{\imprimirmembrodabancadoiscentro}{\@membrodabancadoiscentro}
+\newcommand{\imprimirmembrodabancatrescentro}{\@membrodabancatrescentro}
+\newcommand{\imprimirmembrodabancaquatrocentro}{\@membrodabancaquatrocentro}
+\newcommand{\imprimirmembrodabancacincocentro}{\@membrodabancacincocentro}
+\newcommand{\imprimirmembrodabancaseiscentro}{\@membrodabancaseiscentro}
+\newcommand{\imprimirorientadories}{\@orientadories}
+\newcommand{\imprimirorientadorcentro}{\@orientadorcentro}
+\newcommand{\imprimircoorientadories}{\@coorientadories}
+\newcommand{\imprimircoorientadorcentro}{\@coorientadorcentro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Valor de Padrao           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ies{Universidade Federal do Ceará}
+\iessigla{UFC}
+\centro{}
+\departamento{}
+\graduacaoem{}
+\habilitacao{} % Pode colocar tambem 'licenciada'
+\especializacaoem{}
+\programamestrado{}
+\nomedomestrado{}
+\mestreem{}
+\areadeconcentracaomestrado{}
+\programadoutorado{}
+\nomedodoutorado{}
+\doutorem{}
+\areadeconcentracaodoutorado{}
+\autor{}
+\titulo{}
+\data{}
+\local{}
+\dataaprovacao{}
+\orientador{}
+\orientadories{}
+\orientadorcentro{}
+\orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminin
+\coorientador{}
+\coorientadories{}
+\coorientadorcentro{}
+\coorientadorfeminino{nao}
+\membrodabancadois{}
+\membrodabancadoiscentro{}
+\membrodabancadoisies{}
+\membrodabancatres{}
+\membrodabancatrescentro{}
+\membrodabancatresies{}
+\membrodabancaquatro{}
+\membrodabancaquatrocentro{}
+\membrodabancaquatroies{}
+\membrodabancacinco{}
+\membrodabancacincocentro{}
+\membrodabancacincoies{}
+\membrodabancaseis{}
+\membrodabancaseiscentro{}
+\membrodabancaseisies{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       Definições de Variaveis       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\preambulotccgraduacao}{
+	Trabalho de Conclusão de Curso apresentado ao Curso de Graduação em \imprimirgraduacaoem\ do \imprimircentro\ da \imprimiries, como requisito parcial à obtenção do grau de \imprimirhabilitacao\ em \imprimirgraduacaoem. \\
+}
+
+\newcommand{\preambulotccespecializacao}{
+	Trabalho de Conclusão de Curso apresentado ao Curso de Especialização em \imprimirespecializacaoem\ do \imprimircentro\ da \imprimiries, como requisito parcial à obtenção da certificação de especialista em \imprimirespecializacaoem. \\
+}
+
+\newcommand{\preambulodissertacao}{
+	Dissertação apresentada ao Curso de \imprimirmestrado\ do \imprimirprogramamestrado\ do \imprimircentro\ da \imprimiries, como requisito parcial à obtenção do título de mestre em \imprimirmestreem. Área de Concentração: \imprimirareadeconcentracaomestrado \\
+}
+
+\newcommand{\preambulotese}{
+	Tese apresentada ao \imprimirprogramadoutorado\ do \imprimircentro\ da \imprimiries, como requisito parcial à obtenção do título de doutor em \imprimirdoutorem. Área de Concentração: \imprimirareadeconcentracaodoutorado \\
+}
+
+\preambulo{
+	\ifthenelse{\boolean{ufctex@ehqualificacao}}{ %
+		Proposta de qualificacao apresentada ao Curso de \imprimirmestrado\  da \imprimiries\ (\imprimiriessigla) como requisito parcial para a defesa de dissertação.
+	}{ %
+		\ifthenelse{\boolean{ufctex@ehdissertacao}}{ %
+			\preambulodissertacao %	
+		}{
+			\ifthenelse{\boolean{ufctex@ehtese}}{ %
+				\preambulotese	 %
+			}{
+				\ifthenelse{\boolean{ufctex@ehtccgraduacao}}{ %
+					\preambulotccgraduacao	 %
+				}{
+					\preambulotccespecializacao %
+				}
+			}
+		}
+	} %	
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Capa                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimircapatese}{%
+	\begin{capa}%
+		% Todos os elementos da capa devem esta centralizado
+		\center
+		% Todos os elementos da capa devem esta em negrito
+		\bfseries
+
+        \includegraphics[scale=0.10]{lib/logo-ufc} \\
+        \vspace{-0.4cm}
+		\MakeUppercase{\imprimiries} \\
+		\MakeUppercase{\imprimircentro} \\
+		\MakeUppercase{\imprimirdepartamento} \\
+		\abntex@ifnotempty{\imprimirprogramadoutorado}{
+			\MakeUppercase{\imprimirprogramadoutorado} \\
+		}		
+		\MakeUppercase{\imprimirdoutorado} \\
+
+		\vspace{\onelineskip}
+
+        \vspace{2.0cm}
+        
+		\MakeUppercase{\imprimirautor}
+		
+		\vspace{3.0cm}
+		
+		\MakeUppercase{\imprimirtitulo}
+		
+		\vfill
+		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\imprimirdata
+	\end{capa}
+}
+
+\newcommand{\imprimircapadissertacao}{%
+	\begin{capa}%
+		% Todos os elementos da capa devem esta centralizado
+		\center
+		% Todos os elementos da capa devem esta em negrito
+		\bfseries
+
+        \includegraphics[scale=0.10]{lib/logo-ufc} \\
+        \vspace{-0.4cm}
+		\MakeUppercase{\imprimiries} \\
+		\MakeUppercase{\imprimircentro} \\
+		\MakeUppercase{\imprimirdepartamento} \\
+		\abntex@ifnotempty{\imprimirprogramamestrado}{
+			\MakeUppercase{\imprimirprogramamestrado} \\
+		}		
+		\MakeUppercase{\imprimirmestrado} \\
+
+		\vspace{\onelineskip}
+		
+		\vspace{2.0cm}
+
+		\MakeUppercase{\imprimirautor}
+		
+		\vspace{3.0cm}
+		
+		\MakeUppercase{\imprimirtitulo}
+		
+		\vfill
+		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\imprimirdata
+	\end{capa}	
+}
+
+\newcommand{\imprimircapatcc}[1]{%
+	\begin{capa}%
+		% Todos os elementos da capa devem esta centralizado
+		\center
+		% Todos os elementos da capa devem esta em negrito
+		\bfseries
+
+        \includegraphics[scale=0.10]{lib/logo-ufc} \\
+        \vspace{-0.4cm}
+		\MakeUppercase{\imprimiries} \\
+		\MakeUppercase{\imprimircentro} \\
+		\MakeUppercase{\imprimirdepartamento} \\
+		\MakeUppercase{Curso de #1 em \imprimirgraduacaoem} \\
+
+		\vspace{\onelineskip}
+
+		\vspace{2.0cm}
+
+		\MakeUppercase{\imprimirautor}
+		
+		\vspace{3.0cm}
+		
+		\MakeUppercase{\imprimirtitulo}
+		
+		\vfill
+		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\imprimirdata
+	\end{capa}	
+}
+
+\renewcommand{\imprimircapa}{%
+	% Toda capa deve ter pagina 0
+	\setcounter{page}{0}
+	\ifthenelse{\boolean{ufctex@ehdissertacao}}{ %
+			\imprimircapadissertacao %	
+	}{
+		\ifthenelse{\boolean{ufctex@ehtese}}{ %
+			\imprimircapatese	 %
+		}{
+			\ifthenelse{\boolean{ufctex@ehtccgraduacao}}{ %
+				\imprimircapatcc{Graduação}	 %
+			}{
+				\imprimircapatcc{Especialização} %
+			}
+		}
+	}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Folha de Rosto            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+	\begin{center}
+		\normalsize\MakeUppercase\imprimirautor\par
+		\vspace{4.0cm}\par
+		\normalsize\MakeUppercase\imprimirtitulo
+	\end{center}
+	
+	\vspace{4.0cm}
+	
+	%Retira o espaço do paragrafo
+	\hspace*{-2cm}
+	%Adiciona o espaço da margem
+	\hspace*{8cm}
+	\begin{minipage}{8cm}
+		\begin{SingleSpace}
+			\imprimirpreambulo	
+			\newline
+			\artigoorientador: \ignorespaces\imprimirorientador \\
+			\abntex@ifnotempty{\imprimircoorientador}{
+				\newline
+				\artigocoorientador: \ignorespaces\imprimircoorientador				
+			}
+		\end{SingleSpace}		
+	\end{minipage}
+	
+	\vfill
+	\centering
+	\normalsize\MakeUppercase\imprimirlocal \par
+	\normalsize\imprimirdata	
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Folha de Aprovacao          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define o comprimento da linha das assinaturas na Folha de Aprovacao
+\setlength{\ABNTEXsignwidth}{9cm}
+
+% Largura da linha da assinatura
+\setlength{\ABNTEXsignthickness}{1pt}
+
+% Espaço entre uma assintura e outra
+\setlength{\ABNTEXsignskip}{\onelineskip}
+
+\newcommand{\imprimirfolhadeaprovacaotese}{
+	% Define o comprimento da linha das assinaturas na Folha de Aprovacao
+	\setlength{\ABNTEXsignwidth}{8cm}
+	
+	% Espaço entre uma assintura e outra
+	\setlength{\ABNTEXsignskip}{18pt}
+
+	\begin{center}
+		\MakeUppercase{\imprimirautor}\par
+		\vspace{\onelineskip}
+		\vspace{\onelineskip}
+		\MakeUppercase{\imprimirtitulo}
+	\end{center}
+	
+	\vspace{\onelineskip}
+	\vspace{\onelineskip}
+	
+	%Retira o espaço do paragrafo
+	\hspace*{-2cm}
+	%Adiciona o espaço da margem
+	\hspace*{8cm}	
+	\begin{minipage}{7.5cm}
+		\begin{SingleSpace}
+			\imprimirpreambulo \\			
+		\end{SingleSpace}		
+	\end{minipage}
+
+	\vspace{\onelineskip}
+		
+	\noindent Aprovada em: \imprimirdataaprovacao
+	
+	\vspace{\onelineskip}
+	
+	\begin{center}
+		BANCA EXAMINADORA
+	\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Membro Um da banca é sempre o Orientador
+	\assinatura{\imprimirorientador~\artigoorientadorcomparenteses \\ \imprimirorientadories}
+	
+	% Membro Dois da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimircoorientador}{
+		\assinatura{\imprimircoorientador~\artigocoorientadorcomparenteses \\ \imprimircoorientadories}
+	}
+	
+	% Membro Tres da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancadois}{
+		\assinatura{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoisies}
+	}
+		
+	% Membro Tres da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancatres}{
+		\assinatura{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
+	}
+	
+	% Membro Quatro da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancaquatro}{
+		\assinatura{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatroies}
+	}	
+	
+	\pagebreak
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+
+\newcommand{\imprimirfolhadeaprovacaodissertacao}{
+
+	\begin{center}
+		\MakeUppercase{\imprimirautor}\par
+		\vspace{\onelineskip}
+		\vspace{\onelineskip}
+		\MakeUppercase{\imprimirtitulo}
+	\end{center}
+	
+	\vspace{\onelineskip}
+	\vspace{\onelineskip}
+	
+	%Retira o espaço do paragrafo
+	\hspace*{-2cm}
+	%Adiciona o espaço da margem
+	\hspace*{8cm}	
+	\begin{minipage}{8cm}
+		\begin{SingleSpace}
+			\imprimirpreambulo \\			
+		\end{SingleSpace}		
+	\end{minipage}
+
+	\vspace{\onelineskip}
+		
+	\noindent Aprovada em: \imprimirdataaprovacao
+	
+	\vspace{\onelineskip}
+	
+	\begin{center}
+		BANCA EXAMINADORA
+	\end{center}
+		\vspace{\onelineskip}
+
+	% Membro Um da banca é sempre o Orientador
+	\assinatura{\imprimirorientador~\artigoorientadorcomparenteses \\ \imprimirorientadories}
+	
+	% Membro Dois da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimircoorientador}{
+		\assinatura{\imprimircoorientador~\artigocoorientadorcomparenteses \\ \imprimircoorientadories}
+	}
+	
+	% Membro Três da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancadois}{
+		\assinatura{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoisies}
+	}
+		
+	% Membro Três da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancatres}{
+		\assinatura{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
+	}
+	
+	% Membro Quatro da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancaquatro}{
+		\assinatura{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatroies}
+	}	
+	
+	\pagebreak
+}
+
+\newcommand{\imprimirfolhadeaprovacaotcc}{
+
+	\begin{center}
+		\MakeUppercase{\imprimirautor}\par
+		\vspace{\onelineskip}
+	    \vspace{2cm}
+		\vspace{\onelineskip}
+		\MakeUppercase{\imprimirtitulo}
+	\end{center}
+	
+	\vspace{\onelineskip}
+	\vspace{2cm}
+	\vspace{\onelineskip}
+	
+	%Retira o espaco do paragrafo
+	\hspace*{-2cm}
+	%Adiciona o espaço da margem
+	\hspace*{8cm}	
+	\begin{minipage}{8cm}
+		\begin{SingleSpace}
+			\imprimirpreambulo \\			
+		\end{SingleSpace}		
+	\end{minipage}
+
+	\vspace{\onelineskip}
+		
+	\noindent Aprovada em: \imprimirdataaprovacao
+	
+	\vspace{\onelineskip}
+	
+	\begin{center}
+		BANCA EXAMINADORA
+	\end{center}
+	    \vspace{-1cm}
+		\vspace{\onelineskip}
+
+	% Membro Um da banca é sempre o Orientador
+	\assinatura{\imprimirorientador~\artigoorientadorcomparenteses \\ \imprimirorientadories}
+	
+	% Membro Dois da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimircoorientador}{
+		\assinatura{\imprimircoorientador~\artigocoorientadorcomparenteses \\ \imprimircoorientadories}
+	}
+	
+	% Membro Três da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancadois}{
+		\assinatura{\imprimirmembrodabancadois \\  \imprimirmembrodabancadoisies}
+	}
+		
+	% Membro Três da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancatres}{
+		\assinatura{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
+	}
+	
+	% Membro Quatro da banca pode ser o coorientador ou outro membro
+	\ifnotempty{\imprimirmembrodabancaquatro}{
+		\assinatura{\imprimirmembrodabancaquatro \\  \imprimirmembrodabancaquatroies}
+	}	
+	
+	\pagebreak
+}
+
+\newcommand{\imprimirfolhadeaprovacao}{
+	\ifthenelse{\boolean{ufctex@ehdissertacao}}{ %
+    	\imprimirfolhadeaprovacaodissertacao %	
+    }{
+    	\ifthenelse{\boolean{ufctex@ehtese}}{ %
+    		\imprimirfolhadeaprovacaotese	 %
+    	}{
+    		\ifthenelse{\boolean{ufctex@ehtccgraduacao}}{ %
+    			\imprimirfolhadeaprovacaotcc	 %
+    		}{
+    			\imprimirfolhadeaprovacaotcc
+    		}
+    	}
+	}
+}
+
+
+%============================================================
+%   Definicao de comandos e parametros especificos e configuracao de ambientes de teorema
+%=======================================================
+% Retira a linha entre a citacao inicial da fonte
+%\setlength{\epigraphrule}{0.0pt}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Teoremas                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Lg}{\emph{\sc L}}
+\newcommand{\contem}{\supset}
+\newcommand{\estacontido}{\subset}
+\newtheorem{afirmacao}{{\sc Afirmação}}[section]
+\newtheorem{argumento}{\sc Argumento~}[section]
+\newtheorem{teo}{Teorema}[section]
+\newtheorem{lema}{Lema}[section]
+\newtheorem{cor}{Corolário}[section]
+\newtheorem{prop}[teo]{Proposição}
+\newtheorem{conjec}{Conjectura}[section]
+\newtheorem{premissa}{Premissa}[chapter]
+\newtheorem{procedimento}{Procedimentos}[section]
+\newtheorem{heuristica}{Heurística}[section]
+\newtheorem{axioma}{Axioma}[section]
+\newtheorem{exem}{Exemplo}
+\newtheorem{xdefinicao}{Definição}[section]
+\newtheorem{cdefinicao}{Definição}[chapter]
+\newtheorem{propriedade}{Propriedade}[chapter]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Questoes                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Contar as questoes
+\newcounter{quest}
+
+\newenvironment{questao}{ %
+	\begin{list}{\textbf{Questão \arabic{quest}.}}{\usecounter{quest} %
+		\setlength{\labelwidth}{-2mm} \setlength{\parsep}{0mm} %
+		\setlength{\topsep}{0mm} \setlength{\leftmargin}{0mm}} %
+	\renewcommand{\labelenumi}{(\alph{enumi})}	%
+}{ %
+	\end{list} %
+} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Dedicatoria             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirdedicatoria}[1]{
+	\ifthenelse{\boolean{ufctex@ehqualificacao}}{}{
+		\vspace*{20cm}
+		\vfill
+		%Retira o espaço do paragrafo
+		\hspace*{-2cm}
+		%Adiciona o espaço da margem
+		\hspace*{8cm}	
+		\begin{minipage}{8cm}
+			\input{#1}
+		\end{minipage}
+		\pagebreak
+	}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Errata               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirerrata}[1]{
+	\begin{errata} 
+	\input{#1}
+	\end{errata}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            Agradecimentos           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimiragradecimentos}[1]{ 
+	\ifthenelse{\boolean{ufctex@ehqualificacao}}{}{
+		\begin{agradecimentos}
+			\begin{paracol}{1}
+				\setlength{\parindent}{2cm}%
+				\input{#1}
+			\end{paracol}		
+		\end{agradecimentos}
+	}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Epigrafe              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirepigrafe}[1]{
+	\ifthenelse{\boolean{ufctex@ehqualificacao}}{}{
+		\vspace*{\fill}
+		\vfill
+		%Retira o espaco do paragrafo
+		\hspace*{-2cm}
+		%Adiciona o espaco da margem
+		\hspace*{8cm}	
+		\begin{minipage}{8cm}
+			\input{#1}
+			\raggedleft{(\imprimirautordaepigrafe) \par}
+		\end{minipage}		
+		\pagebreak
+	}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Ficha Catalografica        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirfichacatalografica}[1]{
+	\includepdf[pages=1]{#1} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Resumo                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\palavraschave}[1]{ %
+	\vspace{\onelineskip} 
+	\noindent \textbf{Palavras-chave:} #1%
+	\hypersetup{%
+		pdfborder = {0 0 0}
+	}
+}
+
+\newcommand{\keywords}[1]{ %
+	\vspace{\onelineskip} 
+	\noindent \textbf{Keywords:} #1%
+}
+
+\newcommand{\imprimirresumo}[1]{ %
+	\begin{resumo} %
+		\input{#1} %
+	\end{resumo} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Abstract              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirabstract}[1]{ %
+	\begin{resumo}[Abstract] %
+		\input{#1} %
+	\end{resumo} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Quadro             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Novo list of (listings) para QUADROS
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de Quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configuracoes para atender as regras da ABNT
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+
+\newcommand{\imprimirlistadequadros}{ %
+	%\pdfbookmark[0]{\listofquadrosname}{loq} %
+	\listofquadros* %
+	\pagebreak %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Codigos-fonte      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Comandos para formatar a exibicao de codigos-fonte
+
+\renewcommand{\lstlistingname}{Código-fonte}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de Códigos-Fonte}%
+
+%\AtBeginDocument{ %
+%	\counterwithout{lstlisting}{chapter}
+%}
+
+\lstset{
+	commentstyle=\color{Green}\ttfamily,
+	basicstyle=\ttfamily,
+	xleftmargin=15pt,
+	stepnumber=1, 
+	numbers=left,
+	keywordstyle=\color{blue},
+	tabsize=2,	
+	rulecolor=\color{black},
+	upquote=true,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	belowskip=\onelineskip,
+	belowcaptionskip=\onelineskip
+}
+
+%\newfloat[chapter]{codigofonte}{locf}{\lstlistingname}
+%\newlistof{listofcodigosfonte}{locf}{\lstlistlistingname}
+%\newlistentry{codigofonte}{locf}{0}
+%
+%% configuracoes para atender as regras da ABNT
+%\counterwithout{codigofonte}{chapter}
+%\renewcommand{\cftcodigofontename}{\lstlistingname\space} 
+%\renewcommand*{\cftcodigofonteaftersnum}{\hfill--\hfill}
+
+\AtBeginDocument{ %
+	\counterwithout{lstlisting}{chapter}
+}
+
+\newlength\mylen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\newlistentry{lstlisting}{lol}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftlstlistingpresnum{\lstlistingname~}
+\settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
+\addtolength\cftlstlistingnumwidth{\mylen} %
+\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
+
+
+\newcommand{\imprimirlistadecodigosfonte}{ %
+	%\pdfbookmark[0]{\listofquadrosname}{loq} %
+	\begin{KeepFromToc} %
+		\lstlistoflistings %
+	\end{KeepFromToc} %
+	\pagebreak %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Ilustracoes        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% A lista de Ilustracoes não deve aparecer no sumario
+
+\newcommand{\imprimirlistadeilustracoes}{
+	\begin{KeepFromToc} %
+		\listoffigures\pagebreak %
+	\end{KeepFromToc} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Algoritmos         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength\myAlgoLen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loadepth\@ne
+\newlistof{algorithms}{loa}{\listalgorithmname}
+\newlistentry{algocf}{loa}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftalgocfpresnum{\algorithmcfname~}
+\settowidth\myAlgoLen{\cftalgocfpresnum\cftalgocfaftersnum}
+\addtolength\cftalgocfnumwidth{\myAlgoLen} %
+\renewcommand\cftalgocfaftersnum{\hfill\textendash\hfill}
+
+
+% A lista de Algoritmos nao deve aparecer no sumario
+
+\newcommand{\imprimirlistadealgoritmos}{
+	\listofalgorithms
+	\pagebreak %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            Lista de Tabelas         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% A lista de tabela nao deve aparecer no sumario
+\newcommand{\imprimirlistadetabelas}{ %
+	\begin{KeepFromToc} %
+		\listoftables \pagebreak%
+	\end{KeepFromToc} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Lista de Abreviaturas e Siglas   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Largura da lista de abreviaturas
+\setlength{\glsdescwidth}{\linewidth}
+
+\newcommand{\imprimirlistadeabreviaturasesiglas}{ %
+	\printglossary[type=\acronymtype,style=long,nonumberlist,title={Lista de Abreviaturas e Siglas\vspace{-0.3cm}}] %
+	\pagebreak %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Simbolos           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirlistadesimbolos}[1]{
+	\input{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Glossario              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Glossario desenvolvido para a UFC
+\setlist{nosep}
+\newglossarystyle{glossario-ufc}{%
+	%
+	\renewenvironment{theglossary}%
+	{\vspace{-0.3cm}\begin{description}[leftmargin=0cm]\itemsep -1pt}{\end{description}}%
+	%
+	\renewcommand*{\glossaryheader}{}%
+	
+	% indicate what to do at the start of each logical group
+	
+	\renewcommand*{\glsgroupheading}[1]{%
+		\vspace{0cm}\item[{\glsgetgrouptitle{##1}}] \vspace{\onelineskip}		
+	}
+	%
+	\renewcommand*{\glsgroupskip}{}%
+	% Depois da palavra, colocar o ":" e no fim o ponto final "."
+	\renewcommand*{\glossaryentryfield}[5]{%
+		\item[\glstarget{##1}{##2}:] ##3.%
+	}%
+}
+
+\newcommand{\imprimirglossario}{ %
+	\glossarystyle{glossario-uece} %	
+	\printglossary[title=GLOSSÁRIO,toctitle=GLOSSÁRIO] %
+	\addcontentsline{toc}{chapter}{GLOSSÁRIO}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Referencias           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirreferencias}[1]{ %
+	\bibliography{#1} %
+	% TODO Por algum motivo, colocar esse comando antes da bibliografia faz com que o 
+	% ultimo capitulo dos elem fique sem o numero da pagina. 
+	\postextual %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Apendices             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define o titulo no sumario do Apendice para nao negrito
+\newcommand{\apendice}[1]{\chapter{\normalfont#1}}
+
+% O nome "APÊNDICES" nao deve vir em pagina distinta, redigido em letras maiusculas, centralizado, negritado, tamanho da fonte 12.
+\newcommand{\imprimirpaginaapendices}{ %
+	\newpage %
+	\addcontentsline{toc}{chapter}{AP\^ENDICES} %
+	%\begin{vplace}[0.7] %
+	%	\centering\textbf{AP\^ENDICESteste2} %
+	%\end{vplace} %
+	%\clearpage
+}
+
+% Altera a fonte da letra titulo do apendice nao negrito
+\renewcommand{\chaptitlefont}{ %
+	\ifthenelse{\boolean{abntex@apendiceousecao}}{ %
+		\bfseries%\normalsize %
+	}{%
+		\ABNTEXchapterfont\ABNTEXchapterfontsize %
+	}%
+}
+
+% Retira o negrito do apêndice e o coloca alinhado a esquerda
+%\renewcommand{\printchaptertitle}[1]{%
+%	\chaptitlefont%
+%	\ifthenelse{\boolean{abntex@innonumchapter}}{\centering\ABNTEXchapterupperifneeded{#1}}{%
+%		\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+%			\normalfont
+%			\settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+%			\hspace{-0.3cm} %
+%			#1 %	\ABNTEXchapterupperifneeded{#1}%
+%		}{%
+%			\settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+%			\parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}
+%		}%
+%	}    
+%}
+
+\newcommand{\imprimirapendices}{ %
+	\imprimirpaginaapendices
+	\apendices %
+	% Coloca o negrito da palavra "Apêndice"
+	\PRIVATEapendiceconfig{\bfseries\apendicename}{\bfseries\apendicesname} %
+	
+}
+
+% Correcao do problema de espacamento entre as palavras
+\renewcommand{\printchapternum}{%
+	\tocprintchapter
+	\setboolean{abntex@innonumchapter}{false}
+	\chapnumfont%
+	\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+		\hspace{-0.3cm} %
+	}{}%
+	\space\thechapter\space%
+	\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+		\tocinnonumchapter
+		~\textendash~%
+	}{} % else
+}
+
+% Remove uppercase do apendice e anexos
+\makeatletter
+\ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{
+	\settocpreprocessor{chapter}{%
+		\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+			\let\tempf@rtoc\f@rtoc%
+			\def\f@rtoc{%
+				\texorpdfstring{\tempf@rtoc}{\tempf@rtoc}}%
+		}{
+		\let\tempf@rtoc\f@rtoc%
+		\def\f@rtoc{%
+			\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+	}
+}
+\settocpreprocessor{part}{%
+	\let\tempf@rtoc\f@rtoc%
+	\def\f@rtoc{%
+		\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+}
+}{}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Numero das Páginas        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit}
+\makeoddhead{abntheadings}{}{}{\ABNTEXfontereduzida\thepage}
+%\makeheadrule{abntheadings}{}{}
+
+% Cabecalho do inicio do capitulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Anexos               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Define o titulo no sumario do Anexo para nao negrito
+\newcommand{\anexo}[1]{\chapter{\normalfont#1}}
+
+% O nome ANEXOS nao deve vir em pagina distinta, redigido em letras maiusculas, centralizado, negritado, tamanho da fonte 12.
+\newcommand{\imprimirpaginaanexo}{ %
+	%\newpage %
+	\addcontentsline{toc}{chapter}{ANEXOS} %
+	%\begin{vplace}[0.7] %
+	%	\centering\textbf{ANEXOS} %
+	%\end{vplace} %
+	%\clearpage
+}
+
+\newcommand{\imprimiranexos}{ %
+	\imprimirpaginaanexo
+	\anexos %
+	% Retira o negrito da palavra "Apendice"
+	\PRIVATEapendiceconfig{\bfseries\anexoname}{\bfseries\anexosname} %
+	
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Indice               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirindice}{ %
+	\printindex
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Configuracao do Sumario      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\contentsname}{}
+
+\newcommand{\imprimirsumario}{ %
+	\pdfbookmark[0]{Sumário}{toc}
+	\tableofcontents*
+	\cleardoublepage
+}
+
+% Modifica o espaçamento no sumario
+% Nao ha espacos
+\setlength{\cftbeforeparagraphskip}{0pt}
+\setlength{\cftbeforesubsectionskip}{0pt}
+\setlength{\cftbeforesectionskip}{0pt}
+\setlength{\cftbeforesubsubsectionskip}{0pt}
+\setlength{\cftbeforechapterskip}{0pt}
+
+%\renewcommand\cftchapterfont{\normalsize}
+%\renewcommand\cftsectionfont{\normalsize\normalfont}
+\renewcommand\cftsubsectionfont{\normalsize\itshape}
+\renewcommand\cftsubsubsectionfont{\normalsize\normalfont\itshape}
+% Altera a fonte da secao quinaria
+\renewcommand*{\cftparagraphfont}{\normalsize\normalfont\itshape}
+
+% Paginas do sumario nao podem ser negrito.
+\renewcommand\cftchapterpagefont{\normalfont}
+\renewcommand\cftsectionpagefont{\normalfont}
+\renewcommand\cftsubsectionpagefont{\normalfont}
+% Altera a fonte da secao quinaria
+\renewcommand\cftparagraphpagefont{\normalfont}
+
+%% Secao Secundaria (Section): Caixa alta, Nao Negrito, tamanho 12
+%\makeatletter
+%\let\oldcontentsline\contentsline
+%\def\contentsline#1#2{%
+%	\expandafter\ifx\csname l@#1\endcsname\l@section %
+%	\expandafter\@firstoftwo %
+%	\else %
+%	\expandafter\@secondoftwo %
+%	\fi %
+%	{%
+%		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+%	}{%
+%	\oldcontentsline{#1}{#2}%
+%}%
+%}
+%\makeatother

@@ -1,0 +1,199 @@
+\chapter{Metodologia}
+\label{chap:metodologia}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\section{Exemplo de alíneas}\label{sec:exemplo-de-algoritmos-e-figuras}
+
+    Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+    %\begin{algorithm}[h!]
+    %	\SetSpacedAlgorithm
+    %	\caption{\label{exemplo-de-algoritmo}Como escrever algoritmos no \LaTeX2e}
+    %	\Entrada{o proprio texto}
+    %	\Saida{como escrever algoritmos com  Latex:}% \LaTeX2e }
+    %	\Inicio{
+    %		inicialização;
+    %		\Repita{fim do texto}{
+    %			leia o atual;
+    %			\Se{entendeu}{
+    %				vá para o proximo\;
+    %				próximo se torna o atual;}
+    %			\Senao{volte ao início da seção;}
+    %		}
+    %	}	
+    %\end{algorithm}
+
+    Texto texto texto texto texto texto texto texto texto texto texto.
+
+    %\begin{algorithm}[H]
+    %	\Entrada{o proprio texto}
+    %	\Saida{como escrever algoritmos com \LaTeX2e }
+    %	\Inicio{
+    %		inicialização\;
+    %		\Repita{fim do texto}{
+    %			leia o atual\;
+    %			\Se{entendeu}{
+    %				vá para o próximo\;
+    %				próximo se torna o atual\;}
+    %			\Senao{volte ao início da seção\;}
+    %		}
+    %	}
+    %	\caption{Exemplo de Algoritmo Versao 02}
+    %\end{algorithm}
+
+    %\begin{algorithm}
+    %	\begin{algorithmic}
+    %	\Entrada{o proprio texto}
+    %	\Saida{como escrever algoritmos com \LaTeX2e }	
+    %	\end{algorithmic}
+    %\end{algorithm}
+
+    Exemplo de alíneas com números:
+
+    \begin{alineascomnumero}
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+	    \item Texto texto texto texto texto texto texto texto texto texto texto texto .
+    \end{alineascomnumero}
+
+    Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+    Ou então figuras podem ser incorporadas de arquivos externos, como é o caso da \autoref{fig-grafico-1}. Se a figura que ser incluída se tratar de um diagrama, um gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será menor, e as imagens terão uma apresentação melhor, principalmente quando impressas, uma vez que imagens vetorias são perfeitamente escaláveis para qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel para produzir gráficos, ou o Microsoft Word para produzir ilustrações, exporte-os como PDF e os incorpore ao documento conforme o exemplo abaixo. No entanto, para manter a coerência no uso de software livre (já que você está usando LaTeX e abnTeX),  teste a ferramenta InkScape\index{InkScape}. ao CorelDraw\index{CorelDraw} ou ao Adobe Illustrator\index{Adobe! Illustrator}.  De todo modo, caso não seja possível  utilizar arquivos de imagens como PDF, utilize qualquer outro formato, como JPEG, GIF, BMP, etc.  Nesse caso, você pode tentar aprimorar as imagens incorporadas com o software livre \index{Gimp}Gimp. Ele é uma alternativa livre ao Adobe Photoshop\index{Adobe! Photoshop}.
+
+\section{Usando Fórmulas Matemáticas}
+
+Para escrever um símbolo matemático no texto, escreva símbolo entre cifrões, por exemplo, $\alpha$, $\beta$ e $\gamma$ são símbolo do alfabeto grego. Se você quiser inserir equações enumeradas, siga a estrutura de
+\begin{equation}
+    \label{eq:indices}
+	k_{n+1} = n^2 + k_n^2 - k_{n-1}.
+\end{equation}
+Observe a pontuação, pois a equação faz parte da frase e do parágrafo. Como a equação faz parte da frase, não se utiliza o \textit{label} numérico \ref{eq:indices}. 
+
+Quando for citar a Equação \ref{eq:indices} novamente no texto, utiliza-se o \textit{label} numérico. Repare que a palavra ``Equação'' foi escrita com ``E'' maiúsculo. 
+
+Um exemplo de equações com frações é dado por
+\begin{equation}
+	\label{eq:fracao}
+		\begin{aligned}
+			x = a_0 + \cfrac{1}{a_1
+				+ \cfrac{1}{a_2
+					+ \cfrac{1}{a_3 + \cfrac{1}{a_4} } } }.
+		\end{aligned}
+	\end{equation}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+	\begin{equation}
+		\begin{aligned}
+			k_{n+1} = n^2 + k_n^2 - k_{n-1}.
+		\end{aligned}
+	\end{equation}
+	
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+	\begin{equation}
+	\label{eq:trigo}
+		\begin{aligned}
+			\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+		\end{aligned}.
+	\end{equation}
+	
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+	\begin{equation}
+	\label{eq:matriz}
+		\begin{aligned}
+			A_{m,n} =
+			\begin{pmatrix}
+			a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+			a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+			\vdots  & \vdots  & \ddots & \vdots  \\
+			a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+			\end{pmatrix}
+		\end{aligned}.
+	\end{equation}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+	\begin{equation}
+	\label{eq:sistema}
+		\begin{aligned}
+			f(n) = \left\{ 
+			\begin{array}{l l}
+			n/2 & \quad \text{if $n$ is even}\\
+			-(n+1)/2 & \quad \text{if $n$ is odd}
+			\end{array} \right.
+		\end{aligned}.
+	\end{equation}
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+
+%\section{Usando Algoritmos}
+
+%\begin{algorithm}[h!]
+%	\SetSpacedAlgorithm
+%	\caption{\label{alg:algoritmo_de_colonica_de_formigas}Algoritmo de Otimização por Colônia de Formiga}
+%	\Entrada{Entrada do Algoritmo}
+%	\Saida{Saida do Algoritmo}
+%	\Inicio{
+%		Atribua os valores dos parâmetros\;
+%		Inicialize as trilhas de feromônios\;
+%		\Enqto{não atingir o critério de parada}{
+%			\Para{cada formiga}{
+%				Construa as Soluções\;
+%			}
+%			Aplique Busca Local (Opcional)\;
+%			Atualize o Feromônio\;
+%		}	
+%	}		
+%\end{algorithm}
+
+\section{Usando Código-fonte}
+
+Um exemplo de código-fonte, ou código de programação encontra-se no Apendice \ref{ap:A}
+
+ 
+\section{Usando Teoremas, Proposições, etc}
+
+ Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\begin{teo}[Pitágoras]
+	Em todo triângulo retângulo o quadrado do comprimento da
+	hipotenusa é igual a soma dos quadrados dos comprimentos dos catetos. Usando o Apêndice \ref{ap:C}
+\end{teo}
+
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\begin{teo}[Fermat]
+	Não existem inteiros $n > 2$, e $x, y, z$ tais que $x^n + y^n = z$
+\end{teo}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\begin{prop}
+	Para demonstrar o Teorema de Pitágoras...
+\end{prop}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\begin{exem}
+	Este é um exemplo do uso do ambiente exem definido acima.
+\end{exem}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+
+\begin{xdefinicao}
+	Definimos o produto de ...
+\end{xdefinicao}
+
+Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.
+
+\section{Usando Questões} 
+
+Um exemplo de questionário encontra-se no Apêndice \ref{ap:B}.
+
+%Movido para o Apêndice
+
