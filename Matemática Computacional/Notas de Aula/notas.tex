@@ -153,18 +153,30 @@ $$
 
 Perceba que os coeficientes de $p'$ são determinados de forma única. Como $p'$ tem as mesmas propriedades de $p_{T(f, 0, k)}$, temos $p' = p_{T(f, 0, k)}$
 
-Note como foi conveniente a suposição de que $a = 0$. Para determinar o coeficiente $c_i, i \in \{0\} \cup [k]$, utilizamos derivação para eliminar os coeficientes com índice menor que $i$, enquanto $a = 0$ elimina os coeficientes com índice maior que $i$. No entanto, apenas essa manipulação não é o bastante para resolvermos o caso geral de $p_{T(f, a, k)}$, com um $a$ qualquer.
+Note como foi conveniente a suposição de que $a = 0$. Para determinar
+o coeficiente $c_i, i \in \{0\} \cup [k]$, utilizamos derivação para
+eliminar os coeficientes com índice menor que $i$, enquanto $a = 0$
+elimina os coeficientes com índice maior que $i$. No entanto, apenas
+essa manipulação não é o bastante para resolvermos o caso geral de
+$p_{T(f, a, k)}$, com um $a$ qualquer.
 
 \begin{exercicio}
-	Tome $g(x) = x + a$. Considere $(g \circ f)(x) = f(x + a)$. Note que $(g \circ f)(0) = f(a)$. Quais são os valores das derivadas de $g \circ f$ em 0? Descreva $p_{T(g \circ f, 0, k)}$.
+  Tome $g(x) = x + a$. Considere $(f \circ g)(x) = f(x + a)$. Note que
+  $(f \circ g)(0) = f(a)$. Quais são os valores das derivadas de
+  $f \circ g$ em 0? Descreva $p_{T(f \circ g, 0, k)}$.
 \end{exercicio}
 
 \begin{exercicio}
-	Como o valor de $p_{T(g \circ f, 0, k)}$ (e de suas derivadas) em 0 se relaciona com o valor de $f$ (e de suas derivadas) em $a$?
+  Como o valor de $p_{T(f \circ g, 0, k)}$ (e de suas derivadas) em 0
+  se relaciona com o valor de $f$ (e de suas derivadas) em $a$?
 \end{exercicio}
 
 \begin{exercicio}
-	Note que, ao usarmos $g$, fazemos um ``shift" para a direita (para a esquerda, caso $a < 0$) na reta dos reais (o exercício anterior evidencia isso). Assim, seria preciso desfazer esse ``shift" para obtermos a propriedade desejada. Como poderíamos modificar $p_{T(g \circ f, 0, k)}$ de forma que o ``shift" seja desfeito?
+  Note que, ao usarmos $g$, fazemos um ``shift" para a direita (para a
+  esquerda, caso $a < 0$) na reta dos reais (o exercício anterior
+  evidencia isso). Assim, seria preciso desfazer esse ``shift" para
+  obtermos a propriedade desejada. Como poderíamos modificar
+  $p_{T(f \circ g, 0, k)}$ de forma que o ``shift" seja desfeito?
 \end{exercicio}
 
 Ao final desses exercícios, esperamos obter
@@ -222,6 +234,29 @@ Isso quer dizer que só podemos utilizar $p_{T(f, a, k)}$ como aproximação par
 
 Como pontos negativos para o uso do polinômio de Taylor para interpolações, observamos que seu uso é restrito pelo número de derivadas definidas para $f$. Se $f$ não for diferenciável no ponto de interesse, essa técnica não é aplicável. Mais ainda, usa-se os valores das derivadas de $f$ no ponto de interesse, o que se torna impeditivo quando $f$ não tem derivadas elementares ou essas são computacionalmente caras.
 
+\begin{figure}
+  \centering
+  \scalebox{1.0}{
+    \begin{tikzpicture}[domain=0:8]
+      \draw[very thin, color = gray] (-0.1, -1.1) grid (7.9, 3.9);
+      
+      \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
+      \draw[->] (0, -1.2) -- (0, 4.2) node[above] {$f(x)$};
+
+      % \clip (-0.1, -1.1) rectangle (7.9, 3.9);
+      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {cos(\x r)}) node[right] {$f(x)$};
+      \draw[domain = 0:7.1, very thin, color=red, smooth] plot (\x, {-1}) node[right] {$p_1(x)$};
+      \draw[domain = 0:6.2, very thin, color=orange, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2}) node[right] {$p_2(x)$};
+      \draw[domain = 0:6.5, very thin, color=purple, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2 - 0.04166*(\x - 3.14159)^4}) node[right] {$p_3(x)$};
+    \end{tikzpicture}
+  }
+  \caption{Ilustração de polinômios de Taylor interpolando
+    $f(x) =\cos(x)$ em torno do ponto $a = \pi$.  Os polinômios $p$
+    representam polinômiso de Taylor para certos valores de $k$:
+    $p_1(x)$ para $k = 0, 1$, $p_2(x)$ para $k = 2, 3$ e $p_3(x)$ para
+    $k = 4$.}
+\end{figure}
+
 \section{Zeros de funções}
 
 Nesta seção, vamos apresentar técnicas para encontrar raizes de uma função. Para isso, vamos fazer uso das interpolações descritas na seção anterior. Para fins de revisão, um ponto $\overline{x} \in A$ é dito raiz de $f : A \to B$, com $A, B \subseteq \mathbb{R}$, se $f(\overline{x}) = 0$. Já que vamos lidar com aproximações, definimos $\hat{x} \in A$ uma $\epsilon$-raiz de $f$, $\epsilon \in \mathbb{R}_+$, se existe uma raiz $\overline{x} \in A$ de $f$ tal que $\hat{x} \in [\overline{x} - \epsilon, \overline{x} + \epsilon]$ ou $|f(\hat{x})| \leq \epsilon$. Naturalmente, esperamos utilizar valores de $\epsilon$ suficientemente pequenos nessa definição.
@@ -242,7 +277,9 @@ O teorema acima é chamado de \emph{Teorema do Valor Intermediário}. Como podem
 
 Agora que temos condições para determinar a existência de uma raiz de $f$ em um intervalo de seu domínio, vamos desenvolver uma técnica para encontrar uma aproximação para essa raiz, uma $\epsilon$-raiz. Para isso, vamos utilizar um polinômio de Lagrange.
 
-Tome $[a, b] \subseteq A$ tal que existe uma raiz de $f$ em $[a, b]$. Vamos utilizar $p_{L(f, \{a, b\})}$ como aproximação de $f$ em $[a, b]$.
+Tome $[a, b] \subseteq A$ tal que $f(a)f(b) < 0$, e portanto com uma
+raiz de $f$ nesse intervalo. Vamos utilizar $p_{L(f, \{a,
+  b\})}$ como aproximação de $f$ em $[a, b]$.
 
 \begin{exercicio}
 	Argumente que $p_{L(f, \{a, b\})}$ tem uma única raiz em $[a, b]$.
@@ -340,17 +377,46 @@ Agora podemos dizer que ficou mais simples. Mas e agora? E se a raiz de $p_{L(f,
 	Usando o método da posição falsa, encontre $\sqrt{7}$ com uma precisão de quatro casas decimais. Quantas iterações foram usadas? Compare com o número de iterações usados pelo método da bisseção. Explique a relação entre os desempenhos dos métodos. Explique também por que não é possível representar $\sqrt{7}$ de forma precisa em um computador.
 \end{exercicio}
 
+\begin{figure}
+  \centering
+  \scalebox{1.0}{
+    \begin{tikzpicture}[domain=0:8]
+      \draw[very thin, color = gray] (-0.1, -4.1) grid (7.9, 3.9);
+      
+      \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
+      \draw[->] (0, -4.2) -- (0, 4.2) node[above] {$f(x)$};
+
+      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {sin(\x r)}) node[right] {$f(x)$};
+      \draw[domain = 0:7.1, very thin, color=red, smooth] plot (\x, {sin(1 r) + ((sin(4 r) - sin(1 r))/3)*(\x - 1)}) node[right] {$r_1(x)$};
+      \draw[domain = 0:7.1, very thin, color=purple, smooth] plot (\x, {sin(2.5794 r) + ((sin(4 r) - sin(2.5794 r))/(4 - 2.5794))*(\x - 2.5794)}) node[right] {$r_2(x)$};
+      % \draw[domain = 0:6.2, very thin, color=orange, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2}) node[right] {$p_2(x)$};
+      % \draw[domain = 0:6.5, very thin, color=purple, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2 - 0.04166*(\x - 3.14159)^4}) node[right] {$p_3(x)$};
+    \end{tikzpicture}
+  }
+  \caption{Ilustração de duas iterações do método da posição falsa.
+    Tomamos $f(x) = \sin(x)$ e consideramos a interpolação de sua
+    primeira iteração ($r_1(x)$) e de sua segunda iteração ($r_2(x)$).
+    A primeira iteração considerou o intervalo $[1, 4]$ e a segunda
+    iteração considerou o intervalo $[2.5794, 4]$.}
+\end{figure}
+
 \subsection{Método de Newton}
 
 Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função contínua. Vamos descrever um método para encontrar uma $\epsilon$-raiz de $f$ usando  um polinômio de Taylor.
 
-Como sabemos, os polinômios de Taylor são construídos para aproximar $f$ em torno de um ponto $a \in A$. Dado $a \in A$, vamos construir um polinômio de Taylor de grau 1 para aproximar $f$ em torno de $a$. Desenvolvemos $p_{T(f, a, 1)}$ como
+Como sabemos, os polinômios de Taylor são construídos para aproximar
+$f$ em torno de um ponto $a \in A$. Dado $a \in A$, vamos construir um
+polinômio de Taylor de grau 1 para aproximar $f$ em torno de
+$a$. Desenvolvemos $p_{T(f, a, 1)}$ como
 
 $$
 p_{T(f, a, 1)}(x) = f(a) + \left(\frac{d}{dx} f(a)\right) (x - a)
 $$
 
-Se $p_{T(f, a, 1)}$ for uma boa aproximação para $f$ em torno de $a$, e se houver uma raiz de $f$ próxima de $a$, então esperamos que a única raiz de $p_{T(f, a, 1)}$ seja uma $\epsilon$-raiz de $f$. Vamos encontrar a raiz de $p_{T(f, a, 1)}$.
+Se $p_{T(f, a, 1)}$ for uma boa aproximação para $f$ em torno de $a$,
+e se houver uma raiz de $f$ próxima de $a$, então esperamos que a
+única raiz de $p_{T(f, a, 1)}$ seja uma $\epsilon$-raiz de $f$. Vamos
+encontrar a raiz de $p_{T(f, a, 1)}$.
 
 $$
 f(a) + \left(\frac{d}{dx} f(a)\right) (x - a) = 0
