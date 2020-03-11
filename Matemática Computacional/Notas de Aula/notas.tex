@@ -97,15 +97,17 @@ Por último, listamos duas escolhas bastante comuns para a construção de $X$, 
 \begin{figure}
   \centering
   \scalebox{1.0}{
-    \begin{tikzpicture}[domain=0:8]
+    \begin{tikzpicture}[domain=0:8,
+      declare function = {f(\x) = 0.5*sin(\x r) + 1.2*cos(\x r);
+                          p(\x) = 0.26*\x^2 - 1.89*\x + 2.175;}]
       \draw[very thin, color = gray] (-0.1, -1.1) grid (7.9, 3.9);
 
       \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
       \draw[->] (0, -1.2) -- (0, 4.2) node[above] {$y$};
 
-      \draw[very thin, color=blue, smooth] plot (\x, {0.5*sin(\x r) + 1.2*cos(\x r)}) node[right] {$f(x)$};
+      \draw[very thin, color=blue, smooth] plot (\x, {f(\x)}) node[right] {$f(x)$};
 
-      \draw[ultra thin, color=red, smooth] plot (\x, {0.26*\x*\x - 1.89*\x +2.175}) node[right] {$p(x)$};
+      \draw[ultra thin, color=red, smooth] plot (\x, {p(\x)}) node[right] {$p(x)$};
     \end{tikzpicture}
   }
   \caption{Ilustração do polinômio de Lagrange. Aproximamos
@@ -238,17 +240,22 @@ Como pontos negativos para o uso do polinômio de Taylor para interpolações, o
 \begin{figure}
   \centering
   \scalebox{1.0}{
-    \begin{tikzpicture}[domain=0:8]
+    \begin{tikzpicture}[domain=0:8,
+      declare function = {
+        f(\x) = cos(\x r);
+        p1(\x) = -1;
+        p2(\x) = p1(\x) + 0.5*(\x - 3.14159)^2;
+        p3(\x) = p2(\x) - 0.04166*(\x - 3.14159)^4;}]
       \draw[very thin, color = gray] (-0.1, -1.1) grid (7.9, 3.9);
       
       \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
       \draw[->] (0, -1.2) -- (0, 4.2) node[above] {$y$};
 
-      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {cos(\x r)}) node[right] {$f(x)$};
+      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {f(\x)}) node[right] {$f(x)$};
 
-      \draw[domain = 0:7.1, ultra thin, color=red, smooth] plot (\x, {-1}) node[right] {$p_1(x)$};
-      \draw[domain = 0:6.2, ultra thin, color=orange, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2}) node[right] {$p_2(x)$};
-      \draw[domain = 0:6.5, ultra thin, color=purple, smooth] plot (\x, {-1 + 0.5*(\x - 3.14159)^2 - 0.04166*(\x - 3.14159)^4}) node[right] {$p_3(x)$};
+      \draw[domain = 0:7.1, ultra thin, color=red, smooth] plot (\x, {p1(\x)}) node[right] {$p_1(x)$};
+      \draw[domain = 0:6.2, ultra thin, color=orange, smooth] plot (\x, {p2(\x)}) node[right] {$p_2(x)$};
+      \draw[domain = 0:6.5, ultra thin, color=purple, smooth] plot (\x, {p3(\x)}) node[right] {$p_3(x)$};
     \end{tikzpicture}
   }
   \caption{Ilustração de polinômios de Taylor interpolando
@@ -364,33 +371,60 @@ $$
 x = a + f(a) \frac{a - b}{f(b) - f(a)}
 $$
 
-Agora podemos dizer que ficou mais simples. Mas e agora? E se a raiz de $p_{L(f, \{a, b\})}$ não for uma $\epsilon$-raiz de $f$? Vamos denotar a raiz de $p_{L(f, \{a, b\})}$ como $\hat{x}$. Como $\hat{x} \in [a, b]$ e há uma raiz de $f$ em $[a, b]$, perceba que, se $b - a \leq \epsilon$, então $\hat{x}$ é uma $\epsilon$-raiz de $f$. Mas e quando $b - a > \epsilon$? $\hat{x}$ ainda pode ser uma $\epsilon$-raiz, desde que $|f(\hat{x})| \leq \epsilon$. Se esse também não for o caso, temos que ou $f(\hat{x}) < 0$ ou $f(\hat{x}) > 0$. Com isso, podemos procurar por uma raiz de $f$ em um intervalo menor: ou $[a, \hat{x}]$ ou $[\hat{x}, b]$, dependendo de qual deles satisfaça a condição de existência de uma raiz. Repetindo o procedimento da posição falsa quantas vezes forem necessárias, há a garantia de que encontraremos uma $\epsilon$-raiz de $f$.
+Agora podemos dizer que ficou mais simples. Mas e agora? E se a raiz
+de $p_{L(f, \{a, b\})}$ não for uma $\epsilon$-raiz de $f$? Vamos
+denotar a raiz de $p_{L(f, \{a, b\})}$ como $\hat{x}$. Como
+$\hat{x} \in [a, b]$ e há uma raiz de $f$ em $[a, b]$, perceba que, se
+$b - a \leq \epsilon$, então $\hat{x}$ é uma $\epsilon$-raiz de
+$f$. Mas e quando $b - a > \epsilon$? $\hat{x}$ ainda pode ser uma
+$\epsilon$-raiz, desde que $|f(\hat{x})| \leq \epsilon$. Se esse
+também não for o caso, temos que ou $f(\hat{x}) < 0$ ou
+$f(\hat{x}) > 0$. Com isso, podemos procurar por uma raiz de $f$ em um
+intervalo menor: ou $[a, \hat{x}]$ ou $[\hat{x}, b]$, dependendo de
+qual deles satisfaça a condição de existência de uma raiz. Repetindo o
+procedimento da posição falsa quantas vezes forem necessárias, há a
+garantia de que encontraremos uma $\epsilon$-raiz de $f$.
 
 \begin{exercicio}
-	Escreva um pseudocódigo para sintetizar o método da posição falsa.
+  Escreva um pseudocódigo para sintetizar o método da posição falsa.
 \end{exercicio}
 
 \begin{exercicio}
-	Existe uma versão mais simples e grosseira do método da posição falsa, chamado método da bisseção. Dado um intervalo $[a, b] \subseteq A$ contendo uma raiz de $f$, o método da bisseção simplesmente assume $\hat{x} = \frac{a + b}{2}$, desconsiderando o comportamento de $f$ em $[a, b]$. Mostre que, para o método da bisseção, basta que $b - a \leq 2\epsilon$ para que $\hat{x}$ seja uma $\epsilon$-raiz de $f$.
+  Existe uma versão mais simples e grosseira do método da posição
+  falsa, chamado método da bisseção. Dado um intervalo
+  $[a, b] \subseteq A$ contendo uma raiz de $f$, o método da bisseção
+  simplesmente assume $\hat{x} = \frac{a + b}{2}$, desconsiderando o
+  comportamento de $f$ em $[a, b]$. Mostre que, para o método da
+  bisseção, basta que $b - a \leq 2\epsilon$ para que $\hat{x}$ seja
+  uma $\epsilon$-raiz de $f$.
 \end{exercicio}
 
 \begin{exercicio}
-	Usando o método da posição falsa, encontre $\sqrt{7}$ com uma precisão de quatro casas decimais. Quantas iterações foram usadas? Compare com o número de iterações usados pelo método da bisseção. Explique a relação entre os desempenhos dos métodos. Explique também por que não é possível representar $\sqrt{7}$ de forma precisa em um computador.
+  Usando o método da posição falsa, encontre $\sqrt{7}$ com uma
+  precisão de quatro casas decimais. Quantas iterações foram usadas?
+  Compare com o número de iterações usados pelo método da
+  bisseção. Explique a relação entre os desempenhos dos
+  métodos. Explique também por que não é possível representar
+  $\sqrt{7}$ de forma precisa em um computador.
 \end{exercicio}
 
 \begin{figure}
   \centering
   \scalebox{1.0}{
-    \begin{tikzpicture}[domain=0:8]
+    \begin{tikzpicture}[domain=0:8,
+      declare function = {
+        f(\x) = sin(\x r);
+        r1(\x) = sin(1 r) + ((sin(4 r) - sin(1 r))/3)*(\x - 1);
+        r2(\x) = sin(2.5794 r) + ((sin(4 r) - sin(2.5794 r))/(4 - 2.5794))*(\x - 2.5794);}]
       \draw[very thin, color = gray] (-0.1, -4.1) grid (7.9, 3.9);
       
       \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
       \draw[->] (0, -4.2) -- (0, 4.2) node[above] {$y$};
 
-      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {sin(\x r)}) node[right] {$f(x)$};
+      \draw[domain = 0:7.1, very thin, color=blue, smooth] plot (\x, {f(\x)}) node[right] {$f(x)$};
 
-      \draw[domain = 0:7.1, ultra thin, color=red, smooth] plot (\x, {sin(1 r) + ((sin(4 r) - sin(1 r))/3)*(\x - 1)}) node[right] {$r_1(x)$};
-      \draw[domain = 0:7.1, ultra thin, color=purple, smooth] plot (\x, {sin(2.5794 r) + ((sin(4 r) - sin(2.5794 r))/(4 - 2.5794))*(\x - 2.5794)}) node[right] {$r_2(x)$};
+      \draw[domain = 0:7.1, ultra thin, color=red, smooth] plot (\x, {r1(\x)}) node[right] {$r_1(x)$};
+      \draw[domain = 0:7.1, ultra thin, color=purple, smooth] plot (\x, {r2(\x)}) node[right] {$r_2(x)$};
     \end{tikzpicture}
   }
   \caption{Ilustração de duas iterações do método da posição falsa.
@@ -487,18 +521,24 @@ arbitrária.
 \begin{figure}
   \centering
   \scalebox{1.0}{
-    \begin{tikzpicture}[domain=0:8]
+    \begin{tikzpicture}[domain=0:8,
+      declare function = {
+        f(\x) = sin(\x r);
+        r1(\x) = sin(2 r) + cos(2 r)*(\x - 2);
+        r2(\x) = sin(4.185 r) + cos(4.185 r)*(\x - 4.185);
+        r3(\x) = sin(2.468 r) + cos(2.468 r)*(\x - 2.468);
+        r4(\x) = sin(3.266 r) + cos(3.266 r)*(\x - 3.266);}]
       \draw[very thin, color = gray] (-0.1, -4.1) grid (7.9, 3.9);
       
       \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
       \draw[->] (0, -4.2) -- (0, 4.2) node[above] {$f(x)$};
 
-      \draw[domain = 0:7.8, very thin, color=blue, smooth] plot (\x, {sin(\x r)}) node[right] {$f(x)$};
+      \draw[domain = 0:7.8, very thin, color=blue, smooth] plot (\x, {f(\x)}) node[right] {$f(x)$};
 
-      \draw[domain = 0:7.5, ultra thin, color=red, smooth] plot (\x, {sin(2 r) + cos(2 r)*(\x - 2)}) node[right] {$r_1(x)$};
-      \draw[domain = 0:7.5, ultra thin, color=purple, smooth] plot (\x, {sin(4.185 r) + cos(4.185 r)*(\x - 4.185)}) node[right] {$r_2(x)$};
-      \draw[domain = 0:7.5, ultra thin, color=orange, smooth] plot (\x, {sin(2.468 r) + cos(2.468 r)*(\x - 2.468)}) node[right] {$r_3(x)$};
-      \draw[domain = 0:7.1, ultra thin, color=cyan, smooth] plot (\x, {sin(3.266 r) + cos(3.266 r)*(\x - 3.266)}) node[right] {$r_4(x)$};
+      \draw[domain = 0:7.5, ultra thin, color=red, smooth] plot (\x, {r1(\x)}) node[right] {$r_1(x)$};
+      \draw[domain = 0:7.5, ultra thin, color=purple, smooth] plot (\x, {r2(\x)}) node[right] {$r_2(x)$};
+      \draw[domain = 0:7.5, ultra thin, color=orange, smooth] plot (\x, {r3(\x)}) node[right] {$r_3(x)$};
+      \draw[domain = 0:7.1, ultra thin, color=cyan, smooth] plot (\x, {r4(\x)}) node[right] {$r_4(x)$};
     \end{tikzpicture}
   }
   \caption{Ilustração do método de Newton.  Encontramos uma raiz de
@@ -603,9 +643,50 @@ Algo interessante de se notar sobre o erro da regra do trapézio simples é sua 
 	Calcule $\int_{0}^{2}\sqrt{x}dx$ usando a regra do trapézio simples. Calcule também usando quatro subintervalos de mesmo comprimento. Compare os resultados das aproximações com o valor exato da integral.
 \end{exercicio}
 
+\begin{figure}
+  \centering
+  \scalebox{1.0}{
+    \begin{tikzpicture}[domain=0:8,
+      declare function = {
+        f(\x) = -1*(\x - 1)*(\x - 5);}]
+      \draw[very thin, color = gray] (-0.1, -1.1) grid (7.9, 3.9);
+
+      \draw[->] (-0.2, 0) -- (8.2, 0) node[right] {$x$};
+      \draw[->] (0, -1.2) -- (0, 4.2) node[above] {$y$};
+
+      \draw[dashed] (1, -1) -- (1, 4);
+      \draw[dashed] (4, -1) -- (4, 4);
+
+      \draw[domain = 0.9:5.1, very thin, color=blue, smooth] plot (\x, {f(\x)}) node[right] {$f(x)$};
+
+      % regra do trapezio simples
+      \draw[ultra thin, color=red, smooth] (1, {f(1)}) -- (4, {f(4)});
+
+      % dois subintervalos
+      \draw[ultra thin, color=orange, smooth] (1, {f(1)}) -- (2.5, {f(2.5)});
+      \draw[ultra thin, color=orange, smooth] (2.5, {f(2.5)}) -- (4, {f(4)});
+
+      % quatro subintervalos
+      \draw[ultra thin, color=purple, smooth] (1, {f(1)}) -- (1.75, {f(1.75)});
+      \draw[ultra thin, color=purple, smooth] (1.75, {f(1.75)}) -- (2.5, {f(2.5)});
+      \draw[ultra thin, color=purple, smooth] (2.5, {f(2.5)}) -- (3.25, {f(3.25)});
+      \draw[ultra thin, color=purple, smooth] (3.25, {f(3.25)}) -- (4, {f(4)});
+    \end{tikzpicture}
+  }
+  \caption{Ilustração da regra do trapézio para $\int_1^4 f(x)dx$, com
+    $f(x) = -(x - 1)(x - 5)$: regra do trapézio simples em vermelho,
+    considerando dois subintervalos em laranja, e considerando quatro
+    em roxo.}
+  
+\end{figure}
+
 \subsection{Regra de Simpson}
 
-Agora, vamos desenvolver a segunda quadratura de Newton-Cottes. Vamos tentar aproximar a integral $\int_{a}^{b} f(x) dx$ usando um polinômio de Lagrange de grau 2. Vamos utilizar $p_{L(f, \{a, c, b\})}$, com $c = \frac{a + b}{2}$. Vamos, portanto, desenvolver $p_{L(f, \{a, c, b\})}$
+Agora, vamos desenvolver a segunda quadratura de Newton-Cottes. Vamos
+tentar aproximar a integral $\int_{a}^{b} f(x) dx$ usando um polinômio
+de Lagrange de grau 2. Vamos utilizar $p_{L(f, \{a, c, b\})}$, com
+$c = \frac{a + b}{2}$. Vamos, portanto, desenvolver
+$p_{L(f, \{a, c, b\})}$
 
 $$
 p_{L(f, \{a, c, b\})}(x) = f(a) \frac{(x - c)(x - b)}{(a - c)(a - b)} + f(c) \frac{(x - a)(x - b)}{(c - a)(c - b)} + f(b) \frac{(x - a)(x - c)}{(b - a)(b - c)}
