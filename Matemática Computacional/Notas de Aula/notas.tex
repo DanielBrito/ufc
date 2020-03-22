@@ -36,59 +36,133 @@ Notas de aula para a disciplina de Matemática Computacional.
 
 \section{Interpolações polinomiais}
 
-Algumas funções $f : A \to B$, com $A, B \subseteq \mathbb{R}$, são difíceis de lidar usando um computador. Pode ser que $f$ seja muito cara de computar. Pode também ser o caso de, dadas as limitações de representação numérica do computador, $f$ ser sensível a operações em ponto flutuante, produzindo assim perturbações em algumas operações clássicas do Cálculo.
+Algumas funções $f : A \to B$, com $A, B \subseteq \mathbb{R}$, são
+difíceis de lidar usando um computador. Pode ser que $f$ seja muito
+cara de computar. Pode também ser o caso de, dadas as limitações de
+representação numérica do computador, $f$ ser sensível a operações em
+ponto flutuante, produzindo assim perturbações em algumas operações
+clássicas do Cálculo.
 
-Nesta seção, descrevemos técnicas de aproximação (ou interpolação) de uma função $f$ por um polinômio. Mas por que interpolar usando um polinômio? Polinômios não são caros de computar, e existe uma noção de ``fechamento" na classe dos polinômios para algumas operações do Cálculo.
+Nesta seção, descrevemos técnicas de aproximação (ou interpolação) de
+uma função $f$ por um polinômio. Mas por que interpolar usando um
+polinômio? Polinômios não são caros de computar, e existe uma noção de
+``fechamento" na classe dos polinômios para algumas operações do
+Cálculo.
 
 \begin{exercicio}
-	Dado um polinômio $p : \mathbb{R} \to \mathbb{R}$, digamos $p(x) = c_0 + c_1x + c_2x^2 + \dots + c_nx^n$, e $\overline{x} \in \mathbb{R}$, quantas operações aritméticas (somas e multiplicações) são necessárias para computar $p(\overline{x})$?
+  Dado um polinômio $p : \mathbb{R} \to \mathbb{R}$, digamos
+  $p(x) = c_0 + c_1x + c_2x^2 + \dots + c_nx^n$, e
+  $\overline{x} \in \mathbb{R}$, quantas operações aritméticas (somas
+  e multiplicações) são necessárias para computar $p(\overline{x})$?
 \end{exercicio}
 
 \begin{exercicio}
-	Considere $\mathcal{P}$ a classe de polinômios. Dado $p(x) \in \mathcal{P}$, $\frac{d}{dx} p \in \mathcal{P}$? $\int p(x)dx \in \mathcal{P}$?
+  Considere $\mathcal{P}$ a classe de polinômios. Dado
+  $p(x) \in \mathcal{P}$, $\frac{d}{dx} p \in \mathcal{P}$?
+  $\int p(x)dx \in \mathcal{P}$?
 \end{exercicio}
 
 \subsection{Polinômio de Lagrange}
 
-Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um conjunto de ``amostragem" $X \subseteq A$ ($X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$), denotamos por $p_{L(f, X)} : \mathbb{R} \to \mathbb{R}$ o único polinômio de grau no máximo $k - 1$ tal que $p_{L(f, X)}(\overline{x}) = f(\overline{x}), \forall\, \overline{x} \in X$. Chamamos $p_{L(f, X)}$ o polinômio de Lagrange de $f$ nos pontos $X$. Como encontramos $p_{L(f, X)}$? E como podemos utilizá-lo para obter boas aproximações de $f$?
+Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um conjunto de
+``amostragem" $X \subseteq A$
+($X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$), denotamos por
+$p_{L(f, X)} : \mathbb{R} \to \mathbb{R}$ o único polinômio de grau no
+máximo $k - 1$ tal que
+$p_{L(f, X)}(\overline{x}) = f(\overline{x}), \forall\, \overline{x}
+\in X$. Chamamos $p_{L(f, X)}$ o polinômio de Lagrange de $f$ nos
+pontos $X$. Como encontramos $p_{L(f, X)}$? E como podemos utilizá-lo
+para obter boas aproximações de $f$?  Vamos construir um certo $p'$ e
+deixar a cargo do leitor a prova de que $p'$ é um polinômio e tem as
+propriedades do polinômio de Lagrange.
 
-Dado $i \in [k]$ (essa notação significa $[k] = \{1, 2, \dots, k\}$), definimos $l(i)$ como:
+Dado $i \in [k]$ (essa notação significa $[k] = \{1, 2, \dots, k\}$),
+definimos $l(i)$ como:
 
 $$
 l(i) = \prod_{j \in [k] : i \neq j} \frac{x - x_j}{x_i - x_j}
 $$
 
 \begin{exercicio}
-	Qual o valor de $l(i)$ quando $x = x_i$? E quando $x$ assume o valor de algum ponto em $X$ diferemte de $x_i$?
+  Qual o valor de $l(i)$ quando $x = x_i$? E quando $x$ assume o valor
+  de algum ponto em $X$ diferemte de $x_i$?
 \end{exercicio}
 
-Com a ajuda dessa notação, descrevemos $p' : \mathbb{R} \to \mathbb{R}$ como:
+Com a ajuda dessa notação, descrevemos
+$p' : \mathbb{R} \to \mathbb{R}$ como:
 
 $$
 p'(x) = \sum_{i \in [k]} f(x_i)l(i)
 $$
 
 \begin{exercicio}
-	Mostre que $p'$ é um polinômio. Dica: mostre que $l(i)$ é um polinômio e que $\mathcal{P}$ é fechada para a soma e múltiplicação por escalar. Pode ser útil saber que é possível decompor um polinômio por suas raizes.
+  Mostre que $p'$ é um polinômio. Dica: mostre que $l(i)$ é um
+  polinômio e que $\mathcal{P}$ é fechada para a soma e múltiplicação
+  por escalar. Pode ser útil saber que é possível decompor um
+  polinômio por suas raizes.
 \end{exercicio}
 
 \begin{exercicio}
-	Mostre que $p'$ tem as propriedades que definem $p_{L(f, X)}$.
+  Mostre que $p'$ tem as propriedades que definem $p_{L(f, X)}$.
 \end{exercicio}
 
 \begin{exercicio}
-	Prove a unicidade de $p_{L(f, X)}$, ou seja, $p' = p_{L(f, X)}$. Dica: se $p \in \mathcal{P}$ tem grau $n$ e tem $n + 1$ raízes, então $p = 0$ (o polinômio com todos os coeficientes nulos).
+  Prove a unicidade de $p_{L(f, X)}$, ou seja, $p' = p_{L(f,
+    X)}$. Dica: se $p \in \mathcal{P}$ tem grau $n$ e tem $n + 1$
+  raízes, então $p = 0$ (o polinômio com todos os coeficientes nulos).
 \end{exercicio}
 
-Naturalmente, existe mais de um modo de descrever o polinômio de Lagrange. A forma aqui apresentada é dita a \emph{forma de Lagrange}, bastante simples de descrever.
+Naturalmente, existe mais de um modo de descrever o polinômio de
+Lagrange. A forma aqui apresentada é dita a \emph{forma de Lagrange},
+bastante simples de descrever.
 
-Agora, como obtemos boas aproximações para $f$ a partir de $p_{L(f, X)}$? A verdade é que um polinômio não pode ser uma boa aproximação para uma função arbitrária. Basta pensar em funções exponenciais: suas taxas de crescimento são muito mais altas que as de um polinômio, e portanto nenhum polinômio poderia ser uma boa aproximação para uma função exponencial em todo seu domínio.
+Agora, como obtemos boas aproximações para $f$ a partir de
+$p_{L(f, X)}$? A verdade é que um polinômio não pode ser uma boa
+aproximação para uma função arbitrária. Basta pensar em funções
+exponenciais: suas taxas de crescimento são muito mais altas que as de
+um polinômio, e portanto nenhum polinômio poderia ser uma boa
+aproximação para uma função exponencial em todo seu domínio.
 
-No entanto, se pensarmos em aproximar $f$ em parte de seu domínio, talvez tenhamos êxito. Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, vamos tomar um intervalo $[a, b] \subseteq A$, com $a, b \in \mathbb{R}$. Digamos que, por um motivo qualquer, estamos interessados em aproximar $f$ em $[a, b]$, e que já temos um conjunto de ``amostra" $X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$, $X \subset [a, b]$, tal que já conhecemos os valores $f(\overline{x}), \forall\, \overline{x} \in X$. Com isso em mãos, poderíamos considerar $p_{L(f, X)}$ uma aproximação para $f$ no intervalo $[a, b]$.
+No entanto, se pensarmos em aproximar $f$ em parte de seu domínio,
+talvez tenhamos êxito. Dada $f : A \to B$, com
+$A, B \subseteq \mathbb{R}$, vamos tomar um intervalo
+$[a, b] \subseteq A$, com $a, b \in \mathbb{R}$. Digamos que, por um
+motivo qualquer, estamos interessados em aproximar $f$ em $[a, b]$, e
+que já temos um conjunto de ``amostra"
+$X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$, $X \subset [a, b]$,
+tal que já conhecemos os valores
+$f(\overline{x}), \forall\, \overline{x} \in X$. Com isso em mãos,
+poderíamos considerar $p_{L(f, X)}$ uma aproximação para $f$ no
+intervalo $[a, b]$.
 
-Como $p_{L(f, X)}$ é um polinômio, e polinômios são contínuos, não se pode esperar que $p_{L(f, X)}$ seja uma boa aproximação para $f$ em $[a, b]$ no caso de $f$ não ser contínua em $[a, b]$. Um outro fator que pode atrapalhar essa aproximação é $\frac{d^2}{dx^2} f$, a \emph{derivada segunda} de $f$: se a variação da taxa de crescimento de $f$ fica próxima a zero em $[a, b]$, $f$ se torna bastante similar a uma reta em $[a, b]$, e portanto fácil de aproximar; por outro lado, se a taxa de crescimento de $f$ varia bruscamente em $[a, b]$, pode ser o caso de $f$ crescer ou decrescer muito mais rapidamente que $p_{L(f, X)}$, ou ter mais máximos e mínimos locais em $[a, b]$ do que $p_{L(f, X)}$, novamente resultando em uma má aproximação.
+Como $p_{L(f, X)}$ é um polinômio, e polinômios são contínuos, não se
+pode esperar que $p_{L(f, X)}$ seja uma boa aproximação para $f$ em
+$[a, b]$ no caso de $f$ não ser contínua em $[a, b]$. Um outro fator
+que pode atrapalhar essa aproximação é $\frac{d^2}{dx^2} f$, a
+\emph{derivada segunda} de $f$: se a variação da taxa de crescimento
+de $f$ fica próxima a zero em $[a, b]$, $f$ se torna bastante similar
+a uma reta em $[a, b]$, e portanto fácil de aproximar; por outro lado,
+se a taxa de crescimento de $f$ varia bruscamente em $[a, b]$, pode
+ser o caso de $f$ crescer ou decrescer muito mais rapidamente que
+$p_{L(f, X)}$, ou ter mais máximos e mínimos locais em $[a, b]$ do que
+$p_{L(f, X)}$, novamente resultando em uma má aproximação.
 
-Por último, listamos duas escolhas bastante comuns para a construção de $X$, quando da aproximação de $f$ por $p_{L(f, X)}$ em $[a, b]$. A primeira consiste em tomar os pontos $X$ equidistantes em $[a, b]$, ou seja, $X = \{x_1, x_2, \dots, x_k\}$ seria determinado por $x_i = a + (i - 1)h$, onde $h = \frac{b - a}{k - 1}$. A segunda seria tomar $X$ como um subconjunto dos pontos de máximo e mínimo locais em $[a, b]$. Enquanto a primeira escolha de $X$ é barata de computar, ela não leva em conta o comportamento de $f$ em $[a, b]$, podendo resultar em uma aproximação não muito boa. Já a segunda escolha de $X$ pode ser bem mais cara de computar (a depender de $f$), mas ela faz com que a aproximação tenha alguns pontos em comum com $f$ em regiões onde a variação de $f$ tende a ser baixa, o que garante uma melhor aproximação em alguns trechos de $[a, b]$. Quanto a $|X|$, é perceptível que, independente da escolha de construção de $X$, não se deve tomar mais pontos em $[a, b]$ do que a quantidade de máximos e mínimos locais de $f$ em $[a, b]$.
+Por último, listamos duas escolhas bastante comuns para a construção
+de $X$, quando da aproximação de $f$ por $p_{L(f, X)}$ em $[a, b]$. A
+primeira consiste em tomar os pontos $X$ equidistantes em $[a, b]$, ou
+seja, $X = \{x_1, x_2, \dots, x_k\}$ seria determinado por
+$x_i = a + (i - 1)h$, onde $h = \frac{b - a}{k - 1}$. A segunda seria
+tomar $X$ como um subconjunto dos pontos de máximo e mínimo locais em
+$[a, b]$. Enquanto a primeira escolha de $X$ é barata de computar, ela
+não leva em conta o comportamento de $f$ em $[a, b]$, podendo resultar
+em uma aproximação não muito boa. Já a segunda escolha de $X$ pode ser
+bem mais cara de computar (a depender de $f$), mas ela faz com que a
+aproximação tenha alguns pontos em comum com $f$ em regiões onde a
+variação de $f$ tende a ser baixa, o que garante uma melhor
+aproximação em alguns trechos de $[a, b]$. Quanto a $|X|$, é
+perceptível que, independente da escolha de construção de $X$, não se
+deve tomar mais pontos em $[a, b]$ do que a quantidade de máximos e
+mínimos locais de $f$ em $[a, b]$.
 
 \begin{exercicio} \label{exercicioFenomenoRunge}
 	Explique o que é o \emph{fenômeno de Runge}
@@ -118,11 +192,27 @@ Por último, listamos duas escolhas bastante comuns para a construção de $X$, 
 
 \subsection{Polinômio de Taylor}
 
-Na subseção anterior, vimos que não se pode esperar que um polinômio seja uma boa aproximação para uma função qualquer em todo seu domínio. Com isso em mente, nos contentamos em tomar aproximações em intervalos do domínio. Agora, vamos apresentar um modo de aproximar uma função na vizinhança de um ponto do domínio, mais uma vez por meio de um polinômio.
+Na subseção anterior, vimos que não se pode esperar que um polinômio
+seja uma boa aproximação para uma função qualquer em todo seu
+domínio. Com isso em mente, nos contentamos em tomar aproximações em
+intervalos do domínio. Agora, vamos apresentar um modo de aproximar
+uma função na vizinhança de um ponto do domínio, mais uma vez por meio
+de um polinômio.
 
-Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um ponto $a \in A$, denotamos por $p_{T(f, a, k)} : \mathbb{R} \to \mathbb{R}$ o único polinômio de grau no máximo $k \in \mathbb{N}$ tal que $p_{T(f, a, k)}(a) = f(a)$ e $\frac{d^i}{dx^i} p_{T(f, a, k)}(a) = \frac{d^i}{dx^i} f(a), \forall\, i \in [k]$. Naturalmente, $p_{T(f, a, k)}$ está bem definido apenas quando $f$ é $k$-diferenciável em $a$. Chamamos $p_{T(f, a, k)}$ o polinômio de Taylor de $f$ em $a$ até a $k$-ésima derivada. Como encontramos $p_{T(f, a, k)}$?
+Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um ponto
+$a \in A$, denotamos por $p_{T(f, a, k)} : \mathbb{R} \to \mathbb{R}$
+o único polinômio de grau no máximo $k \in \mathbb{N}$ tal que
+$p_{T(f, a, k)}(a) = f(a)$ e
+$\frac{d^i}{dx^i} p_{T(f, a, k)}(a) = \frac{d^i}{dx^i} f(a), \forall\,
+i \in [k]$. Naturalmente, $p_{T(f, a, k)}$ está bem definido apenas
+quando $f$ é $k$-diferenciável em $a$. Chamamos $p_{T(f, a, k)}$ o
+polinômio de Taylor de $f$ em $a$ até a $k$-ésima derivada. Como
+encontramos $p_{T(f, a, k)}$?
 
-Inicialmente, vamos tratar do caso em que $a = 0$. Considere $p' : \mathbb{R} \to \mathbb{R}$ como $p'(x) = c_0 + c_1x + c_2x^2 + \dots + c_kx^k$ tendo as propriedades de $p_{T(f, 0, k)}$. Assim, temos
+Inicialmente, vamos tratar do caso em que $a = 0$. Considere
+$p' : \mathbb{R} \to \mathbb{R}$ como
+$p'(x) = c_0 + c_1x + c_2x^2 + \dots + c_kx^k$ tendo as propriedades
+de $p_{T(f, 0, k)}$. Assim, temos
 
 $$
 c_0 = p'(0) = f(0)
@@ -154,7 +244,9 @@ $$
 p'(x) = f(0) + \left(\frac{d}{dx} f(0)\right)x + \left(\frac{1}{2} \frac{d^2}{dx^2} f(0)\right)x^2 + \left(\frac{1}{3!} \frac{d^3}{dx^3} f(0)\right)x^3 + \dots + \left(\frac{1}{k!} \frac{d^k}{dx^k} f(0)\right)x^k
 $$
 
-Perceba que os coeficientes de $p'$ são determinados de forma única. Como $p'$ tem as mesmas propriedades de $p_{T(f, 0, k)}$, temos $p' = p_{T(f, 0, k)}$
+Perceba que os coeficientes de $p'$ são determinados de forma
+única. Como $p'$ tem as mesmas propriedades de $p_{T(f, 0, k)}$, temos
+$p' = p_{T(f, 0, k)}$
 
 Note como foi conveniente a suposição de que $a = 0$. Para determinar
 o coeficiente $c_i, i \in \{0\} \cup [k]$, utilizamos derivação para
@@ -192,39 +284,62 @@ $$
 \dots + \left(\frac{1}{k!} \frac{d^k}{dx^k} f(a)\right)(x - a)^k
 $$
 
-Para evidenciar a noção de vizinhança, podemos descrever $x$ em função de sua distância até $a$. Fazendo a substituição $x = a + h$, obtemos
+Para evidenciar a noção de vizinhança, podemos descrever $x$ em função
+de sua distância até $a$. Fazendo a substituição $x = a + h$, obtemos
 
 $$
 p_{T(f, a, k)}(a + h) = f(a) + \left(\frac{d}{dx} f(a)\right)(h) + \left(\frac{1}{2} \frac{d^2}{dx^2} f(a)\right)(h)^2 + \left(\frac{1}{3!} \frac{d^3}{dx^3} f(a)\right)(h)^3 + \dots + \left(\frac{1}{k!} \frac{d^k}{dx^k} f(a)\right)(h)^k
 $$
 
-O seguinte resultado, que vamos deixar sem demonstração, é crucial para sabermos medir o erro que $p_{T(f, a, k)}$ comete ao aproximar $f$ em torno do ponto $a$. A equação apresentada a seguir é chamada de \emph{expansão de Taylor}.
+O seguinte resultado, que vamos deixar sem demonstração, é crucial
+para sabermos medir o erro que $p_{T(f, a, k)}$ comete ao aproximar
+$f$ em torno do ponto $a$. A equação apresentada a seguir é chamada de
+\emph{expansão de Taylor}.
 
 \begin{teorema}
-	Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e $f$ tendo sua $k$-ésima derivada definida em $a$, para todo $k \in \mathbb{N}$. Dado $a \in A$, temos que
-	$$
-	f(a + h) = \sum_{i = 0}^{\infty} \left(\frac{1}{i!} \frac{d^i}{dx^i} f(a)\right)h^i
-	$$
+  Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e $f$ tendo sua
+  $k$-ésima derivada definida em $a$, para todo $k \in
+  \mathbb{N}$. Dado $a \in A$, temos que
+  $$
+  f(a + h) = \sum_{i = 0}^{\infty} \left(\frac{1}{i!}
+    \frac{d^i}{dx^i} f(a)\right)h^i
+  $$
 \end{teorema}
 
-A primeira coisa que notamos é que $p_{T(f, a, k)}$ é a soma das $k$ primeiras parcelas da expansão de Taylor correspondente. Como sempre há outras parcelas desconsideradas por $p_{T(f, a, k)}$, independente do valor de $k$, percebemos que essa aproximação cometerá erros sempre que as parcelas desconsideradas forem não-nulas.
+A primeira coisa que notamos é que $p_{T(f, a, k)}$ é a soma das $k$
+primeiras parcelas da expansão de Taylor correspondente. Como sempre
+há outras parcelas desconsideradas por $p_{T(f, a, k)}$, independente
+do valor de $k$, percebemos que essa aproximação cometerá erros sempre
+que as parcelas desconsideradas forem não-nulas.
 
 \begin{exercicio}
-	Dê exemplo de uma classe de funções $\mathcal{F}$ tal que $\frac{d^i}{dx^i} f(x) = 0, \forall\, i \geq k, \forall\, f \in \mathcal{F}$, dado um certo $k \in \mathbb{N}$.
+  Dê exemplo de uma classe de funções $\mathcal{F}$ tal que
+  $\frac{d^i}{dx^i} f(x) = 0, \forall\, i \geq k, \forall\, f \in
+  \mathcal{F}$, dado um certo $k \in \mathbb{N}$.
 \end{exercicio}
 
 Podemos reescrever o teorema como
 
 $$
-f(a + h) = p_{T(f, a, k)}(a + h) + \sum_{i = k + 1}^{\infty} \left(\frac{1}{i!} \frac{d^i}{dx^i} f(a)\right)h^i
+f(a + h) = p_{T(f, a, k)}(a + h) + \sum_{i = k + 1}^{\infty}
+\left(\frac{1}{i!} \frac{d^i}{dx^i} f(a)\right)h^i
 $$
 
-Parece que a fórmula do erro da aproximação está tomando forma! Para medirmos assintoticamente o erro, vamos estabelecer que $h$ sempre assume valores no intervalo aberto $(-1, 1)$. Mas por quê? Porque quando consideramos potências de $h$, ocorre que $O(h) \supseteq O(h^2) \supseteq O(h^3) \dots$, desde que $h \in (-1, 1)$.
+Parece que a fórmula do erro da aproximação está tomando forma! Para
+medirmos assintoticamente o erro, vamos estabelecer que $h$ sempre
+assume valores no intervalo aberto $(-1, 1)$. Mas por quê? Porque
+quando consideramos potências de $h$, ocorre que
+$O(h) \supseteq O(h^2) \supseteq O(h^3) \dots$, desde que
+$h \in (-1, 1)$.
 
-Note, com isso, que podemos medir o erro da aproximação de $f$ por $p_{T(f, a, k)}$ em $(a - 1, a + 1)$ com base na primeira parcela da expansão de Taylor desconsiderada por $p_{T(f, a, k)}$. Perceba que tal parcela é
+Note, com isso, que podemos medir o erro da aproximação de $f$ por
+$p_{T(f, a, k)}$ em $(a - 1, a + 1)$ com base na primeira parcela da
+expansão de Taylor desconsiderada por $p_{T(f, a, k)}$. Perceba que
+tal parcela é
 
 $$
-\left(\frac{1}{(k + 1)!} \frac{d^{k + 1}}{dx^{k + 1}} f(a)\right)h^{k + 1} \in O(h^{k + 1})
+\left(\frac{1}{(k + 1)!} \frac{d^{k + 1}}{dx^{k + 1}} f(a)\right)h^{k
+  + 1} \in O(h^{k + 1})
 $$
 
 E assim, podemos escrever a relação entre $f$ e $p_{T(f, a, k)}$ como
@@ -233,9 +348,23 @@ $$
 f(a + h) = p_{T(f, a, k)}(a + h) + O(h^{k + 1})
 $$
 
-Isso quer dizer que só podemos utilizar $p_{T(f, a, k)}$ como aproximação para $f$ em $(a - 1, a + 1)$? Claro que não! O que os resultados apresentados dizem é que $p_{T(f, a, k)}$ é uma aproximação de $f$ excelente numa região muito próxima de $a$, e nessa região temos a garantia de que, quanto mais parcelas da expansão de Taylor utilizamos, menor é o erro cometido. Na prática, $p_{T(f, a, k)}$ é uma aproximação muito boa de $f$ numa região em torno de $a$ tão grande quanto o valor de $k$ que tomarmos, mas que pode se degenerar de forma imprevisível.
+Isso quer dizer que só podemos utilizar $p_{T(f, a, k)}$ como
+aproximação para $f$ em $(a - 1, a + 1)$? Claro que não! O que os
+resultados apresentados dizem é que $p_{T(f, a, k)}$ é uma aproximação
+de $f$ excelente numa região muito próxima de $a$, e nessa região
+temos a garantia de que, quanto mais parcelas da expansão de Taylor
+utilizamos, menor é o erro cometido. Na prática, $p_{T(f, a, k)}$ é
+uma aproximação muito boa de $f$ numa região em torno de $a$ tão
+grande quanto o valor de $k$ que tomarmos, mas que pode se degenerar
+de forma imprevisível.
 
-Como pontos negativos para o uso do polinômio de Taylor para interpolações, observamos que seu uso é restrito pelo número de derivadas definidas para $f$. Se $f$ não for diferenciável no ponto de interesse, essa técnica não é aplicável. Mais ainda, usa-se os valores das derivadas de $f$ no ponto de interesse, o que se torna impeditivo quando $f$ não tem derivadas elementares ou essas são computacionalmente caras.
+Como pontos negativos para o uso do polinômio de Taylor para
+interpolações, observamos que seu uso é restrito pelo número de
+derivadas definidas para $f$. Se $f$ não for diferenciável no ponto de
+interesse, essa técnica não é aplicável. Mais ainda, usa-se os valores
+das derivadas de $f$ no ponto de interesse, o que se torna impeditivo
+quando $f$ não tem derivadas elementares ou essas são
+computacionalmente caras.
 
 \begin{figure}
   \centering
@@ -267,33 +396,67 @@ Como pontos negativos para o uso do polinômio de Taylor para interpolações, o
 
 \section{Zeros de funções}
 
-Nesta seção, vamos apresentar técnicas para encontrar raizes de uma função. Para isso, vamos fazer uso das interpolações descritas na seção anterior. Para fins de revisão, um ponto $\overline{x} \in A$ é dito raiz de $f : A \to B$, com $A, B \subseteq \mathbb{R}$, se $f(\overline{x}) = 0$. Já que vamos lidar com aproximações, definimos $\hat{x} \in A$ uma $\epsilon$-raiz de $f$, $\epsilon \in \mathbb{R}_+$, se existe uma raiz $\overline{x} \in A$ de $f$ tal que $\hat{x} \in [\overline{x} - \epsilon, \overline{x} + \epsilon]$ ou $|f(\hat{x})| \leq \epsilon$. Naturalmente, esperamos utilizar valores de $\epsilon$ suficientemente pequenos nessa definição.
+Nesta seção, vamos apresentar técnicas para encontrar raizes de uma
+função. Para isso, vamos fazer uso das interpolações descritas na
+seção anterior. Para fins de revisão, um ponto $\overline{x} \in A$ é
+dito raiz de $f : A \to B$, com $A, B \subseteq \mathbb{R}$, se
+$f(\overline{x}) = 0$. Já que vamos lidar com aproximações, definimos
+$\hat{x} \in A$ uma $\epsilon$-raiz de $f$,
+$\epsilon \in \mathbb{R}_+$, se existe uma raiz $\overline{x} \in A$
+de $f$ tal que
+$\hat{x} \in [\overline{x} - \epsilon, \overline{x} + \epsilon]$ ou
+$|f(\hat{x})| \leq \epsilon$. Naturalmente, esperamos utilizar valores
+de $\epsilon$ suficientemente pequenos nessa definição.
 
 \subsection{Método da posição falsa}
 
-Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função contínua. Vamos descrever uma técnica para encontrar uma $\epsilon$-raiz de $f$ em um intervalo $[a, b] \subseteq A$, desde que exista uma raiz de $f$ em $[a, b]$. Antes de tudo, precisamos de condições suficientes para a existência de uma raiz em um intervlao do domínio de $f$.
+Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função
+contínua. Vamos descrever uma técnica para encontrar uma
+$\epsilon$-raiz de $f$ em um intervalo $[a, b] \subseteq A$, desde que
+exista uma raiz de $f$ em $[a, b]$. Antes de tudo, precisamos de
+condições suficientes para a existência de uma raiz em um intervlao do
+domínio de $f$.
 
 \begin{teorema}
-	Seja $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função contínua. Admitindo $f(a) \leq f(b)$ ($f(a) \geq f(b)$), dado um $d \in [f(a), f(b)]$ ($[f(b), f(a)]$), existe $c \in [a, b]$ tal que $f(c) = d$.
+  Seja $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função
+  contínua. Admitindo $f(a) \leq f(b)$ ($f(a) \geq f(b)$), dado um
+  $d \in [f(a), f(b)]$ ($[f(b), f(a)]$), existe $c \in [a, b]$ tal que
+  $f(c) = d$.
 \end{teorema}
 
-O teorema acima é chamado de \emph{Teorema do Valor Intermediário}. Como podemos utilizá-lo para garantir uma raiz em um intervalo $[a, b]$ do domínio de $f$? O teorema diz que sempre vai haver um ponto $c$ em $[a, b]$ tal que $f(c) = d$, para qualquer $d \in [f(a), f(b)]$. Então basta tomarmos um intervalo $[a, b]$ tal que $0 \in [f(a), f(b)]$. Se $f(a)$ for negativo e $f(b)$ for positivo, ou vice-versa, o Teorema do Valor Intermediário nos garante a existência de uma raiz em $[a, b]$.
+O teorema acima é chamado de \emph{Teorema do Valor
+  Intermediário}. Como podemos utilizá-lo para garantir uma raiz em um
+intervalo $[a, b]$ do domínio de $f$? O teorema diz que sempre vai
+haver um ponto $c$ em $[a, b]$ tal que $f(c) = d$, para qualquer
+$d \in [f(a), f(b)]$. Então basta tomarmos um intervalo $[a, b]$ tal
+que $0 \in [f(a), f(b)]$. Se $f(a)$ for negativo e $f(b)$ for
+positivo, ou vice-versa, o Teorema do Valor Intermediário nos garante
+a existência de uma raiz em $[a, b]$.
 
 \begin{corolario}
-	Seja $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função contínua. Se $[a, b] \subseteq A$ é tal que $f(a)f(b) < 0$, então existe uma raiz de $f$ em $[a, b]$.
+  Seja $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função
+  contínua. Se $[a, b] \subseteq A$ é tal que $f(a)f(b) < 0$, então
+  existe uma raiz de $f$ em $[a, b]$.
 \end{corolario}
 
-Agora que temos condições para determinar a existência de uma raiz de $f$ em um intervalo de seu domínio, vamos desenvolver uma técnica para encontrar uma aproximação para essa raiz, uma $\epsilon$-raiz. Para isso, vamos utilizar um polinômio de Lagrange.
+Agora que temos condições para determinar a existência de uma raiz de
+$f$ em um intervalo de seu domínio, vamos desenvolver uma técnica para
+encontrar uma aproximação para essa raiz, uma $\epsilon$-raiz. Para
+isso, vamos utilizar um polinômio de Lagrange.
 
 Tome $[a, b] \subseteq A$ tal que $f(a)f(b) < 0$, e portanto com uma
-raiz de $f$ nesse intervalo. Vamos utilizar $p_{L(f, \{a,
-  b\})}$ como aproximação de $f$ em $[a, b]$.
+raiz de $f$ nesse intervalo. Vamos utilizar $p_{L(f, \{a, b\})}$ como
+aproximação de $f$ em $[a, b]$.
 
 \begin{exercicio}
-	Argumente que $p_{L(f, \{a, b\})}$ tem uma única raiz em $[a, b]$.
+  Argumente que $p_{L(f, \{a, b\})}$ tem uma única raiz em $[a, b]$.
 \end{exercicio}
 
-Se $p_{L(f, \{a, b\})}$ for uma boa aproximação para $f$ em $[a, b]$, então sua única raiz pode estar próxima de uma raiz de $f$ em $[a, b]$. Lembramos que as condições desenvolvidas para existência de uma raiz em um intervalo não garantem que tal raiz é a única no dito intervalo. Mas qual é a raiz de $p_{L(f, \{a, b\})}$?
+Se $p_{L(f, \{a, b\})}$ for uma boa aproximação para $f$ em $[a, b]$,
+então sua única raiz pode estar próxima de uma raiz de $f$ em
+$[a, b]$. Lembramos que as condições desenvolvidas para existência de
+uma raiz em um intervalo não garantem que tal raiz é a única no dito
+intervalo. Mas qual é a raiz de $p_{L(f, \{a, b\})}$?
 
 Vamos desenvolver $p_{L(f, \{a, b\})}$
 
@@ -301,7 +464,8 @@ $$
 p_{L(f, \{a, b\})}(x) = f(a) \frac{x - b}{a - b} + f(b) \frac{x - a}{b - a}
 $$
 
-Agora precisamos encontrar a raiz de $p_{L(f, \{a, b\})}$ resolvendo a equação
+Agora precisamos encontrar a raiz de $p_{L(f, \{a, b\})}$ resolvendo a
+equação
 
 $$
 f(a) \frac{x - b}{a - b} + f(b) \frac{x - a}{b - a} = 0
@@ -335,13 +499,19 @@ $$
 x = \frac{(b^2 - ab)f(a) + (a^2 - ab)f(b)}{(b - a)f(a) + (a - b)f(b)}
 $$
 
-Essa fórmula parece muito complexa. Podemos simplificar a obtenção de uma fórmula para a raiz de $p_{L(f, \{a, b\})}$ se o tratarmos de uma outra forma, para além da forma de Lagrange. Basicamente, $p_{L(f, \{a, b\})}$ é a reta que passa pelos pontos $(a, f(a))$ e $(b, f(b))$. Temos que a equação geral da reta é, dado um de seus pontos $(x_0, y_0)$ e um coeficiente de inclinação $m$
+Essa fórmula parece muito complexa. Podemos simplificar a obtenção de
+uma fórmula para a raiz de $p_{L(f, \{a, b\})}$ se o tratarmos de uma
+outra forma, para além da forma de Lagrange. Basicamente,
+$p_{L(f, \{a, b\})}$ é a reta que passa pelos pontos $(a, f(a))$ e
+$(b, f(b))$. Temos que a equação geral da reta é, dado um de seus
+pontos $(x_0, y_0)$ e um coeficiente de inclinação $m$
 
 $$
 r(x) = y_0 + m(x - x_0)
 $$
 
-Como $p_{L(f, \{a, b\})}$ passa por $(a, f(a))$ e $(b, f(b))$, calculamos
+Como $p_{L(f, \{a, b\})}$ passa por $(a, f(a))$ e $(b, f(b))$,
+calculamos
 
 $$
 m = \frac{f(b) - f(a)}{b - a}
@@ -436,7 +606,9 @@ garantia de que encontraremos uma $\epsilon$-raiz de $f$.
 
 \subsection{Método de Newton}
 
-Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função contínua. Vamos descrever um método para encontrar uma $\epsilon$-raiz de $f$ usando  um polinômio de Taylor.
+Tome $f : A \to B$, com $A, B \subseteq \mathbb{R}$, uma função
+contínua. Vamos descrever um método para encontrar uma $\epsilon$-raiz
+de $f$ usando um polinômio de Taylor.
 
 Como sabemos, os polinômios de Taylor são construídos para aproximar
 $f$ em torno de um ponto $a \in A$. Dado $a \in A$, vamos construir um
@@ -468,29 +640,57 @@ $$
 x = a - \frac{f(a)}{\frac{d}{dx} f(a)}
 $$
 
-Vamos chamar de $\hat{x}$ a raiz de $p_{T(f, a, 1)}$. Como não sabemos da existência de uma raiz de $f$ em uma região de comprimento conhecido, temos de lidar com a segunda parte da definição de $\epsilon$-raiz, ou seja, temos de verificar se $|f(\hat{x})| \leq \epsilon$.
+Vamos chamar de $\hat{x}$ a raiz de $p_{T(f, a, 1)}$. Como não sabemos
+da existência de uma raiz de $f$ em uma região de comprimento
+conhecido, temos de lidar com a segunda parte da definição de
+$\epsilon$-raiz, ou seja, temos de verificar se
+$|f(\hat{x})| \leq \epsilon$.
 
-Se $|f(\hat{x})| \leq \epsilon$, então $\hat{x}$ é uma $\epsilon$-raiz de $f$. Caso não seja, podemos utilizar $p_{T(f, \hat{x}, 1)}$ para dar continuidade ao método.
+Se $|f(\hat{x})| \leq \epsilon$, então $\hat{x}$ é uma $\epsilon$-raiz
+de $f$. Caso não seja, podemos utilizar $p_{T(f, \hat{x}, 1)}$ para
+dar continuidade ao método.
 
-Perceba, no entanto, que não foi dada nenhuma garantia de existência de uma raiz de $f$, muito menos o método de Newton preserva invariantes que garantam a convergência para uma raiz de $f$. Não é incomum, inclusive, que o método de Newton não convirja para uma raiz de $f$.
+Perceba, no entanto, que não foi dada nenhuma garantia de existência
+de uma raiz de $f$, muito menos o método de Newton preserva
+invariantes que garantam a convergência para uma raiz de $f$. Não é
+incomum, inclusive, que o método de Newton não convirja para uma raiz
+de $f$.
 
 \begin{exercicio}
-	Escreva um pseudocódigo sintetizando o método de Newton. Como não há garantia de convergência, use um limite para o número de iterações do método.
+  Escreva um pseudocódigo sintetizando o método de Newton. Como não há
+  garantia de convergência, use um limite para o número de iterações
+  do método.
 \end{exercicio}
 
-Quanto ao seu comportamento, é verificado que o método de Newton é muito sensível à escolha de $a \in A$. Para diminuir o risco de divergência, geralmente utiliza-se o método da posição falsa para tomar um intervalo pequeno o suficiente contendo uma raiz de $f$, e então escolhe-se $a$ nesse intervalo para aumentar as chances de convergência do método.
+Quanto ao seu comportamento, é verificado que o método de Newton é
+muito sensível à escolha de $a \in A$. Para diminuir o risco de
+divergência, geralmente utiliza-se o método da posição falsa para
+tomar um intervalo pequeno o suficiente contendo uma raiz de $f$, e
+então escolhe-se $a$ nesse intervalo para aumentar as chances de
+convergência do método.
 
 \begin{exercicio}
-	Use o método de Newton com $a \in \{-2, -1, 0\}$ para encontrar uma raiz de $$f(x) = \frac{(x - 1)^2}{x^2 + 1}$$ Explique os comportamentos apresentados pelo método.
+  Use o método de Newton com $a \in \{-2, -1, 0\}$ para encontrar uma
+  raiz de $$f(x) = \frac{(x - 1)^2}{x^2 + 1}$$ Explique os
+  comportamentos apresentados pelo método.
 \end{exercicio}
 
 \begin{exercicio}
-	Escreva um psudocódigo para sintetizar o método híbrido descrito acima. Use dois parâmetros de precisão, um para a fase da posição falsa e outro para a fase do método de Newton.
+  Escreva um psudocódigo para sintetizar o método híbrido descrito
+  acima. Use dois parâmetros de precisão, um para a fase da posição
+  falsa e outro para a fase do método de Newton.
 \end{exercicio}
 
-Uma outra observação é que o método de Newton pode terminar de forma imprevisível por conta de divisões por zero. Como a única divisão na fórmula do método tem como divisor $\frac{d}{dx} f(a)$, esse caso ocorre quando o método toma um ponto $a$ com $\frac{d}{dx} f(a) = 0$. Em outras palavras, se alguma iteração do método considerar um ponto de máximo ou mínimo local (ou algum outro ponto estacionário), o ponto da próxima iteração não poderá ser computado.
+Uma outra observação é que o método de Newton pode terminar de forma
+imprevisível por conta de divisões por zero. Como a única divisão na
+fórmula do método tem como divisor $\frac{d}{dx} f(a)$, esse caso
+ocorre quando o método toma um ponto $a$ com $\frac{d}{dx} f(a) =
+0$. Em outras palavras, se alguma iteração do método considerar um
+ponto de máximo ou mínimo local (ou algum outro ponto estacionário), o
+ponto da próxima iteração não poderá ser computado.
 
-Vamos agora analisar o erro do método de Newton, baseado no erro de aproximação de $p_{T(f, a, 1)}$. Sabemos que
+Vamos agora analisar o erro do método de Newton, baseado no erro de
+aproximação de $p_{T(f, a, 1)}$. Sabemos que
 
 $$
 f(a + h) = p_{T(f, a, k)}(a + h) + O(h^{k + 1})
@@ -549,17 +749,31 @@ arbitrária.
 
 \section{Integração numérica}
 
-Nesta seção, vamos apresentar técnicas de aproximação para o cálculo de integrais definidas de funções $f : A \to B$, com $A, B \subseteq \mathbb{R}$, em um intervalo $[a, b] \subseteq A$, isto é, integrais da forma $\int_a^b f(x) dx$. Para isso, vamos inicialmente fazer uso de polinômios de Lagrange (\emph{quadraturas de Newton-Cottes}) e vamos desenvolver quadraturas para a integração exata de polinômios com grau limitado (\emph{quadrataruas de Gauss-Legendre}).
+Nesta seção, vamos apresentar técnicas de aproximação para o cálculo
+de integrais definidas de funções $f : A \to B$, com
+$A, B \subseteq \mathbb{R}$, em um intervalo $[a, b] \subseteq A$,
+isto é, integrais da forma $\int_a^b f(x) dx$. Para isso, vamos
+inicialmente fazer uso de polinômios de Lagrange (\emph{quadraturas de
+  Newton-Cottes}) e vamos desenvolver quadraturas para a integração
+exata de polinômios com grau limitado (\emph{quadrataruas de
+  Gauss-Legendre}).
 
 \subsection{Regra do trapézio}
 
-Começamos por apresentar a primeira quadratura de Newton-Cottes, uma das regras de aproximação de integrais mais simples. Dada $f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um intervalo $[a, b] \subseteq A$, utilizamos $p_{L(f, \{a, b\})}$ como uma aproximação para $f$ em $[a, b]$. Se $p_{L(f, \{a, b\})}$ for uma boa aproximação para $f$ em $[a, b]$, esperamos que
+Começamos por apresentar a primeira quadratura de Newton-Cottes, uma
+das regras de aproximação de integrais mais simples. Dada
+$f : A \to B$, com $A, B \subseteq \mathbb{R}$, e um intervalo
+$[a, b] \subseteq A$, utilizamos $p_{L(f, \{a, b\})}$ como uma
+aproximação para $f$ em $[a, b]$. Se $p_{L(f, \{a, b\})}$ for uma boa
+aproximação para $f$ em $[a, b]$, esperamos que
 
 $$
 \int_{a}^{b} f(x) dx \approx \int_{a}^{b} p_{L(f, \{a, b\})}(x) dx
 $$
 
-Como $p_{L(f, \{a, b\})}$ é uma reta, podemos calcular analiticamente $\int_{a}^{b} p_{L(f, \{a, b\})}(x) dx$, esperando obter uma fórmula simples para seu valor. Desenvolvemos $p_{L(f, \{a, b\})}$ como
+Como $p_{L(f, \{a, b\})}$ é uma reta, podemos calcular analiticamente
+$\int_{a}^{b} p_{L(f, \{a, b\})}(x) dx$, esperando obter uma fórmula
+simples para seu valor. Desenvolvemos $p_{L(f, \{a, b\})}$ como
 
 $$
 p_{L(f, \{a, b\})}(x) = f(a) \frac{x - b}{a - b} + f(b) \frac{x - a}{b - a}
@@ -604,43 +818,85 @@ $$
 $$
 
 \begin{exercicio}
-	Desenvolva a regra do trapézio, tratando $\int_{a}^{b} p_{L(f, \{a, b\})}(x) dx$ como a área do trapézio de vértices $(a, 0), (b, 0), (a, f(a))$ e $(b, f(b))$.
+  Desenvolva a regra do trapézio, tratando
+  $\int_{a}^{b} p_{L(f, \{a, b\})}(x) dx$ como a área do trapézio de
+  vértices $(a, 0), (b, 0), (a, f(a))$ e $(b, f(b))$.
 \end{exercicio}
 
-Claro que existe o caso de $p_{L(f, \{a, b\})}$ não ser uma boa aproximação para $f$ em $[a, b]$. Como $p_{L(f, \{a, b\})}$ é uma reta, a regra do trapézio é efetiva para aproximar $\int_{a}^{b} f(x) dx$ quando $f$ tem sua derivada segunda assumindo valores próximos a zero em $[a, b]$. Caso esse não seja o caso, podemos nos valer da propriedade
+Claro que existe o caso de $p_{L(f, \{a, b\})}$ não ser uma boa
+aproximação para $f$ em $[a, b]$. Como $p_{L(f, \{a, b\})}$ é uma
+reta, a regra do trapézio é efetiva para aproximar
+$\int_{a}^{b} f(x) dx$ quando $f$ tem sua derivada segunda assumindo
+valores próximos a zero em $[a, b]$. Caso esse não seja o caso,
+podemos nos valer da propriedade
 
 $$
 \int_{a}^{b} f(x) dx = \int_{a}^{c} f(x) dx + \int_{c}^{b} f(x) dx, \forall\, c \in [a, b]
 $$
 
-Assim, podemos aproximar $\int_{a}^{b} f(x) dx$ aplicando a regra do trapézio para $\int_{a}^{c} f(x) dx$ e $\int_{c}^{b} f(x) dx$. Uma escolha bastante comum para $c$ é $c = \frac{a + b}{2}$.
+Assim, podemos aproximar $\int_{a}^{b} f(x) dx$ aplicando a regra do
+trapézio para $\int_{a}^{c} f(x) dx$ e $\int_{c}^{b} f(x) dx$. Uma
+escolha bastante comum para $c$ é $c = \frac{a + b}{2}$.
 
-Essa estratégia de particionar o intervalo de integração em subintervalos de igual comprimento pode facilmente ser generalizada. Para particionar $[a, b]$ em $k$ subintervalos de mesmo comprimento, $k \in \mathbb{N}$, utilizamos os pontos $\{a_0, a_1, \dots, a_k\}$ definidos por $a_i = a + ih, i \in \{0\} \cup [k]$, onde $h = \frac{b - a}{k}$ é o comprimento de cada subintervalo. Usamos a generalização da propriedade apresentada
+Essa estratégia de particionar o intervalo de integração em
+subintervalos de igual comprimento pode facilmente ser
+generalizada. Para particionar $[a, b]$ em $k$ subintervalos de mesmo
+comprimento, $k \in \mathbb{N}$, utilizamos os pontos
+$\{a_0, a_1, \dots, a_k\}$ definidos por
+$a_i = a + ih, i \in \{0\} \cup [k]$, onde $h = \frac{b - a}{k}$ é o
+comprimento de cada subintervalo. Usamos a generalização da
+propriedade apresentada
 
 $$
 \int_{a}^{b} f(x) dx = \sum_{i = 0}^{k - 1} \int_{a_i}^{a_{i + 1}} f(x) dx
 $$
 
-Com essa generalização, podemos aplicar a regra do trapézio para aproximar as integrais em cada um dos subintervalos, somar seus resultados e obter uma aproximação para a integral no intervalo completo. Podemos iterar, inclusive, sobre valores de $k$ para verificar se há convergência do método ao passo em que consideramos mais subintervalos.
+Com essa generalização, podemos aplicar a regra do trapézio para
+aproximar as integrais em cada um dos subintervalos, somar seus
+resultados e obter uma aproximação para a integral no intervalo
+completo. Podemos iterar, inclusive, sobre valores de $k$ para
+verificar se há convergência do método ao passo em que consideramos
+mais subintervalos.
 
-Mas qual seria o critério de convergência? Bom, como não podemos esperar ter o resultado da integral que estamos aproximando (se tivéssemos não faria sentido buscar por aproximações), vamos admitir que o método converge, dada uma margem $\epsilon \in \mathbb{R}_+$, se a diferença entre a aproximação da iteração atual e a da iteração anterior for menor que $\epsilon$, em valores absolutos.
+Mas qual seria o critério de convergência? Bom, como não podemos
+esperar ter o resultado da integral que estamos aproximando (se
+tivéssemos não faria sentido buscar por aproximações), vamos admitir
+que o método converge, dada uma margem $\epsilon \in \mathbb{R}_+$, se
+a diferença entre a aproximação da iteração atual e a da iteração
+anterior for menor que $\epsilon$, em valores absolutos.
 
 \begin{exercicio} \label{exercicioRegraTrapezioImplementacao}
-	Sintetize um método que aproxima uma integral $\int_{a}^{b} f(x) dx$, aplicando a regra do trapézio em $k$ subintervalos de mesmo comprimento que particionam $[a, b]$, na sua $k$-ésima iteração. O método termina quando atingir o critério de convergência apresentado acima. Quanto ao número de operações realizadas em uma iteração, existe alguma vantagem em tomar intervalos de mesmo comprimento?
+  Sintetize um método que aproxima uma integral
+  $\int_{a}^{b} f(x) dx$, aplicando a regra do trapézio em $k$
+  subintervalos de mesmo comprimento que particionam $[a, b]$, na sua
+  $k$-ésima iteração. O método termina quando atingir o critério de
+  convergência apresentado acima. Quanto ao número de operações
+  realizadas em uma iteração, existe alguma vantagem em tomar
+  intervalos de mesmo comprimento?
 \end{exercicio}
 
-Algo interessante de se notar sobre o erro da regra do trapézio simples é sua relação com a concavidade de $f$ em $[a, b]$. Se $f$ é côncava em $[a, b]$, a regra do trapézio subestima sua integral no dito intervalo. No caso de $f$ convexa, a regra do trapézio superestima a mesma integral.
+Algo interessante de se notar sobre o erro da regra do trapézio
+simples é sua relação com a concavidade de $f$ em $[a, b]$. Se $f$ é
+côncava em $[a, b]$, a regra do trapézio subestima sua integral no
+dito intervalo. No caso de $f$ convexa, a regra do trapézio
+superestima a mesma integral.
 
 \begin{exercicio}
-	Enuncie a definição de função côncava e de função convexa. Como essas definições podem ser utilizadas para argumentar sobre o comportamento do erro da regra do trapézio?
+  Enuncie a definição de função côncava e de função convexa. Como
+  essas definições podem ser utilizadas para argumentar sobre o
+  comportamento do erro da regra do trapézio?
 \end{exercicio}
 
 \begin{exercicio}
-	Aproxime $\int_{0}^{\pi} cos(x) dx$ usando a regra do trapézio simples. Explique o resultado obtido.
+  Aproxime $\int_{0}^{\pi} cos(x) dx$ usando a regra do trapézio
+  simples. Explique o resultado obtido.
 \end{exercicio}
 
 \begin{exercicio}
-	Calcule $\int_{0}^{2}\sqrt{x}dx$ usando a regra do trapézio simples. Calcule também usando quatro subintervalos de mesmo comprimento. Compare os resultados das aproximações com o valor exato da integral.
+  Calcule $\int_{0}^{2}\sqrt{x}dx$ usando a regra do trapézio
+  simples. Calcule também usando quatro subintervalos de mesmo
+  comprimento. Compare os resultados das aproximações com o valor
+  exato da integral.
 \end{exercicio}
 
 \begin{figure}
@@ -694,10 +950,15 @@ $$
 Agora vamos calcular a integral de $p_{L(f, \{a, c, b\})}$ no intervalo $[a, b]$
 
 $$
-\int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{a}^{b} \frac{(x - c)(x - b)}{(a - c)(a - b)} dx + f(c) \int_{a}^{b} \frac{(x - a)(x - b)}{(c - a)(c - b)} dx + f(b) \int_{a}^{b} \frac{(x - a)(x - c)}{(b - a)(b - c)} dx
+\int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{a}^{b} \frac{(x
+  - c)(x - b)}{(a - c)(a - b)} dx + f(c) \int_{a}^{b} \frac{(x - a)(x
+  - b)}{(c - a)(c - b)} dx + f(b) \int_{a}^{b} \frac{(x - a)(x -
+  c)}{(b - a)(b - c)} dx
 $$
 
-Para facilitar as coisas, vamos fazer a substituição $x = a + ht$, onde $t$ vai ser nossa nova variável e $h = \frac{b - a}{2}$. Temos que $dx = hdt$. Perceba que $c = a + h$ e que $b = a + 2h$.
+Para facilitar as coisas, vamos fazer a substituição $x = a + ht$,
+onde $t$ vai ser nossa nova variável e $h = \frac{b - a}{2}$. Temos
+que $dx = hdt$. Perceba que $c = a + h$ e que $b = a + 2h$.
 
 $$
 \int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{0}^{2} \frac{h(t - 1)h(t - 2)}{(-h)(-2h)} hdt +
@@ -708,7 +969,9 @@ $$
 $$
 
 $$
-\int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{0}^{2} \frac{h^3(t - 1)(t - 2)}{2h^2} dt + f(c) \int_{0}^{2} \frac{h^3t(t - 2)}{-h^2} dt + f(b) \int_{0}^{2} \frac{h^3t(t - 1)}{2h^2} dt
+\int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{0}^{2}
+\frac{h^3(t - 1)(t - 2)}{2h^2} dt + f(c) \int_{0}^{2} \frac{h^3t(t -
+  2)}{-h^2} dt + f(b) \int_{0}^{2} \frac{h^3t(t - 1)}{2h^2} dt
 $$
 
 $$
@@ -716,7 +979,9 @@ $$
 $$
 
 $$
-= \frac{hf(a)}{2} \left[\frac{t^3}{3} - \frac{3t^2}{2} + 2t\right]_0^2 - hf(c) \left[\frac{t^3}{3} - t^2\right]_0^2 + \frac{hf(b)}{2} \left[\frac{t^3}{3} - \frac{t^2}{2}\right]_0^2
+= \frac{hf(a)}{2} \left[\frac{t^3}{3} - \frac{3t^2}{2} + 2t\right]_0^2
+- hf(c) \left[\frac{t^3}{3} - t^2\right]_0^2 + \frac{hf(b)}{2}
+\left[\frac{t^3}{3} - \frac{t^2}{2}\right]_0^2
 $$
 
 $$
@@ -741,9 +1006,15 @@ $$
 \int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = \frac{b - a}{6} \left(f(a) + 4f\left(\frac{a + b}{2}\right) + f(b)\right)
 $$
 
-E temos desemvolvido a regra de Simpson. Se $p_{L(f, \{a, c, b\})}$ é uma boa aproximação para $f$ em $[a, b]$, então podemos esperar que a regra de Simpson forneça um valor próximo da integral em questão.
+E temos desemvolvido a regra de Simpson. Se $p_{L(f, \{a, c, b\})}$ é
+uma boa aproximação para $f$ em $[a, b]$, então podemos esperar que a
+regra de Simpson forneça um valor próximo da integral em questão.
 
-Como a regra de Simpson é baseada numa interpolação via um polinômio de Lagrange de grau 2, é óbvio que ela não comete erros quando o integrando é um polinômio de grau 2. O que é muito peculiar é o fato da regra de Simpson não cometer erros quando o integrando é um polinômio de grau 3!
+Como a regra de Simpson é baseada numa interpolação via um polinômio
+de Lagrange de grau 2, é óbvio que ela não comete erros quando o
+integrando é um polinômio de grau 2. O que é muito peculiar é o fato
+da regra de Simpson não cometer erros quando o integrando é um
+polinômio de grau 3!
 
 \begin{exercicio}
 	Sabendo que a fórmula do erro que a regra de Simpson comete ao aproximar $\int_{a}^{b} f(x) dx$ é
@@ -755,30 +1026,55 @@ $$
 	para algum $c \in [a, b]$, explique por que a regra de Simpson não comete erros quando o integrando é um polinômio de grau 3.
 \end{exercicio}
 
-Quanto à decomposição da integral em subintervalos, convergência e critérios de parada, podemos perceber que o que foi dito na seção da regra do Trapézio pode ser generalizado para qualquer quadratura. Mais ainda, deve ter ficado evidente que quadraturas de Newton-Cottes são desenvolvidas via polinômios de Lagrange, tomando pontos equidistantes em $[a, b]$.
+Quanto à decomposição da integral em subintervalos, convergência e
+critérios de parada, podemos perceber que o que foi dito na seção da
+regra do Trapézio pode ser generalizado para qualquer quadratura. Mais
+ainda, deve ter ficado evidente que quadraturas de Newton-Cottes são
+desenvolvidas via polinômios de Lagrange, tomando pontos equidistantes
+em $[a, b]$.
 
 \begin{exercicio}
-	Generalize o pseudocódigo desenvolvido no exercício \ref{exercicioRegraTrapezioImplementacao}, considerando $Q(f, a, b)$ uma quadratura genérica dada como entrada.
+  Generalize o pseudocódigo desenvolvido no exercício
+  \ref{exercicioRegraTrapezioImplementacao}, considerando $Q(f, a, b)$
+  uma quadratura genérica dada como entrada.
 \end{exercicio}
 
 \begin{exercicio}
-	Calcule $\int_{0}^{2}\sqrt{x}dx$ usando a regra de Simpson simples. Calcule também usando 4 subintervalos de mesmo comprimento. Compare o resultado com o valor exato da integral.
+  Calcule $\int_{0}^{2}\sqrt{x}dx$ usando a regra de Simpson
+  simples. Calcule também usando 4 subintervalos de mesmo
+  comprimento. Compare o resultado com o valor exato da integral.
 \end{exercicio}
 
-Dados pontos $X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$, equidistantes em $[a, b]$, com $x_1 = a$ e $x_k = b$, dizemos que a quadratura desenvolvida via $p_{L(f, X)}$ é uma quadratura de Newton-Cottes \emph{fechada}. Se tomarmos $X' \subset X$ como $X' = \{x_2, x_3, \dots, x_{k - 1}\}$ e desenvolvermos uma quadratura via $p_{L(f, X')}$, ela é dita uma quadratura de Newton-Cottes \emph{aberta}. Note que as quadraturas fechadas consideram os extremos do intervalo, enquanto as abertas não consideram.
+Dados pontos $X = \{x_1, x_2, \dots, x_k\}, k \in \mathbb{N}$,
+equidistantes em $[a, b]$, com $x_1 = a$ e $x_k = b$, dizemos que a
+quadratura desenvolvida via $p_{L(f, X)}$ é uma quadratura de
+Newton-Cottes \emph{fechada}. Se tomarmos $X' \subset X$ como
+$X' = \{x_2, x_3, \dots, x_{k - 1}\}$ e desenvolvermos uma quadratura
+via $p_{L(f, X')}$, ela é dita uma quadratura de Newton-Cottes
+\emph{aberta}. Note que as quadraturas fechadas consideram os extremos
+do intervalo, enquanto as abertas não consideram.
 
-As duas quadraturas de Newton-Cottes aqui apresentadas são fechadas. Como o desenvolvimento das abertas é feito de forma análoga, deixamos como exercício para o leitor.
+As duas quadraturas de Newton-Cottes aqui apresentadas são
+fechadas. Como o desenvolvimento das abertas é feito de forma análoga,
+deixamos como exercício para o leitor.
 
 \begin{exercicio}
-	Desenvolva uma quadratura de Newton-Cottes aberta considerando $X = \{x_1, x_2, x_3\}$. A quadratura a ser desenvolvida é chamada de regra do quadrado, ou \emph{midpoint rule}.
+  Desenvolva uma quadratura de Newton-Cottes aberta considerando
+  $X = \{x_1, x_2, x_3\}$. A quadratura a ser desenvolvida é chamada
+  de regra do quadrado, ou \emph{midpoint rule}.
 \end{exercicio}
 
 \begin{exercicio}
-	Desenvolva uma quadratura de Newton-Cottes fechada considerando quatro pontos equidistantes para a interpolação via Lagrange. A quadratura a ser dessenvolvida é conhecida como Simpson ``três oitavos".
+  Desenvolva uma quadratura de Newton-Cottes fechada considerando
+  quatro pontos equidistantes para a interpolação via Lagrange. A
+  quadratura a ser dessenvolvida é conhecida como Simpson ``três
+  oitavos".
 \end{exercicio}
 
 \begin{exercicio}
-	Dado que você fez o exercício \ref{exercicioFenomenoRunge}, explique por que o fenômeno de Runge desencoraja o uso de quadraturas de Newton-Cottes baseadas em polinômios de Lagrange de grau elevado.
+  Dado que você fez o exercício \ref{exercicioFenomenoRunge}, explique
+  por que o fenômeno de Runge desencoraja o uso de quadraturas de
+  Newton-Cottes baseadas em polinômios de Lagrange de grau elevado.
 \end{exercicio}
 
 \begin{figure}
@@ -996,6 +1292,36 @@ polinômios de grau até 3. No caso geral, a quadratura de
 Gauss-Legendre de ordem $n$ mantém a precisão para polinômios de grau
 até $2n - 1$, e pode ser determinada como uma solução de um sistema
 não-linear envolvendo $2n$ variáveis e $2n$ equações.
+
+Como exemplo, vamos verificar que a nossa quadratura de Gauss-Legendre
+calcula com exatidão a integral de $p(x) = x^3 + 4x^2 - 2x + 1$ no
+intervalo $[-1, 1]$.
+$$
+\int_{-1}^1 p(x) dx = p\left(\frac{\sqrt{3}}{3}\right) + p\left(-\frac{\sqrt{3}}{3}\right)
+$$
+Vamos primeiro calcular o valor da integral do polinômio $p(x)$ em
+$[-1, 1]$.
+$$
+\left[\frac{x^4}{4} + \frac{4x^3}{3} - x^2 + x\right]_{-1}^1
+$$
+
+$$
+\frac{1}{4} + \frac{4}{3} - \left(\frac{1}{4} - \frac{4}{3} - 1 - 1\right)
+$$
+
+$$
+\frac{8}{3} + 2 = \frac{14}{3}
+$$
+
+Agora vamos calcular $p\left(\frac{\sqrt{3}}{3}\right) + p\left(-\frac{\sqrt{3}}{3}\right)$.
+$$
+\left(\frac{\sqrt{3}}{3}\right)^3 + 4\left(\frac{\sqrt{3}}{3}\right)^2 - 2\frac{\sqrt{3}}{3} + 1
+- \left(\frac{\sqrt{3}}{3}\right)^3 + 4\left(\frac{\sqrt{3}}{3}\right)^2 + 2\frac{\sqrt{3}}{3} + 1
+$$
+
+$$
+8\left(\frac{\sqrt{3}}{3}\right)^2 + 2 = 8\frac{3}{9} + 2 = \frac{8}{3} + 2 = \frac{14}{3}
+$$
 
 A ordem da quadratura essencialmente é o número de pontos em que se
 toma valores de $f$. Para $n$ ímpar, 0 é um dos pontos tomados,
