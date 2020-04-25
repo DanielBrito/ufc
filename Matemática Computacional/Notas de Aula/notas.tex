@@ -112,6 +112,24 @@ $$
   raízes, então $p = 0$ (o polinômio com todos os coeficientes nulos).
 \end{exercicio}
 
+Como exemplo, vamos ilustrar o polinômio de Lagrange da função
+$f(x) = \cos(x)$ com amostras $X = \{0, \frac{\pi}{2}, \pi\}$.  Vamos
+construir $p_{L(f, X)}(x)$ a comçar pelos termos $l(1), l(2)$ e
+$l(3)$.
+
+\begin{align}
+  l(1) =& \frac{(x - \frac{\pi}{2})(x - \pi)}{-\frac{\pi}{2}(-\pi)} \label{eq:lagrangeTermExample1} \\
+  l(2) =& \frac{x(x - \pi)}{\frac{\pi}{2}(\frac{\pi}{2} - \pi)} \\
+  l(3) =& \frac{x(x - \frac{\pi}{2})}{\pi(\pi - \frac{\pi}{2})} \label{eq:lagrangeTermExample2} 
+\end{align}
+
+Utilizando os termos de Lagrange descritos pelas equações
+\eqref{eq:lagrangeTermExample1}-\eqref{eq:lagrangeTermExample2},
+definimos $p_{L(f, X)}(x)$ como
+$$
+p_{L(f, X)}(x) = f(0)l(1) + f\left(\frac{\pi}{2}\right)l(2) + f(\pi)l(3)
+$$
+
 Naturalmente, existe mais de um modo de descrever o polinômio de
 Lagrange. A forma aqui apresentada é dita a \emph{forma de Lagrange},
 bastante simples de descrever.
@@ -289,6 +307,21 @@ de sua distância até $a$. Fazendo a substituição $x = a + h$, obtemos
 
 $$
 p_{T(f, a, k)}(a + h) = f(a) + \left(\frac{d}{dx} f(a)\right)(h) + \left(\frac{1}{2} \frac{d^2}{dx^2} f(a)\right)(h)^2 + \left(\frac{1}{3!} \frac{d^3}{dx^3} f(a)\right)(h)^3 + \dots + \left(\frac{1}{k!} \frac{d^k}{dx^k} f(a)\right)(h)^k
+$$
+
+Como exemplo, vamos criar o polinômio de Taylor da função $f(x) =
+\sin(x)$, no entorno do ponto $\pi$, considerando três derivadas de $f(x)$.
+
+\begin{align}
+\frac{d}{dx}f(x) =     & \cos(x)  \\
+\frac{d^2}{dx^2}f(x) = & -\sin(x) \\
+\frac{d^3}{dx^3}f(x) = & -\cos(x)
+\end{align}
+
+Podemos descrever $p_{T(f, \pi, 3)}(x)$ da seguinte forma
+$$
+p_{T(f, \pi, 3)}(\pi + h) = \sin(\pi) + \cos(\pi)h -
+\frac{1}{2}\sin(\pi)h^2 - \frac{1}{6}\cos(\pi)h^3
 $$
 
 O seguinte resultado, que vamos deixar sem demonstração, é crucial
@@ -578,7 +611,7 @@ garantia de que encontraremos uma $\epsilon$-raiz de $f$.
   $\sqrt{7}$ de forma precisa em um computador.
 \end{exercicio}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \scalebox{1.0}{
     \begin{tikzpicture}[domain=0:8,
@@ -601,8 +634,25 @@ garantia de que encontraremos uma $\epsilon$-raiz de $f$.
     Tomamos $f(x) = \sin(x)$ e consideramos a interpolação de sua
     primeira iteração ($r_1(x)$) e de sua segunda iteração ($r_2(x)$).
     A primeira iteração considerou o intervalo $[1, 4]$ e a segunda
-    iteração considerou o intervalo $[2.5794, 4]$.}
+    iteração considerou o intervalo $[2.5794, 4]$.  Consulte a Tabela
+    \ref{tab:falsePosition}.}
+  \label{fig:falsePosition}
 \end{figure}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Iteração & $a$ & $b$ & raiz \\ \hline
+    $r_1(x)$ & $1$ & $4$ & $2.5794$ \\ \hline
+    $r_2(x)$ & $2.5794$ & $4$ & $3.1664$ \\ \hline
+  \end{tabular}
+  \caption{Intervalos utilziados na Figura \ref{fig:falsePosition}.
+    As colunas $a$ e $b$ indicam os pontos em que as retas $r$
+    interpolam a função $f$, e a coluna raiz indica a raiz da reta $r$
+    no intervalo $[a, b]$.}
+  \label{tab:falsePosition}
+\end{table}
 
 \subsection{Método de Newton}
 
@@ -718,7 +768,7 @@ método). Caso $f$ não seja diferenciável em todo seu domínio, e caso o
 método apresente divergência, este pode se comportar de forma
 arbitrária.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \scalebox{1.0}{
     \begin{tikzpicture}[domain=0:8,
@@ -744,8 +794,24 @@ arbitrária.
   \caption{Ilustração do método de Newton.  Encontramos uma raiz de
     $f(x) = \cos(x)$ com ponto inicial $a = 2$.  As retas
     $r_1, r_2, r_3$ e $r_4$ são utilizadas como interpolação nas
-    iterações correspondentes.}
+    iterações correspondentes.  Veja a Tabela \ref{tab:newtonMethod}.}
+  \label{fig:newtonMethod}
 \end{figure}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Iteração & $a$     & $\hat{x}$ \\ \hline
+    1        & $2$     & $4.185$   \\ \hline
+    2        & $4.185$ & $2.468$   \\ \hline
+    3        & $2.468$ & $3.266$   \\ \hline
+    4        & $3.266$ & $3.140$   \\ \hline
+  \end{tabular}
+  \caption{Valores numéricos de $a$ e $\hat{x}$ para a execução do
+    método de Newton ilustrada na Figura \ref{fig:newtonMethod}.}
+  \label{tab:newtonMethod}
+\end{table}
 
 \section{Integração numérica}
 
@@ -785,21 +851,43 @@ $$
 \int_{a}^{b} p_{L(f, \{a, b\})}(x) dx = \int_{a}^{b} \left(f(a) \frac{x - b}{a - b} + f(b) \frac{x - a}{b - a}\right) dx
 $$
 
+Como a integral da soma é a soma das integrais, e como a integral de
+uma constante multiplicada por uma função é a constante multiplicada
+pela integral da função, temos
+
 $$
 = \frac{f(a)}{a - b} \int_{a}^{b} (x - b) dx + \frac{f(b)}{b - a} \int_{a}^{b} (x - a) dx
 $$
+
+Agora encontramos as primitivas das integrais acima, que são bastante
+elementares.
 
 $$
 = \frac{f(a)}{a - b} \left[\frac{x^2}{2} - bx\right]_a^b + \frac{f(b)}{b - a} \left[\frac{x^2}{2} - ax\right]_a^b
 $$
 
+Em seguida, aplicamos o Teorema Fundamental do Cálculo.
+
 $$
 = \frac{f(a)}{a - b} \left(-\frac{b^2}{2} - \frac{a^2}{2} + ab\right) + \frac{f(b)}{b - a} \left(\frac{b^2}{2} - ab + \frac{a^2}{2}\right)
 $$
 
+Retiramos o $-1$ que multiplica a expressão em parênteses do primeiro
+termo, e colocamos esse $-1$ multiplicando o denominador $a - b$.
+Além disso, simplificamos as frações contidas nos parênteses.
+
 $$
 = \frac{f(a)}{b - a} \left(\frac{a^2 + b^2}{2} - ab\right) + \frac{f(b)}{b - a} \left(\frac{a^2 + b^2}{2} - ab\right)
 $$
+
+Colocamos a parte comum dos termos em evidência, e obtemos
+
+$$
+= (f(a) + f(b))\left(\frac{1}{b - a} \left(\frac{a^2 + b^2}{2} - ab\right)\right)
+$$
+
+Colocamos $-ab$ no numerador da fração mais interna, e em seguida
+fazemos o produto das duas frações.
 
 $$
 = (f(a) + f(b)) \frac{a^2 - 2ab + b^2}{2(b - a)} = (f(a) + f(b)) \frac{(a - b)^2}{2(b - a)}
@@ -968,21 +1056,33 @@ $$
 + f(c) \int_{0}^{2} \frac{h(t)h(t - 2)}{(h)(-h)} hdt + f(b) \int_{0}^{2} \frac{h(t)h(t - 1)}{(2h)(h)} hdt
 $$
 
+Agora, agrupamos os termos $h$ para uma posterior simplificação.
+
 $$
 \int_{a}^{b} p_{L(f, \{a, c, b\})}(x) dx = f(a) \int_{0}^{2}
 \frac{h^3(t - 1)(t - 2)}{2h^2} dt + f(c) \int_{0}^{2} \frac{h^3t(t -
   2)}{-h^2} dt + f(b) \int_{0}^{2} \frac{h^3t(t - 1)}{2h^2} dt
 $$
 
+Após a simplificação de $h$, as constantes (em termos de $h$ e $2$)
+são retiradas das integrais.
+
 $$
 = \frac{hf(a)}{2} \int_{0}^{2} (t - 1)(t - 2) dt - hf(c) \int_{0}^{2} t(t - 2) dt + \frac{hf(b)}{2} \int_{0}^{2} t(t - 1) dt
 $$
+
+Após escrever os polinômios de $t$ de maneira explícita, calculamos
+suas primitivas.
 
 $$
 = \frac{hf(a)}{2} \left[\frac{t^3}{3} - \frac{3t^2}{2} + 2t\right]_0^2
 - hf(c) \left[\frac{t^3}{3} - t^2\right]_0^2 + \frac{hf(b)}{2}
 \left[\frac{t^3}{3} - \frac{t^2}{2}\right]_0^2
 $$
+
+Aplicamos o Teorema Fundamental do Cálculo.  Note que, como o limite
+inferior de integração é $0$, isso consiste apenas em substituir $t$
+por $2$.
 
 $$
 = \frac{hf(a)}{2} \left(\frac{8}{3} - 6 + 4\right) - hf(c) \left(\frac{8}{3} - 4\right) + \frac{hf(b)}{2} \left(\frac{8}{3} - 2\right)
