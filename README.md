@@ -9,6 +9,8 @@
 * [Dicionário do Programador](https://www.youtube.com/playlist?list=PLVc5bWuiFQ8GgKm5m0cZE6E02amJho94o)
 
 ## Humor
+* [Vida de Programador](http://vidadeprogramador.com.br/)
+* [Vida de Suporte](http://vidadesuporte.com.br/)
 * [DevHumor](http://devhumor.com/)
 * [Memes](https://twitter.com/danielhbrito)
 * [turnoff.us](http://turnoff.us/)
