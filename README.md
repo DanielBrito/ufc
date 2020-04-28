@@ -18,3 +18,11 @@
 
 ## Testes
 * [Provas POSCOMP](https://github.com/amimaro/Provas-POSCOMP)
+
+## Filmes
+* [The Social Network](https://filmow.com/a-rede-social-t14928/)
+* [The Imitation Game](https://filmow.com/o-jogo-da-imitacao-t81308/)
+* [Snowden](https://filmow.com/snowden-heroi-ou-traidor-t100552/)
+
+## Documentários
+* [The Internet's Own Boy: The Story of Aaron Swartz](https://filmow.com/o-menino-da-internet-a-historia-de-aaron-swartz-t94036/)
