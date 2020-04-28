@@ -2,6 +2,7 @@
 
 ## Artigos
 * [Quanta Magazine](https://www.quantamagazine.org/computer-science/)
+* [GeeksForGeeks](https://www.geeksforgeeks.org/)
 
 ## Vídeos
 * [Computerphile](https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA)
