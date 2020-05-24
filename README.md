@@ -9,6 +9,10 @@
 - [Quanta Magazine](https://www.quantamagazine.org/computer-science/)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/)
 
+## :books: Livros
+
+- [Cypherpunks: Freedom and the Future of the Internet (Julian Assange)](https://ia802305.us.archive.org/3/items/pdfy-ekVVZgGOThtG6fXb/Julian%20Assange,%20Jacob%20Appelbaum%20etc%20-%20Cypherpunks%20Freedom%20&%20the%20Future%20of%20the%20Internet.pdf)
+
 ## :film_strip: Vídeos
 
 - [Computerphile](https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA)
