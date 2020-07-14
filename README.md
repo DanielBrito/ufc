@@ -17,6 +17,7 @@
 - [The Pragmatic Programmer (Andrew Hunt)](https://www.cin.ufpe.br/~cavmj/104The%20Pragmatic%20Programmer,%20From%20Journeyman%20To%20Master%20-%20Andrew%20Hunt,%20David%20Thomas%20-%20Addison%20Wesley%20-%201999.pdf)
 - [Arquitetura e Organização de Computadores (Stallings)](https://docero.com.br/doc/50sccc)
 - [Ciência da Computação: Uma Visão Abrangente (Brookshear)](https://www.amazon.com.br/Ci%C3%AAncia-Computa%C3%A7%C3%A3o-Uma-Vis%C3%A3o-Abrangente/dp/8582600305)
+- [Don't Make Me Think (Steve Krug)](https://www.amazon.com.br/gp/product/B00HJUBRPG/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0)
 - [Conceitos de linguagens de programação (Sebasta)](https://www.amazon.com.br/Conceitos-linguagens-programa%C3%A7%C3%A3o-Robert-Sebesta/dp/8577807916)
 - [Estatística aplicada e probabilidade para engenheiros (Montgomery)](https://docero.com.br/doc/185s0)
 - [Fundamentos de Sistemas Operacionais (Abraham Silberschatz)](https://www.amazon.com.br/Fundamentos-Sistemas-Operacionais-Abraham-Silberschatz/dp/8521629397)
