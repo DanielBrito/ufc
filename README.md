@@ -9,6 +9,7 @@
 - [Quanta Magazine](https://www.quantamagazine.org/computer-science/)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/)
 - [DevMedia](https://www.devmedia.com.br/artigos/)
+- [Sociedade Brasileira de Computação](https://www.sbc.org.br/publicacoes-2)
 
 ## :books: Bibliografia
 
