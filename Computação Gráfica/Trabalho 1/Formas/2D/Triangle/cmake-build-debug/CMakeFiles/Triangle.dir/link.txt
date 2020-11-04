@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Triangle.dir/main.cpp.o  -o Triangle -lglut -lGL -lGLU 

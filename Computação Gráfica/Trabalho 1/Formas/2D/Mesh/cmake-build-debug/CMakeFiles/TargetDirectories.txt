@@ -1,3 +1,0 @@
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Mesh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Mesh/cmake-build-debug/CMakeFiles/Mesh.dir
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Mesh/cmake-build-debug/CMakeFiles/edit_cache.dir

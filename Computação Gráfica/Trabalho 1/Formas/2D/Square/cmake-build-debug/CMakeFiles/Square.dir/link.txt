@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Square.dir/main.cpp.o  -o Square -lglut -lGL -lGLU 

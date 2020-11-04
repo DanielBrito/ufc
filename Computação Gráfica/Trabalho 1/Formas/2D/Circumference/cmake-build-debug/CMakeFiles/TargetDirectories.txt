@@ -1,3 +1,0 @@
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Circumference/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Circumference/cmake-build-debug/CMakeFiles/Circumference.dir
-/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/2D/Circumference/cmake-build-debug/CMakeFiles/edit_cache.dir

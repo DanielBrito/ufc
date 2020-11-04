@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Circumference.dir/main.cpp.o  -o Circumference -lglut -lGL -lGLU 

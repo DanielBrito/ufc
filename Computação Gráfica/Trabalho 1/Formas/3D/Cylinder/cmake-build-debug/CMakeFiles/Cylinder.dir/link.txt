@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Cylinder.dir/main.cpp.o  -o Cylinder -lglut -lGL -lGLU 
