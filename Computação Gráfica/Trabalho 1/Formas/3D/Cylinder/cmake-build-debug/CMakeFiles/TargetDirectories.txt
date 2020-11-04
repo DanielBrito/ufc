@@ -1,0 +1,3 @@
+/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/3D/Cylinder/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/3D/Cylinder/cmake-build-debug/CMakeFiles/Cylinder.dir
+/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Formas/3D/Cylinder/cmake-build-debug/CMakeFiles/edit_cache.dir

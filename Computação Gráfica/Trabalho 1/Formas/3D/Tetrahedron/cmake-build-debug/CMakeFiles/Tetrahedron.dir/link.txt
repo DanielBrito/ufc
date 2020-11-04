@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Tetrahedron.dir/main.cpp.o  -o Tetrahedron -lglut -lGL -lGLU 

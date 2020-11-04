@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daniel/Codes/UFC - 2020.1/CGR/DanielBrito/Cenas/Scene3D/main.cpp
+GL/glut.h
+-
+glm/glm.hpp
+-
+bits/stdc++.h
+-
+

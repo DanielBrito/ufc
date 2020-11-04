@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Scene2D.dir/main.cpp.o  -o Scene2D -lglut -lGL -lGLU 
