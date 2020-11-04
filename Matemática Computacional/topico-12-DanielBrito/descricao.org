@@ -1,0 +1,9 @@
+* Descrição
+
+  Dentre as questões 84 a 88 (são 5 questões) das notas de aula,
+  resolva quantas quiser, utilizando \LaTeX para produzir
+  seus documentos.
+  
+  Como se trata de uma atividade extra, cada questão resolvida pode
+  valer, no máximo, dois pontos (2.0 pontos) a serem acrescidos à
+  média parcial.

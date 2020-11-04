@@ -1,0 +1,5 @@
+* Descrição
+
+  Dentre as questões 63 a 74 (são 12 questões) das notas de aula,
+  escolha 8 questões e as resolva, utilizando \LaTeX para produzir
+  seus documentos.

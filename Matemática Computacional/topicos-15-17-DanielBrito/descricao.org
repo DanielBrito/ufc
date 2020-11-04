@@ -1,0 +1,5 @@
+* Descrição
+
+  Dentre as questões 89 a 106 (são 18 questões) das notas de aula,
+  resolva 10 questões, utilizando \LaTeX para produzir
+  seus documentos.

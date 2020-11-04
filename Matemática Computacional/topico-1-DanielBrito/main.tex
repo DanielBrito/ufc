@@ -1,0 +1,54 @@
+\documentclass[]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{hyperref}
+
+\usepackage{graphics}
+\usepackage{tikz}
+
+\begin{document}
+35) 
+
+\enspace
+
+$f(a + h) - f(a - h) = 2f(a) + \frac{d^2}{dx^2} h^2$
+
+\enspace
+
+$\frac{d^2}{dx^2} f(a)$ = $\frac{f(a+h) - 2f(a) + f(a-h)}{h^2} + O(h^2)$
+
+\enspace
+
+36)
+
+\enspace
+
+$f(a + \overline{h}) = f(a) + \frac{d}{dx} f(a)\overline{h} + \frac{1}{2} \frac{d^2}{dx^2} f(a) \overline{h}^2 + \frac{1}{6} \frac{d^3}{dx^3} \overline{h}^3$
+
+\enspace
+
+$f(a + 2\overline{h}) = f(a) + 2\frac{d}{dx} f(a) \overline{h} + 2\frac{d^2}{dx^2} \overline{h}^2 + \frac{4}{3} \frac{d^3}{dx^3} \overline{h}^3$
+
+\enspace
+
+$\frac{d^3}{dx^3} f(a)$ = $\frac{-3f(a)+4f(a+\overline{h})-f(a+2\overline{h})}{2h} + O(h^2)$
+
+\enspace
+
+37)
+
+\enspace
+
+$f(a + 2h) - f(a - 2h) - 2[f(a + h) - f(a - h)] = \frac{d^3}{dx^3} 2h^3$
+
+\enspace
+
+$\frac{d^3}{dx^3} f(a)$ = $\frac{f(a + 2h) - f(a - 2h) - 2[f(a + h) - f(a - h)]}{2h^3} + O(h^2)$
+
+\end{document}

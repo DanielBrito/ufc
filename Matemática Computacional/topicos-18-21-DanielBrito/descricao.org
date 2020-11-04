@@ -1,0 +1,7 @@
+* Descrição
+
+  Escolha dois problemas de otimização, elabore modelos matemáticos lineares para os mesmos e os resolva.
+  Você pode escolher problemas descritos nas notas de aula (menos os já implementados), caso prefira.
+  Você também pode pesquisar por novos problemas: nesse caso, deve ser apresentada também a descrição do problema.
+  Procure apresentar a solução de seu modelo de forma visual (utilizando gráficos, por exemplo), quando isso for possível.
+  Elabore também um verificador, isto é, uma função ou classe capaz de verificar a viabilidade de sua solução.

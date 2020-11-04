@@ -1,0 +1,5 @@
+* Descrição
+
+  Dentre as questões 75 a 83 (são 9 questões) das notas de aula,
+  escolha 5 questões e as resolva, utilizando \LaTeX para produzir
+  seus documentos.

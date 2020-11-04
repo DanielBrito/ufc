@@ -1,0 +1,181 @@
+\documentclass[]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+
+\usepackage{graphics}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+63) Assumindo que todo vértice tem um custo associado $c(v)\geq0$. O problema da cobertura mínima pode ser modelado como:
+
+\begin{align}
+\min        &\quad  \sum_{v \in V} c(v) x_v \\
+\text{s.t}  &\quad  x_u + x_v \geq 1, & \forall \{u, v\} \in E \\
+            &\quad  x_v \in \{0, 1\}, & \forall v \in V
+\end{align}
+
+\vspace{0.5cm}
+
+64) A partir da definição de cobertura mínima, temos que qualquer cobertura de vértice deve ser, pelo menos, tão grande quanto qualquer emparelhamento, uma vez que, para cada aresta no emparelhamento (cujas arestas são disjuntas), pelo menos um vértice é necessário na cobertura.
+
+Abaixo, um exemplo de grafo para o qual $a<b$, considerando (2, 3) e (4, 5) como emparelhamentos e 1, 3, 5 como vértices cobertos:
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tikzpicture}
+\node[minimum size=4cm,draw,regular polygon,regular polygon sides=5] (a) {};
+\foreach \i in {1,...,5}
+    \node[circle,radius=.1cm,draw,
+    label=center:{$\i$},
+    fill=white] at (a.corner \i) {};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+65) O modelo matemático cujo custo de suas soluções ótimas é $a$ pode ser dado por:
+
+\begin{align}
+\max &\quad a \\
+\text{s.t}     &\quad a \leq b \\
+     &\quad a \leq c \\
+     &\quad a, b, c \in \mathbb{R}
+\end{align}
+
+\vspace{0.5cm}
+
+66) Fazendo as devidas substiuições recomendadas, temos:
+
+\begin{align}
+\max        &\quad 3 x_1 + 2 p_1 + x_4 \\
+\text{s.t}  &\quad 4 p_2 + 6 x_2 + x_3 \leq 8 \\
+            &\quad x \in \mathbb{B}^4 \\
+            &\quad p \in \mathbb{B}^2
+\end{align}
+
+Uma vez que procuramos a maximização, mas ainda obedecendo (9), podemos analisar as seguintes tabelas-verdade, que tomam $p_1$ e $p_2$ representando os produtos $x_2 x_3$ e $x_1 x_4$, respectivamente:
+
+\begin{displaymath}
+\begin{array}{|c c|c|}
+x_2 & x_3 & p_1 = x_2 \land x_3\\
+  0 &   0 & 0\\
+  0 &   1 & 0\\
+  1 &   0 & 0\\
+  1 &   1 & 1
+\end{array}
+\end{displaymath}
+\begin{displaymath}
+\begin{array}{|c c|c|}
+x_1 & x_4 & p_2 = x_1 \land x_4\\
+  0 &   0 & 0\\
+  0 &   1 & 0\\
+  1 &   0 & 0\\
+  1 &   1 & 1
+\end{array}
+\end{displaymath}
+
+Por fim, obtemos o seguinte modelo:
+
+\begin{align}
+\max        &\quad 3 x_1 + 2 p_1 + x_4 \\
+\text{s.t}  &\quad 4 p_2 + 6 x_2 + x_3 \leq 8 \\
+            &\quad p_1 \leq x_2 \\
+            &\quad p_1 \leq x_3 \\
+            &\quad p_1 \geq x_2 + x_3 - 1 \\
+            &\quad p_2 \leq x_1 \\
+            &\quad p_2 \leq x_4 \\
+            &\quad p_2 \geq x_1 + x_4 - 1 \\
+            &\quad x \in \mathbb{B}^4 \\
+            &\quad p \in \mathbb{B}^2
+\end{align}
+
+\vspace{0.5cm}
+
+67) Modelo linear equivalente:
+
+\begin{align}
+\max        &\quad q \\
+\text{s.t}  &\quad q \leq c^T x \\
+            &\quad q \leq d^T x \\
+            &\quad Ax = b \\\
+            &\quad c, d, x \in \mathbb{R}^n
+\end{align}
+
+Isso é o bastante para termos $q = \min(f(x), g(x))$ por causa da direção de otimização (max).
+
+\vspace{0.5cm}
+
+69) Considere o lema:
+
+\begin{enumerate}[i)]
+    \item Se $G$ é um grafo conexo com $n-1$ arestas, então $G$ não tem ciclos.
+\end{enumerate}
+
+Sejam as sentenças do enunciado:
+
+\begin{enumerate}[a)]
+    \item $T$ é uma árvore com $n$ vértices.
+    \item $T$ é conexo e tem $n - 1$ arestas.
+    \item $T$ é acíclico e tem $n - 1$ arestas.
+\end{enumerate}
+
+Para provar tais equivalências, vamos mostrar que: $a) \implies b)$, $b) \implies c)$:
+
+\vspace{0.5cm}
+
+$a) \implies b)$: Como, por hipótese, $T$ é uma árvore, temos que $T$ é convexo. Precisamos mostrar apenas que $T$ possui $n - 1$ arestas. Vamos mostrar por indução sobre $n$.
+
+Vamos verificar o resultado para um valor de $n$, por exemplo, $n = 1$ e $n = 2$.
+
+Para $n = 1$, temos 0 arestas.
+Para $n = 2$, temos 1 aresta.
+
+Agora, vamos supor que o resultado vale para qualquer grafo $T'$ com $k - 1$ vértices. Isto é, se $T'$ é uma árvore, então $T'$ é conexo e possui $k - 2$ arestas.
+
+Vamos acrescentar uma nova aresta $(v, w)$ a este grafo. 
+
+Para manter o grafo conexo e sem circuitos, um e apenas um dos vértices em $(v, w)$ pode pertencer a $T'$. Assim, ao acrescentar a aresta $(v, w)$ a $T'$, precisamos acrescentar também um vértice. Assim, teremos um novo grafo $T''$ com k vértices e $k - 1$ arestas.
+
+A forma como $T''$ foi construído garante que é conexo e sem circuitos. Portanto, temos que $T''$ é uma árvore.
+
+Mostramos, assim, que se $T$ é uma árvore, então $T$ é conexo com $n - 1$ arestas.
+
+\vspace{0.5cm}
+
+$b) \implies c)$: Baseado em $i)$, temos que se $G$ é um grafo conexo com $n-1$ arestas, então $G$ não tem ciclos. Provamos, assim, esta implicação.
+
+\vspace{0.5cm}
+
+70) Definimos $\delta(S) = \{e \in E : |e \cap S| = 1\}$ como todas as arestas com exatamente um extremo em $S$:
+
+\begin{align}
+\min        &\quad  \sum_{e \in E} c_ex_e \\
+\text{s.t}  &\quad  \sum_{e \in E} x_e = |V| - 1 \\
+            &\quad  \sum_{e \in \delta(S)} x_e \leq |S| - 1, & \forall S \subseteq V \\
+            &\quad  x \in \mathbb{B}^{|E|}
+\end{align}
+
+\vspace{0.5cm}
+
+73) Seja $N$ o número de vértices (cidades) e $c_{ij}$ o peso da aresta que conecta o vértice $i$ e o vértice $j$. Considere uma variável de decisão $x_{ij}$ com valor 1, se o trajeto incluir a aresta conectando $i$ e $j$, e com valor 0, caso contrário.
+
+\begin{align}
+\min        &\quad  \sum_{i \in N} \sum_{j \in N} c_{ij} x_{ij} \\
+\text{s.t}  &\quad  \sum_{i \in N} x_{ij} = 1, & \forall j \in N \\
+            &\quad  \sum_{j \in N} x_{ij} = 1, & \forall i \in N \\
+            &\quad  \sum_{i, j \in S} x_{ij} \leq |S| - 1, & \forall S \subseteq N \\
+            &\quad  x_{ij} = {\{0, 1\}}
+\end{align}
+
+
+\end{document}

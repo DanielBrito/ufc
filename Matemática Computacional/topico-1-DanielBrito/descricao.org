@@ -1,0 +1,26 @@
+* Atividades teóricas
+  Para cada uma dessas atividades, elabore um documento em \LaTeX com
+  a sua resolução.
+  - Resolva a questão 35 das notas de aula.
+  - Resolva a questão 36 das notas de aula.
+  - Resolva a questão 37 das notas de aula.
+* Atividades práticas
+  Crie uma função:
+  - que recebe como entrada: uma função $f$ (unária) cuja derivada
+    deve ser aproximada, o ponto $a$ em que a derivada de $f$ deve ser
+    aproximada, o valor de $h$ a ser utilizado;
+  - que retorna um valor aproximado para a derivada de $f$ em $a$.
+  Faça isso para:
+  - a forward difference com dois pontos para a derivada primeira,
+    cuja fórmmula é apresentada na página 26;
+  - a central difference com dois pontos para a derivada primeira,
+    cuja fórmula é apresentada na página 27;
+  - a central difference com quatro pontos para a derivada primeira,
+    cuja fórmula é apresentada na página 29.
+
+  Eacolha alguma função cuja derivada você conhece, e compare as três
+  aproximações em um certo ponto $a$, para alguns valores de $h$. Para
+  aqueles que estão utilizando Python, o Pandas pode ajudar a
+  organizar essa parte. Este formato de documento (org mode, do emacs)
+  também é capaz de lidar com tabelas e execução de código em diversas
+  linguagens.

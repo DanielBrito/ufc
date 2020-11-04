@@ -1,0 +1,46 @@
+#+title: Descrição
+
+* Entregas Obrigatórias
+  Para esta entrega, você deve apresentar implementações dos
+  seguintes métodos numéricos:
+** Zeros de funções
+*** método da posição falsa
+    - entrada: função contínua unária que deve ter uma raiz encontrada
+      (pode ser hardcoded, não precisa ser um argumento), extremos de
+      um intervalo do domínio da função que contém uma raiz, precisão
+      para a primeira definição de $\epsilon$-raiz, precisão para a
+      segunda definição de $\epsilon$-raiz.
+    - comportamento: antes de cada iteração, devem ser impressos os
+      extremos do intervalo corrente; note que até mesmo o intervalo
+      passado como argumento deve ser impresso.
+    - retorno: nenhum.
+*** método de Newton
+    - entrada: função unária que deve ter uma raiz encontrada (pode
+      ser hardcoded, não precisa ser argumento), ponto inicial
+      pertencente ao domínio da função, precisão para a segunda
+      definição de $\epsilon$-raiz.
+    - comportamento: antes de cada iteração, o ponto corrente deve ser
+      impresso; note que até mesmo o ponto inicial, passado como
+      argumento, deve ser impresso.
+    - retorno: nenhum.
+** Integração Numérica
+*** regra do Trapézio
+    - entrada: integrando (função unária), que pode ser hardcoded, não
+      precisa ser argumento; intervalo de integração; precisão para a
+      diferença entre valor computado na iteração atual e na anterior.
+    - comportamento: começando com $k = 0$, o resultado de aplicar a
+      regra do Trapézio deve para $2^k$ subintervalos do intervalo de
+      integração deve ser impresso.
+    - retorno: nenhum.
+*** regra de Simpson
+    Descrição análoga à da regra do Trapézio.
+* Entregas Opcionais
+  Opcionalmente, para pontuação extra, você pode apresentar
+  implementações dos seguintes métodos numéricos:
+  - quadratura de Gauss-Legendre: similar às outras quadraturas, mas
+    não precisa do intervalo de integração como parte da entrada, já
+    que este é sempre $[-1, 1]$;
+  - integração dupla: a função (integrando) deve ser binária, e dois
+    intervalos de integração devem ser passados; além disso, devem ser
+    passadas também as quadraturas a serem utilizadas nas integrais
+    interna e externa.

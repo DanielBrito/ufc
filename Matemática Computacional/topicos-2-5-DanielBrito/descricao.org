@@ -1,0 +1,51 @@
+* Implementações
+  Dica: vale a pena gastar um tempinho e preparar uma classe que
+  represente uma matriz e tenha métodos correspondentes às três
+  operações elementares sobre linhas; essa classe pode ser usada
+  também para representar vetores como matrizes de apenas uma coluna.
+** Tópico 2
+   Escreva uma função que implemente o algoritmo de Eliminação
+   Gaussiana:
+   - Entrada: sistema linear, representado por uma matriz e suas
+     dimensões (as dimensões podem ser atributos de uma classe que
+     represente a matriz), e por um vetor de termos independentes,
+     cujo número de posições deve ser igual ao número de linhas da
+     matriz.
+   - Comportamento: matriz e termos independentes devem ser impressos
+     a cada iteração; entende-se por iteração os passos necessários
+     para zerar os elementos de uma coluna que se encontram abaixo da
+     diagonal principal; ao final da resolução, deve ser impresso o
+     status do sistema linear (solução única, solução parametrizada,
+     sem solução).
+   - Retorno: vetor contendo uma solução válida para o sistema linear,
+     caso tenha solução; em caso de solução parametrizada, deve ser
+     retornada a solução básica, isto é, a solução em que todas as
+     variáveis não-básicas são valoradas com 0; em caso de não haver
+     solução, deve ser retornado nada ou um objeto que represente a
+     ausência de solução.
+   Dica: para facilitar as implementações seguintes, pode ser
+   interessante representar uma iteração da Eliminação Gaussiana como
+   uma função, e escrever o procedimento de Eliminação Gaussiana como
+   uma série de chamadas para essa função.
+** Tópico 3
+   - Implemente o procedimento de pivoteamento parcial, isto é, uma
+     função que, dada uma matriz $A$ e um índice $i$ para uma de suas
+     linhas, permuta a linha $i$ com a linha de índice $j \geq i$ tal
+     que $A[j, i]$ é o maior valor absoluto para $j \geq i$. Deve ser
+     retornado o índice $j$ da linha que foi permutada com a de índice
+     $i$.
+   - Implemente uma versão da Eliminação Gaussiana com pivoteamento
+     parcial. Com a dica do tópico anterior, isso consiste de, antes
+     de cada chamada para a iteração da Eliminação Gaussiana, uma
+     chamada para o pivoteamento parcial e um ajuste correspondente no
+     vetor de termos independentes.
+** Tópico 4
+   Implemente a decomposição $PA = LU$ com pivoteamento parcial (vale
+   mencionar que a matriz $P$ determina as permutações de linha feitas
+   durante a decomposição, e portanto deve ser um dos retornos do
+   algoritmo):
+   - Entrada: matriz $A$ e suas dimensões.
+   - Saída: matrizes $P$, $L$ e $U$.
+** Tópico 5
+   Escreva um procedimento para calcular o determinante de uma matriz
+   (quadrada) $A$ a partir de sua decomposição $PA = LU$.
