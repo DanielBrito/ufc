@@ -64,6 +64,7 @@
 - [turnoff.us](http://turnoff.us/)
 - [xkcd](https://xkcd.com/)
 - [CommitStrip](https://www.commitstrip.com/)
+- [MonkeyUser](https://www.monkeyuser.com/)
 
 ## :ballot_box_with_check: Testes
 
