@@ -63,6 +63,7 @@
 - [Memes](https://twitter.com/danielhbrito)
 - [turnoff.us](http://turnoff.us/)
 - [xkcd](https://xkcd.com/)
+- [CommitStrip](https://www.commitstrip.com/)
 
 ## :ballot_box_with_check: Testes
 
