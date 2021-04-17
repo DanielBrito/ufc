@@ -1,0 +1,129 @@
+\documentclass[]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{latexsym}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{fancyhdr}
+%\usepackage{breakurl}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{threeparttable}
+\usepackage{adjustbox}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{caption}
+
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+\usepackage[margin=3cm]{geometry}
+
+\usepackage{pdfpages}
+
+%opening
+\title{Lista de Exercícios - Projeto e Análise de Algoritmos}
+\author{Luiz Alberto do Carmo Viana}
+
+\begin{document}
+
+\maketitle
+
+\vspace{\baselineskip}
+
+\textbf{Questão 1}
+
+Dois grafos $G_1 = (V_1, E_1)$ e $G_2 = (V_2, E_2)$ são isomorfos se
+existe uma função $f : V_1 \to V_2$ tal que $\{u, v\} \in E_1$ sse
+$\{f(u), f(v)\} \in E_2$.  Em palavras, grafos isomorfos são
+estruturalmente idênticos.  O problema \texttt{ISOMORPHIC}$(G_1, G_2)$
+consiste em decidir se $G_1$ é isomorfo a algum subgrafo de $G_2$.
+Mostre que \texttt{ISOMORPHIC} é NP-completo.  Dica: talvez seja
+possível usar $G_1$ para buscar por certas estruturas dentro de $G_2$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 2}
+
+Dados um subconjunto de naturais $S$ e um natural $t$,
+\texttt{SUBSET-SUM}$(S, t)$ consiste em decidir se há um subconjunto
+de $S$ cuja soma dos elementos é $t$.  Um outro problema
+\texttt{SET-PARTITION}$(S)$ consiste em decidir se $S$ pode ser
+particionado em dois subconjuntos de mesma soma.  Sabendo que
+\texttt{SUBSET-SUM} é NP-completo, prove que \texttt{SET-PARTITION} é
+NP-completo.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 3}
+
+O problema \texttt{HAMILTONIAN-PATH}$(G)$ consiste em decidir se $G$
+possui um caminho hamiltoniano (que passa por todos os vértices).  Já
+o problema \texttt{HAMILTONIAN-CYCLE}$(G)$ consiste em decidir se $G$
+possui um ciclo hamiltoniano.  Sabendo que \texttt{HAMILTONIAN-PATH} é
+NP-completo, prove que \texttt{HAMILTONIAN-CYCLE} é NP-completo.
+Agora faça o contrário.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 4}
+
+O problema \texttt{HALF-SAT}$(\phi)$ consiste em decidir se há uma
+valoração para as variáveis de uma fórmula CNF $\phi$ tal que
+exatamente metade de suas $m$ cláusulas seja satisfeita.  Certamente,
+\texttt{HALF-SAT}$(\phi)$ $= F$ se $m$ for ímpar, e portanto essas
+instâncias não são interessantes.  Mostre que \texttt{HALF-SAT} é
+NP-completo.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 5}
+
+O problema \texttt{HITTING-SET}$(\mathcal{S}, k)$ consiste em decidir
+se, dada uma família de conjuntos
+$\mathcal{S} = \{S_1, S_2, \dots, S_n\}$, existe um conjunto $H$ com
+no máximo $k$ elementos tal que $H \cap S_i \neq \emptyset$, para
+$1 \leq i \leq n$.  Mostre que \texttt{HITTING-SET} é NP-completo.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 6}
+
+O problema \texttt{MAX-DEG-SPANNING-TREE}$(G, k)$ consiste em decidir
+se $G$ possui uma árvore geradora $T$ com $\Delta(T) \leq k$.  Prove
+que esse problema é NP-completo.  Dica: você pode admitir que
+\texttt{HAMILTONIAN-PATH} é NP-completo.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 7}
+
+Dado um grafo conexo $G = (V, E)$, um conjunto $S \subseteq V$ é dito
+dominante se cada vértice de $G$ ou está em $S$ ou tem um vizinho em
+$S$.  O problema \texttt{DOMINATING-SET}$(G, k)$ consiste em decidir
+se $G$ possui um conjunto dominante com no máximo $k$ vértices.  Prove
+que esse problema é NP-completo.  Dica: cobertura e dominância são
+conceitos muito parecidos; toda cobertura de vértices é um conjunto
+dominante, mas e a volta? Seria possível estender um grafo de forma
+que a volta também fosse verdade?
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

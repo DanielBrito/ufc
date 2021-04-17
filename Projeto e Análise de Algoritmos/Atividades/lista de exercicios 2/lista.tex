@@ -1,0 +1,316 @@
+\documentclass[]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{latexsym}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{fancyhdr}
+%\usepackage{breakurl}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{threeparttable}
+\usepackage{adjustbox}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{caption}
+
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+\usepackage{pdfpages}
+
+%opening
+\title{Lista de Exercícios - Projeto e Análise de Algoritmos}
+\author{Luiz Alberto do Carmo Viana}
+
+\begin{document}
+
+\maketitle
+
+\vspace{\baselineskip}
+
+\textbf{Questão 1}
+
+Mostre que, se um array de $n$ posições representa uma heap de $n$
+elementos, então as folhas dessa heap estão nas posições do array de
+índices
+$\lfloor \frac{n}{2} \rfloor + 1, \lfloor \frac{n}{2} \rfloor + 2,
+\dots, n$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 2}
+
+Mostre que existem no máximo $\lceil \frac{n}{2^{h + 1}} \rceil$ nós
+de altura $h$ em uma heap com $n$ elementos.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 3}
+
+Dada uma sequência de números $a_1, a_2, \dots, a_n$, um infixo dessa
+sequência é uma subsequência da forma
+$a_i, a_{i + 1}, a_{i + 2}, \dots, a_j$, para
+$1 \leq i \leq j \leq n$.  Elabore um algoritmo para determinar o
+infixo de soma máxima de uma sequência de números.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 4}
+
+No começo de uma viagem, você se encontra no km $0$.  No caminho,
+existem $n$ hotéis, nos km's $a_1 < a_2 < \dots < a_n$.  Ao final de
+um dia de viagem, você deve fazer uma parada em um desses hotéis.
+Você deve parar no hotel do km $a_n$, já que esse é seu destino.
+Idealmente, você gostaria de viajar 200 km por dia.  Sendo assim, se
+você viaja $x$ km em um dia, há uma penalidade de $(200 - x)^2$ para
+aquele dia de viagem.  Elabore um algoritmo que determina em que
+hotéis você deve parar, de forma que a soma das penalidades diárias
+seja minimizada.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 5}
+
+Dada uma string de $n$ caracteres $s[1 \dots n]$, gostaríamos de
+decidir se $s$ pode ser ``quebrada'' em uma sequência de palavras de
+um certo dicionário $d$.  Consultar o dicionário $d$, isto é,
+determinar se uma certa substring contígua de $s$ está em $d$ custa
+$O(1)$.  Desenvolva um algoritmo com custo de execução $O(n^2)$ para
+resolver esse problema.
+
+\pagebreak
+
+\vspace{\baselineskip}
+
+\textbf{Questão 6}
+
+Dada uma sequência de números $a_1, a_2, \dots, a_n$,
+$n \in \mathbb{N}$, dizemos que uma subsequência
+$a_i, a_{i + 1}, \dots, a_j$ é palindrômica se
+$a_i = a_j, a_{i + 1} = a_{j - 1}$ e assim por diante.  Desenvolva um
+algoritmo com custo de execução $O(n^2)$ que encontra a subsequência
+palindrômica máxima de $a_1, a_2, \dots, a_n$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 7}
+
+Dadas duas strings $x[1 \dots m]$ e $y[1 \dots n]$, gostaríamos de
+encostrar o comprimento de sua maior substring comum, isto é, o maior
+valor de $k$ para o qual haja índices $i \in [m - k + 1]$ e
+$j \in [n - k + 1]$ tais que
+$x_ix_{i + 1} \dots x_{i + k - 1} = y_jy_{j + 1} \dots y_{j + k - 1}$.
+Para tanto, desenvolva um algoritmo com custo de execução $O(mn)$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 8}
+
+Tome $n$ moedas viciadas, com probabilidades
+$p_1, p_2, \dots, p_n \in [0, 1]$ de resultarem em cara.  Qual a
+probabilidade de se obter exatamente $k$ caras quando cada uma dessas
+$n$ moedas é arremessada uma vez?  Desenvolva um algoritmo que
+responda essa pergunta em tempo $O(n^2)$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 9}
+
+Tome uma chapa retangular de aço, com dimensões $M \times N$.  Uma
+unidade do produto $p_i$ gera um lucro $c_i$ quando vendida, e precisa
+de exatamente uma chapa retangular de aço com dimensões
+$x_i \times y_i$ para ser fabricada, $i \in [n]$.  Desenvolva um
+algoritmo para determinar a melhor forma de cortar a chapa de aço
+$M \times N$, isto é, que permita fabricar unidades dos produtos de
+forma a maximizar o lucro.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 10}
+
+Tome uma quantidade ilimitada de moedas com valores
+$x_1, x_2, \dots, x_n$.  Desenvolva um algoritmo que determina o
+número mínimo de moedas necessárias para representar um certo valor
+$v$, caso seja possível representar $v$.  Seu algoritmo deve ter custa
+de tempo $O(nv)$.  Agora, resolva esse problema considerando que não
+se pode usar moedas repetidas.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 11}
+
+Dado um grafo $G = (V, E)$, uma cobertura de vértices de $G$ é um
+subconjunto $S \subseteq V$ tal que $S \cap e \neq \emptyset$, para
+toda aresta $e \in E$.  Uma árvore é um grafo conexo e acíclico.  Dada
+uma árvore $T = (V, E)$, desenvolva um algoritmo que determina a
+cardinalidade da menor cobertura de vértices de $T$.  Seu algoritmo
+deve ter custo de tempo $O(|V|)$.  Dica: cada vértice $v \in V$ tem
+vizinhos $N(v) \subseteq V \setminus \{v\}$, e remover $v$ de $T$
+produz $|N(v)|$ árvores.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 12}
+
+Considere um conjunto $A = \{a_1, a_2, \dots, a_n\}$ de inteiros.
+Dado um inteiro $t$, desenvolva um algoritmo que decide se o somatório
+de algum subconjunto de $A$ é maior que $t$.  Seu algoritmo deve ter
+custo de tempo $O(nt)$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 13}
+
+Considere um conjunto $A = \{a_1, a_2, \dots, a_n\}$ de inteiros.
+Dado um inteiro $t$, desenvolva um algoritmo que decide se o somatório
+de algum subconjunto de $A$ é exatamente $t$.  Seu algoritmo deve ter
+custo de tempo $O(nt)$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 14}
+
+Tome um conjunto de inteiros $A = \{a_1, a_2, \dots, a_n\}$.
+Desenvolva um algoritmo para determinar se existe uma partição
+$A = B \cup C, B \cap C = \emptyset$, de forma que
+$\sum_{a \in B} a = \sum_{a \in C} a$.  Seu algoritmo deve ser
+polinomial em $n$ e $\sum_{i = 1}^n a_i$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 15}
+
+Tome um conjunto de inteiros $A = \{a_1, a_2, \dots, a_n\}$.
+Desenvolva um algoritmo para particionar $A$ em
+$A = B \cup C, B \cap C = \emptyset$, de forma que
+$|\sum_{a \in B} a - \sum_{a \in C} a|$ seja mínimo.  Seu algoritmo
+deve ser polinomial em $n$ e $\sum_{i = 1}^n a_i$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 16}
+
+Tome um conjunto de inteiros $A = \{a_1, a_2, \dots, a_n\}$.
+Desenvolva um algoritmo para particionar $A$ em $A = B \cup C \cup D$,
+onde o somatório das três partes é igual entre si.  Seu algoritmo deve
+ser polinomial em $n$ e $\sum_{i = 1}^n a_i$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 17}
+
+Tome $D = (V, A)$ um digrafo sem ciclos negativos,
+$w : A \to \mathbb{R}$, e $s \in V$.  Para cada $v \in V$, seja $n_v$
+o menor número de arcos em um caminho mais curto de $s$ a $v$.  Seja
+$m = \max\{n_v : v \in V\}$.  Altere o algoritmo de Bellman-Ford de
+forma que o conteúdo do primeiro laço precise ser executado apenas
+$m + 1$ vezes, mesmo que $m$ seja um valor desconhecido.  Argumente.
+Dica: talvez seja preciso mudar o laço de ``Para'' para ``Enquanto''.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 18}
+
+Desenvolva um algoritmo eficiente (tempo polinomial) para encontrar o
+número total de caminhos em um dag (\emph{directed acyclic graph}).
+Dica: todo caminho termina em algum vértice.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 19}
+
+Tome um digrafo $D = (V, A)$ e uma função de confiabilidade
+$p : A \to [0, 1]$.  Se $D$ está representando um sistema de
+comunicação, por exemplo, então $p$ indica a probabilidade das
+conexões (representadas pelos arcos de $D$) não falharem.
+Considerando que essas probabilidades são independentes, desenvolva um
+algoritmo para encontrar o caminho mais confiável de $u$ a $v$, dados
+como parte da entrada.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 20}
+
+É possível utilizar a saída do algoritmo de Floyd-Warshall para
+determinar a presença de ciclos com peso negativo no grafo de entrada?
+Dica: qual a menor distância de um vértice para si mesmo?
+
+\vspace{\baselineskip}
+
+\textbf{Questão 21}
+
+Tome um conjunto finito $S$ e um inteiro $k$.  Dado
+$\mathcal{I} = \{C \subseteq S : |C| \leq k\}$, prove que
+$M = (S, \mathcal{I})$ é um matróide.  Que problema envolvendo $M$ e
+uma função de peso $w : S \to \mathbb{R}_+$, estritamente positiva, um
+algoritmo guloso seria capaz de resolver?
+
+\vspace{\baselineskip}
+
+\textbf{Questão 22}
+
+Tome $A \in \mathbb{R}^{m \times n}$.  Seja $S$ o conjunto de colunas
+de $A$ e
+$\mathcal{I} = \{C \subseteq S : C \text{ é linearmente
+  independente}\}$.  Prove que $M = (S, \mathcal{I})$ é um matróide.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 23}
+
+Seja $M = (S, \mathcal{I})$ um matróide.  Tome
+$\mathcal{B} \subseteq \mathcal{I}$ a família de subconjuntos
+independentes maximais de $M$.  Definimos
+$\mathcal{I}' = \{C \subseteq S \,|\, \exists\, B \in \mathcal{B} : B
+\subseteq S \setminus C\}$.  Prove que $M' = (S, \mathcal{I}')$ é um
+matróide.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 24}
+
+Dado um matróide $M = (S, \mathcal{I})$ e uma função de peso
+$w : S \to \mathbb{R}_+$ estritamente positiva, considere o problema
+$P$ de encontrar um conjunto independente maximal de $M$ com peso
+mínimo.  Descreva uma função de peso $w' : S \to \mathbb{R}_+$,
+estritamente positiva, tal que um conjunto independente de $M$ com
+peso máximo, de acordo com $w'$, seja uma solução para $P$.
+
+\vspace{\baselineskip}
+
+\textbf{Questão 25}
+
+Tome um grafo $G = (V, E)$ e uma função de peso
+$w : E \to \mathbb{R}_+$.  Um corte de $G$ é um conjunto
+$E' \subseteq E$ tal que $G' = (V, E \setminus E')$ é desconexo.
+Sabendo que uma árvore geradora de $G$ tem pelo menos uma aresta de
+cada corte de $G$, desenvolva um algoritmo, por indução, para
+encontrar uma árvore geradora de peso mínimo de $G$.  Dica: a remoção
+de um corte minimal de $G$ o divide em dois subgrafos conexos menores,
+digamos $G_1$ e $G_2$; como são menores, uma hipótese nos daria
+árvores geradoras de $G_1$ e $G_2$; o que resta para construir uma
+árvore geradora de $G$?  Outra dica: as arestas incidentes em um
+vértice formam um corte de $G$; de forma generalizada, as arestas
+incidentes em um conjunto de vértices de $G$ formam um corte de $G$.
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
