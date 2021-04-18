@@ -77,3 +77,10 @@
 - [The IT Crowd](https://filmow.com/the-it-crowd-1a-temporada-t21782/)
 - [Mr. Robot](https://filmow.com/mr-robot-1a-temporada-t113869/)
 - [Black Mirror](https://filmow.com/listas/temporadas-de-black-mirror-classificacao-l165220/)
+
+## :headphones: Podcasts
+
+- [FalaDev](https://open.spotify.com/show/3TNsKUGlP9YbV1pgy3ACrW)
+- [Devs Cansados](https://open.spotify.com/show/7gNryNpuHuhZTwfbCdiOqL)
+- [Loop Matinal](https://open.spotify.com/show/4sKgJqaCEQdUECeCViknr5)
+- [Hipsters Ponto Tech](https://open.spotify.com/show/2p0Vx75OmfsXktyLBuLuSf)
