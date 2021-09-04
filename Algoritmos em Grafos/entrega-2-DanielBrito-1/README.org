@@ -1,0 +1,11 @@
+* Entrega
+
+  Utilizando a linguagem de sua preferência, implemente uma representação para grafos e uma representação para digrafos.
+  Não utilize representações de terceiros, isto é, bibliotecas contendo tais estruturas de dados.
+  Você poderá utilizar suas representações ao longo desta entrega e das entregas seguintes.
+  
+  Implemente os algoritmos de busca em largura e de busca em profundidade, tanto para grafos como para digrafos.
+  É aconselhável que tenham alguma alta ordem, isto é, que possam receber uma função ou objeto que desempenhe alguma ação para cada vértice visitado.
+  
+  Implemente um algoritmo para determinar se um grafo é conexo.
+  Implemente um algoritmo para determianr se um digrafo é fortemente conexo.

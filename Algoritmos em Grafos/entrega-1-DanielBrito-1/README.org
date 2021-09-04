@@ -1,0 +1,9 @@
+* Entrega
+
+  1. Escolha 7 questões dentre as questões 3 a 45 do Capítulo 1 do
+     livro /Chromatic Graph Theory/ e as resolva.
+  2. Escolha 7 questões dentre as questões 2 a 22 do Capítulo 3 do
+     livro /Chromatic Graph Theory/ e as resolva.
+  
+  Use LaTeX para produzir um pdf com suas respostas. A entrega deve
+  ser composta tanto do arquivo .tex como do arquivo .pdf.

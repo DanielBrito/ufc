@@ -1,0 +1,7 @@
+* Entrega
+
+  Implemente a estrutura de dados disjoint-set (também conhecida como union-find).
+  
+  Implemente o algoritmo de Kruskal, fazendo uso de disjoint-set para detecção de ciclos.
+  
+  Implemente o algoritmo de Prim, fazendo uso de uma fila de prioridade.

@@ -1,0 +1,9 @@
+* Entrega
+
+  Implemente o algoritmo de caminho mais curto para DAGs, utilizando ordenação topológica.
+  
+  Implemente o algoritmo de Dijkstra para digrafos.
+  
+  Implemente o algoritmo de Bellman-Ford para grafos.
+  
+  Implemente o algoritmo de Floyd-Warshall para grafos.

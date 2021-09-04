@@ -1,0 +1,5 @@
+* Entrega
+
+  Dentre as questões 89 a 106 das notas de aula [[https://github.com/luiz-classrooms/mc-lecture-notes]], escolha 9 e as resolva.
+  
+  Implemente o algoritmo de Edmonds-Karp para digrafos com arcos rotulados.

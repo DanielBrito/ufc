@@ -1,0 +1,141 @@
+\documentclass[]{article}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\begin{center}
+  \Large\textbf{Entrega 5} - \Large\textit{Daniel Brito}
+\end{center}
+
+89) O Problema do Fluxo Máximo é sempre viável, pois existe uma solução viável trivial para qualquer problema. Temos que $0 \leq f_a$, ou seja, a quantidade de fluxo que passa por cada um dos seus arcos é pelo menos 0. Logo, existe um fluxo trivial que é viável para qualquer dígrafo com capacidades atribuídas a seus arcos.
+
+\vspace{0.5cm}
+
+90) Qualquer coluna da matriz de incidência de um grafo direcionado tem 2 entradas não-nulas (1 ou -1). A soma das entradas não-nulas de cada coluna é 0.
+
+\vspace{0.5cm}
+
+91) Seja $A$ uma matriz quadrada com entradas inteiras e determinante $\pm 1$, caracterizada como unimodular. Pela definição, temos que uma matriz $M$ é invertível se $det(M) \neq 0$. Portanto, concluímos que toda matriz unimodular é invertível.
+
+\vspace{0.5cm}
+
+92) Seja a matriz $A$, que obedece às características de total-unimodularidade, ou seja, qualquer uma de suas submatrizes quadradas tem determinante 0 ou $\pm 1$. Baseado nisso, e no fato de que toda submatriz de tamanho $1x1$ tem determinante igual ao próprio elemento, podemos concluir que qualquer entrada de $A$ é 0 ou $\pm 1$.
+
+\vspace{0.5cm}
+
+93) Seja $A$ uma matriz que obedece às regras de total-unimodularidade. Definido isso, admita $A'$ como sendo uma matriz obtida a partir de $A$ pela adição de uma linha ou coluna canônica. Note que, uma vez que tal linha ou coluna é canônica, e baseado no fato de que uma matriz total-unimodular não precisa ser necessariamente quadrada, podemos concluir que, se $A$ é TU, então qualquer matriz obtida a partir de $A$ pela adição de uma linha ou coluna canônica também é TU.
+
+\vspace{0.5cm}
+
+94) Seja $A$ uma matriz total-unimodular. Ao realizar a transposição de $A$, temos que seus elementos permanecem sendo 0 ou $\pm 1$. Desta forma, por meio da argumentação realizada na questão 92, podemos concluir que, se $A$ é TU, então $A^T$ é TU.
+
+\vspace{0.5cm}
+
+95) Seja $A$ uma matriz total-unimodular, não necessariamente quadrada, que, como sabemos, para qualquer uma de suas submatrizes temos o determinante resultando em 0 ou $\pm 1$. Admita, agora, a justaposição de uma matriz $I$ à $A$. Note que, mesmo com os valores de $I$, ainda garante-se a total-unimodularidade, pois, como argumentamos anteriormente, os valores do determinante das submatrizes quadradas continuarão sendo 0 ou $\pm 1$. Portanto, se $A$ é TU, então $[A \quad I]$ é TU.
+
+\vspace{0.5cm}
+
+96) Para provar que a matriz de coeficientes do programa linear (8.1)-(8.3) é TU, vamos mostrar que a matriz de incidência de um digrafo $D = (V, A)$ é TU. Assim, seja $D$ um digrafo com $n$ vértices e $m$ arestas, sem arestas laços. Sua matriz de incidência $A = [a_{ij}] \in  \mathbb{R}^{n \times m}$ é definida como:
+
+$$
+x_{ij} =
+\begin{cases}
+  1,  & \text{se a aresta } $$a_j$$ \text{ diverge do vértice } $$v_i$$ \\
+  -1, & \text{se a aresta } $$a_j$$ \text{ converge para o vértice } $$v_i$$ \\
+  0,  & \text{caso contrário}
+\end{cases}
+$$
+
+Pela definição acima, podemos verificar, de maneira imediata, que a matriz resultante atende às restrições de total-unimodularidade, conforme argumentado nas questões anteriores. Portanto, provamos, assim, que a matriz de coeficientes do programa linear (8.1)-(8.3) é TU.
+
+\vspace{0.5cm}
+
+106) Para determinar o que se pede, façamos uma breve análise do enunciado, onde as informações dadas estão representados na tabela abaixo:
+
+\begin{center}
+ \begin{tabular}{|| c | c | c ||} 
+ \hline
+ Estoque & Demanda & Restrições \\ [0.5ex] 
+ \hline
+ 46 - A  & 39 - A  & $A \leftarrow A | O$ \\ 
+ \hline
+ 34 - B  & 38 - B  & $B \leftarrow B | O$ \\
+ \hline
+ 45 - O  & 42 - O  & $O \leftarrow O$ \\
+ \hline
+ 45 - AB & 50 - AB & $AB \leftarrow A | B | O | AB$ \\ [1ex]
+ \hline
+\end{tabular}
+\end{center}
+
+Realizando os cálculos com base no estoque e demanda de cada um dos casos, temos o seguinte resultado:
+
+\begin{center}
+ \begin{tabular}{|| c | c ||} 
+ \hline
+ Tipo &  \\ [0.5ex] 
+ \hline
+ A  & +7 \\ 
+ \hline
+ B  & -4 \\
+ \hline
+ O  & +3 \\
+ \hline
+ AB & -5 \\ [1ex]
+ \hline
+\end{tabular}
+\end{center}
+
+Como os pacientes com sangue AB podem receber qualquer tipo de sangue, podemos subtrair as 5 bolsas necessárias do tipo A, que fica com 2 unidades. Assim, todos os pacientes com tipo sanguíneo AB sobrevivem.
+
+\begin{center}
+ \begin{tabular}{|| c | c ||} 
+ \hline
+ Tipo &  \\ [0.5ex] 
+ \hline
+ A  & +2 \\ 
+ \hline
+ B  & -4 \\
+ \hline
+ O  & +3 \\
+ \hline
+ AB & -5 \\ [1ex]
+ \hline
+\end{tabular}
+\end{center}
+
+No caso dos pacientes com tipo sanguíneo B, eles podem receber as 3 bolsas restantes do tipo O. Entretanto, um paciente ainda não conseguirá a bolsa para seu atendimento, pois as únicas bolsas remanescentes são do tipo A.
+
+\begin{center}
+ \begin{tabular}{|| c | c ||} 
+ \hline
+ Tipo &  \\ [0.5ex] 
+ \hline
+ A  & +2 \\ 
+ \hline
+ B  & -4 \\
+ \hline
+ O  & 0 \\
+ \hline
+ AB & -5 \\ [1ex]
+ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
