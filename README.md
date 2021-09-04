@@ -23,8 +23,8 @@
 - [Algoritmos: Teoria e Prática (Cormen)](https://www.amazon.com.br/Algoritmos-Teoria-Pr%C3%A1tica-Thomas-Cormen/dp/8535236996)
 - [Algorithms (Robert Sedgewick)](https://algs4.cs.princeton.edu/home/)
 - [Linguagem C (Luis Damas)](http://www.ams.eti.br/livros/Luis_Damas.pdf)
-- [Cálculo - Volume 1 (James Stewart)](https://www.amazon.com.br/C%C3%A1lculo-1-James-Stewart/dp/8522112584)
-- [Cálculo - Volume 2 (James Stewart)](https://www.amazon.com.br/C%C3%A1lculo-2-James-Stewart/dp/8522112592)
+- [Transformação digital (David Rogers)](https://www.amazon.com.br/Transforma%C3%A7%C3%A3o-Digital-repensando-neg%C3%B3cio-digital/dp/8551302728)
+
 
 ## :film_strip: Vídeos
 
