@@ -45,7 +45,8 @@
 
 ## :ballot_box_with_check: Testes
 
-- [Provas POSCOMP](https://github.com/amimaro/Provas-POSCOMP)
+- [Provas do POSCOMP](https://github.com/amimaro/Provas-POSCOMP)
+- [Provas do ENADE](http://inep.gov.br/educacao-superior/enade/provas-e-gabaritos)
 
 ## :computer: Programação
 
