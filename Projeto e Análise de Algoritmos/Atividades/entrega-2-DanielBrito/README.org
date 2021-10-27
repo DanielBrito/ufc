@@ -1,0 +1,6 @@
+* Descrição
+
+  Dentre as questões de 13 a 18 da lista 1, escolha 6 e resolva. As
+  suas resoluçẽos devem ser apresentadas em LaTeX, e você pode
+  apresentar código-fonte em Python em vez de psudocódigo, se
+  preferir.

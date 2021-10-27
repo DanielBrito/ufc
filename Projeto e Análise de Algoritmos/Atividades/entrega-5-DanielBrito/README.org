@@ -1,0 +1,6 @@
+* Descrição
+
+  Dentre as questões de 21 a 25 da lista 2, escolha 5 e resolva. As
+  suas resoluçẽos devem ser apresentadas em LaTeX, e você pode
+  apresentar código-fonte em Python em vez de psudocódigo, se
+  preferir.

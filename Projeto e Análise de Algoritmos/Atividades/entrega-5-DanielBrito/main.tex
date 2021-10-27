@@ -1,0 +1,67 @@
+\documentclass[]{article}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\begin{document}
+
+\begin{center}
+  \Large\textbf{Entrega 5}\\
+  \large\textit{Daniel Brito}
+\end{center}
+
+Por definição, um matróide é um par $M = (S, \mathcal I)$, que satisfaz as seguintes condições:
+
+\begin{enumerate}
+    \item \label{c1} $S$ é um conjunto finito.
+    \item \label{c2} $\mathcal I$ é uma família não-vazia de subconjuntos de $S$, chamada de subconjuntos \textbf{independentes} de $S$, tal que, se $B \in \mathcal I$ e $A \subseteq B$, então, $A \in \mathcal I$. Dizemos que $\mathcal I$ é \textbf{hereditária} se satisfaz tal propriedade. O conjunto vazio $\emptyset$ é necessariamente um membro de $\mathcal I$.
+    \item \label{c3} Se $A \in \mathcal I$, $B \in \mathcal I$, e $|A| < |B|$, então, existe algum elemento $x \in B - A$, tal que $A \cup \{x\} \in \mathcal I$. Dizemos que $M$ satisfaz a \textbf{propriedade da troca}.
+\end{enumerate}
+
+\begin{center}
+    * * *
+\end{center}
+
+21) 
+
+Temos que a condição (\ref{c1}) já é satisfeita, uma vez que $S$ é um conjunto finito. 
+
+Para provar a segunda condição, assumimos que $k \geq 0$, fazendo com que $\mathcal I_k$ seja um conjunto não-vazio. Além disso, para provar a hereditariedade (\ref{c2}), assumimos que $A \in \mathcal I_k$, ou seja, $|A| \leq k$. Então, se $B \subseteq A$, temos que $|B| \leq |A| \leq k$, logo, $B \in \mathcal I_k$. 
+
+Por fim, temos que provar a propriedade de troca (\ref{c3}). Assim, podemos assumir $A, B \in \mathcal I_k$, tal que $|A| < |B|$. Então, podemos tomar um elemento $x \in B\\A$, logo, $|A \cup \{x\}| = |A| + 1 \leq |B| \leq k$. Portanto, podemos estender $A$ de maneira que $A \cup \{x\} \in \mathcal I_k$.
+
+\vspace{0.5cm}
+
+No que se refere à pergunta, penso que podemos citar o problema da Árvore Geradora Mínima.
+
+\vspace{1cm}
+
+23) 
+
+Novamente, temos que a condição (\ref{c1}) já é satisfeita, uma vez que ainda estamos trabalhando com o conjunto da questão anterior (penso eu).
+
+Assim, a próxima etapa é mostrarmos que $\mathcal I'$ é não-vazio. Seja $A$ qualquer elemento maximal de $\mathcal I$, então, temos que $S - A \in \mathcal I'$, uma vez que $S - (S - A) = A \subseteq A$ é maximal em $\mathcal I$.
+
+Em seguida, precisamos mostrar a propriedade da hereditariedade (\ref{c2}). Suponha que $B \subseteq A \in \mathcal I'$, então, existe algum $A' \in \mathcal I$, tal que $S - A \subseteq A'$. Como $S - B \supseteq S - A \subseteq A'$, temos que $B \in \mathcal I'$.
+
+Por fim, temos que provar a propriedade da troca (\ref{c3}). Assim, se temos que $B, A \in \mathcal I'$ e $|B| < |A|$, podemos encontrar um elemento $x$ em $A - B$ para adicionar a $B$, de tal maneira que permaneça independente.
+
+No primeiro caso, temos que $|A| = |B| + 1$. Assim, temos que escolher um elemento $x$ único para compor $A - B$, uma vez que $S - B$ contém o conjunto independente maximal.
+
+Se o primeiro caso não for válido, podemos assumir $C$ como um conjunto independente maximal de $\mathcal I \subseteq S - A$. Assim, podemos tomar um conjunto arbitrário de tamanho $|C| - 1$ de algum conjunto independente maximal $D \subseteq S - B$. Como $D$ é um conjunto independente maximal, também é independente, logo, pela propriedade da troca, existe algum $y \in C - D$, tal que $D \cup \{y\}$ é um conjunto independente maximal em $\mathcal I$. Desta maneira, podemos tomar um $x$, tal que $x \neq y \in A - B$. Uma vez que $S - (B \cup \{x\})$ ainda contém $D \cup \{y\}$, temos que $B \cup \{x\}$ é um conjunto independente em $(\mathcal I)'$.
+
+\end{document}

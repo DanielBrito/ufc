@@ -1,0 +1,111 @@
+\documentclass[]{article}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\begin{center}
+  \Large\textbf{Entrega 6}\\
+  \large\textit{Daniel Brito}
+\end{center}
+
+1) Para provar que o problema \texttt{ISOMORPHIC} pertence à classe NP-Completo, devemos mostrar que ele pertence à NP e NP-Difícil.
+
+Para provar que o problema pertence à NP, seja G um subgrafo de $G_2$. Sabemos que existe um mapeamento entre os vértices de $G_1$ e $G$. Então, precisamos verificar se $G_1$ é isomorfo a algum subgrafo de $G$. A verificação de que o mapeamento é uma bijeção, e a verificação se, para cada aresta $(u, v)$ em $G_1$ existe uma aresta $(f(u), f(v))$ presente em $G$, são realizadas em tempo polinomial. Portanto, \texttt{ISOMORPHIC} pertence à classe NP.
+
+Para provar que o problema pertence à NP-Difícil, iremos fazer uma redução do problema \texttt{CLIQUE} para o problema em questão em tempo polinomial. 
+
+Assim, seja $(G, k)$ a entrada do problema \texttt{CLIQUE}. A saída é verdade se o grafo $G$ possui uma clique de tamanho $k$, sendo subgrafo de $G$. Seja $G_1$ um grafo completo com $k$ vértices e $G_2$ igual a $G$, onde $G_1$, $G_2$ são entradas para o problema \texttt{ISOMORPHIC}. Note que $k \leq n$, onde $n$ é o número de vértices em $G$, que é igual a $G_2$. Se $k>n$, então, a clique de tamanho $k$ não poderia ser um subgrafo de $G$. 
+
+O tempo para criar $G_1$ é $O(k^2)=O(n^2)$, uma vez que $k \leq n$, e como o número de arestas em um grafo completo de tamanho $k = k \cdot (k-1)/2$. Assim, $G$ tem uma clique de tamanho $k$ se, e somente se, $G_1$ é um subgrafo de $G_2$. Com isso, temos que \texttt{ISOMORPHIC} pertence à classe NP-Difícil.
+
+Portanto, como \texttt{ISOMORPHIC} pertence à NP e NP-Difícil, temos que \texttt{ISOMORPHIC} é NP-Completo.
+
+\newpage
+
+2) Para provar que o problema \texttt{SET-PARTITION} pertence à classe NP-Completo, devemos mostrar ele pertence à NP e NP-Difícil.
+
+Para provar que este problema pertence à classe NP, assuma que um conjunto $S$ de \texttt{SET-PARTITION} possua duas partições, $A$ e $\overline{A} = X - A$. Assim, devemos verificar se cada partição possui elementos que, uma vez somados, possuem valor igual. 
+
+Para provar que o problema pertence à NP, podemos fazer da seguinte maneira: Para cada elemento $x \in A$ e $x' \in \overline{A}$, temos que todos os elementos de $S$ estão sendo considerados. Assim, seja $S_1=0$ e $S_2=0$. Para cada elemento $x \in A$, adicionamos este valor em $S_1$, e para cada elemento $x' \in \overline{A}$, adicionamos este valor em $S_2$. Por fim, verificamos se a o resultado de $S_1$ é igual ao de $S_2$. Portanto, como este processo ocorre em tempo linear, em relação ao tamanho do conjunto, temos que \texttt{SET-PARTITION} pertence à classe NP.
+
+Para provar que este problema pertence à classe NP-Difícil, podemos realizar uma redução do problema \texttt{SUBSET-SUM} para \texttt{SET-PARTITION}. 
+
+Assim, seja $s$ a soma dos valores de $S$. Além disso, assuma $S' = S \cup {s - 2t}$ como sendo uma entrada para \texttt{SET-PARTITION}. Desta forma, podemos fazer com que \texttt{SUBSET-SUM} retorne verdade se, e somente se, \texttt{SET-PARTITION} também retornar verdade. Note que, pela definição anterior, temos que a soma dos elementos de $S'$ resulta em $2s - 2t$. 
+
+Com base nesta definição, temos que: Se existe um conjunto de números em $S$ cuja soma resulte em $t$, então, os elementos restantes em $S$ somados resultam em $s - t$. Portanto, $S'$ pode ser particionado em dois subconjuntos cuja soma dos elementos de cada um resulta em $s - t$. 
+
+Agora, suponha que $S'$ possa ser particionado em dois subconjuntos, de tal forma que a soma dos elementos de cada um resulte em $s - t$. Note que, pela definição anterior, sabemos que um destes subconjuntos contém o número $s - 2t$, e que a soma dos valores de $S$ é $s$. Com isto, temos que a soma dos elementos de $S'$ resulta em $2s - 2t = s + s - t - t$, podendo ser representada por: $s - t \cup s - t$. Como $S'$ pode ser particionado em dois subconjuntos cuja soma dos elementos de cada um resulta em $s - t$, temos que \texttt{SET-PARTITION} pertence à classe NP-Difícil.
+
+Portanto, como \texttt{SET-PARTITION} pertence à NP e NP-Difícil, temos que \texttt{SET-PARTITION} é NP-Completo.
+
+\newpage
+
+4) Para provar que o problema \texttt{HAMILTONIAN-CYCLE} pertence à classe NP-Completo, devemos mostrar ele pertence à NP e NP-Difícil.
+
+Para provar que este problema pertence à classe NP, podemos verificar se todos os vértices estão sendo considerados, e checar se cada um está conectado ao próximo por uma aresta, e também se o último é conectado ao primeiro. Este processo pode ser realizado em tempo proporcional a $n$, ou seja, polinomial. Portanto, temos que \texttt{HAMILTONIAN-CYCLE} pertence à classe NP.
+
+Para provar que este problema pertence à classe NP-Difícil, podemos realizar uma redução do problema \texttt{HAMILTONIAN-PATH} para \texttt{HAMILTONIAN-CYCLE}.
+
+Cada instância de \texttt{HAMILTONIAN-PATH} consiste em um grafo $G=(V, E)$, que pode ser utilizada como entrada para o problema \texttt{HAMILTONIAN-CYCLE} consistindo no grafo $G'=(V', E')$. Assim, iremos construir um grafo $G'$ da seguinte maneira: 
+\begin{itemize}
+    \item $V'$ = adicionar vértices $V$ do grafo original $G$, e também um vértice adicional $V_n$, tal que todos os vértices conectados no grafo são conectados a ele. Logo, o número de vértices é dado por $V'=V+1$;
+    
+    \item $E'$ = Adicionar arestas $E$ do grafo original, e também novas arestas entre os novos vértices adicionados e os originais. Logo, o número de arestas é dados por $E'=E+V$.
+\end{itemize}
+
+O novo grafo $G'$ pode ser obtido em tempo polinomial através da adição de novas arestas aos novos vértices, o que requer tempo O(V). Tal redução pode ser realizada com base na seguinte ideia: Assuma que $G$ possua um ciclo hamiltoniano cobrindo os $V$ vértices do grafo, a partir de um vértice arbitrário $V_s$ e com fim em $V_e$. Agora, temos todos os vértices conectados a um vértice arbitrário $V_n$ em $G'$. Então, estendemos o caminho hamiltoniano original para o ciclo hamiltoniano por meio da utilização das arestas $V_e$ para $V_n$ e $V_n$ para $V_s$, respectivamente. Agora, o grafo $G'$ possui um ciclo fechado percorrendo todos os vértices uma única vez. Assumimos também que o grafo $G'$ tem um ciclo hamiltoniano passando por todos os vértices, inclusive $V_n$. Então, para convertê-lo para um caminho hamiltoniano, nós removemos as arestas correspondentes ao vértice $V_n$ no ciclo. Com isso, o caminho resultante irá cobrir todos os vértices $V$ do grafo exatamente uma vez. Assim, temos que \texttt{HAMILTONIAN-CYCLE} pertence à classe NP-Difícil.
+
+Portanto, como \texttt{HAMILTONIAN-CYCLE} pertence à NP e NP-Difícil, temos que \texttt{HAMILTONIAN-CYCLE} é NP-Completo.
+
+\newpage
+
+5) Para provar que o problema \texttt{HITTING-SET} pertence à classe NP-Completo, devemos mostrar ele pertence à NP e NP-Difícil.
+
+Para provar que este problema pertence à classe NP, podemos verificar se ele considera pelo menos um elemento $S_i$ da família de conjuntos $S$. Portanto, como este processo ocorre em tempo polinomial, temos que \texttt{HITTING-SET} pertence à classe NP.
+
+Para provar que este problema pertence à classe NP-Difícil, podemos realizar uma redução do problema \texttt{VERTEX-COVER} para \texttt{HITTING-SET}. 
+
+Por definição, no problema \texttt{VERTEX-COVER}, temos um grafo $G=(V, E)$. Então, seja $X$ um \textit{ground set} que é igual aos vértices de G. Isto significa que $X=V(G)$ e a coleção $C$ do subconjunto $S_i$ em $X$ é $S_i=(u, v)$. 
+
+Assim, se $VC$ é a cobertura de vértices de uma grafo $G$ de tamanho $k$, isto implica que para cada aresta $(u, v)$, $u$ ou $v$ pertence à $VC$. Logo, $VC$ forma um \textit{hitting set}, porque todos os subconjuntos irão formar uma interseção com todos os vértices em $VC$. 
+
+Se $HS$ é um \textit{hitting set} de $X$ com tamanho $k$, agora, uma vez $HS$ possui uma interseção com todos os subconjuntos de $X$, pelo menos uma das extremidades de toda aresta $(u, v)$ deve pertencer à solução, logo, abrange pelo menos um vértice para cada aresta, formando $VC$. Assim, temos que \texttt{HITTING-SET} pertence à classe NP-Difícil.
+
+Portanto, como \texttt{HITTING-SET} pertence à NP e NP-Difícil, temos que \texttt{HITTING-SET} é NP-Completo.
+
+\newpage
+
+7) Para provar que o problema \texttt{DOMINATING-SET} pertence à classe NP-Completo, devemos mostrar ele pertence à NP e NP-Difícil.
+
+Para provar que este problema pertence à classe NP, podemos tomar cada vértice e verificar, em tempo polinomial, se ele está presente no dado conjunto, ou se uma de suas arestas ``\textit{acessa}" \, o conjunto. Portanto, temos que \texttt{DOMINATING-SET} pertence à classe NP.
+
+Para provar que este problema pertence à classe NP-Difícil, podemos realizar uma redução do problema \texttt{VERTEX-COVER} para \texttt{DOMINATING-SET}.
+
+Assim, dado um grafo $G$, iremos construir um grafo $G''$ da seguinte maneira: $G''$ tem todas arestas e vértices de G. Além disso, para cada aresta $(u, v) \in G$, adicionamos um nó intermediário em um caminho paralelo em $G''$. Uma vez que $(u, v)$ permanecem inalterados em $G'$, adicionamos um vértice $w$ a arestas $(u, v)$ e $(w, v)$ em $G''$. Agora, mostramos que $G$ tem uma cobertura de vértices de tamanho $k$ se, e somente se, $G'$ tem um conjunto dominante de mesmo tamanho.
+
+Se $S$ é uma cobertura de vértices em $G$, então, devemos mostrar que $S$ é um conjunto dominante para $G'$. Note que $S$ é uma cobertura de vértices, o que significa que toda aresta em $G$ tem pelo menos uma de suas extremidades em $S$. Considere $v \in  G'$. Se $v$ é um vértice de $G$, então, $v \in S$ ou existe alguma aresta conectando $v$ a algum vértice $u$. Uma vez que $S$ é uma cobertura de vértices, $v \notin S$, logo, $u$ deve pertencer à $S$. Assim, temos que $v$ é coberto por algum elemento em $S$. Contudo, se $w$ é um vértice adicional em $G'$, então, $w$ tem dois vértices adjacentes $u, v \in G$. Portanto, se $G$ tem uma cobertura de vértices, então, $G'$ tem um conjunto dominante de (no máximo) mesmo tamanho.
+
+Se $G'$ tem um conjunto $D$ de tamanho $k$, então, todos os vértices adicionais $w \in D$. Além disso, perceba que $w$ deve estar conectado a exatamente dois vértices $u, v \in G$. Com isso, note que podemos substituir $w$ por $u$ ou $v$. Desta maneira, $w \in D$ irá nos ajudar a ``\textit{dominar}" \, apenas $u, v, w \in G'$. Podemos tomar $u$ ou $v$ e ainda ``\textit{dominar}" todos os vértices que $w$ dominava. Logo, podemos eliminar todos os vértices adicionais. Uma vez que todos os vértices adicionais correspondem a uma das arestas de $G$, e como todos os vértices adicionais estão cobertos por $D$, significa que todas as arestas em $G$ são cobertas pelo conjunto. Então, se $G'$ tem um conjunto dominante de tamanho $k$, $G$ tem uma cobertura de vértices de tamanho máximo $k$.
+
+Portanto, como \texttt{DOMINATING-SET} pertence à NP e NP-Difícil, temos que \texttt{DOMINATING-SET} é NP-Completo.
+\end{document}
