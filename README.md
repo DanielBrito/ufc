@@ -78,3 +78,5 @@ Literatura técnica sobre diversos assuntos pode ser encontrada meu repositório
 - [Devs Cansados](https://open.spotify.com/show/7gNryNpuHuhZTwfbCdiOqL)
 - [Loop Matinal](https://open.spotify.com/show/4sKgJqaCEQdUECeCViknr5)
 - [Hipsters Ponto Tech](https://open.spotify.com/show/2p0Vx75OmfsXktyLBuLuSf)
+- [Vida de Programador](https://open.spotify.com/show/3xWjAw6QebhWfOcgyxTEnX)
+
