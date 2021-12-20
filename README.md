@@ -16,7 +16,7 @@ Conteúdo estudado durante o curso de Ciência da Computação na Universidade F
 
 ### :books: Livros
 
-Literatura técnica sobre diversos assuntos pode ser encontrada meu repositório [self-learning](https://github.com/DanielBrito/self-learning).
+Diversos títulos sobre literatura técnica abordando os mais variados assuntos podem ser encontrados no meu repositório [self-learning](https://github.com/DanielBrito/self-learning).
 
 ### :film_strip: Vídeos
 
