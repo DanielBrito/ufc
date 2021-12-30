@@ -4,8 +4,6 @@
 
 Conteúdo estudado durante o curso de Ciência da Computação na Universidade Federal do Ceará - Campus Crateús.
 
----
-
 ## 🚀 Recomendações
 
 ### :page_with_curl: Artigos e Notícias
