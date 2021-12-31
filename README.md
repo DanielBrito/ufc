@@ -2,9 +2,11 @@
   <strong>🎓 Ciência da Computação - UFC</strong>
 </h1>
 
-Conteúdo estudado durante o curso de Ciência da Computação na Universidade Federal do Ceará - Campus Crateús.
+<p align="center">Conteúdo estudado durante o curso de Ciência da Computação na Universidade Federal do Ceará - Campus Crateús.</p>
 
-## 🚀 Recomendações
+<h2 align="center">
+  <strong>🚀 Recomendações</strong>
+</h2>
 
 ### :page_with_curl: Artigos e Notícias
 
