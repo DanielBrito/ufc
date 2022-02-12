@@ -16,7 +16,7 @@
 
 ### :books: Livros
 
-Títulos sobre literatura técnica abordando os mais variados assuntos podem ser encontrados no meu repositório [self-learning](https://github.com/DanielBrito/self-learning).
+Títulos sobre literatura técnica podem ser encontrados no meu repositório [self-learning](https://github.com/DanielBrito/self-learning).
 
 ### :film_strip: Vídeos
 
